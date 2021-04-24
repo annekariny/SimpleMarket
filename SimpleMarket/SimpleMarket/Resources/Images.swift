@@ -19,4 +19,8 @@ enum Image {
     static var circledPlus: UIImage {
         UIImage(systemName: "plus.circle") ?? UIImage()
     }
+
+    static var circledMinus: UIImage {
+        UIImage(systemName: "minus.circle") ?? UIImage()
+    }
 }

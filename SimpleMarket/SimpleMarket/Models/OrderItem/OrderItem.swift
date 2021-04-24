@@ -11,6 +11,7 @@ struct OrderItem {
     let id: Int
     let product: Product?
     let totalValue: Double
+    let quantity: Int
 
     var unitValue: Double {
         product?.price ?? 0
@@ -19,6 +20,7 @@ struct OrderItem {
     init(from orderItemDB: OrderItemDB?) {
         id = Int(orderItemDB?.id ?? 0)
         totalValue = orderItemDB?.totalValue ?? 0
+        quantity = Int(orderItemDB?.quantity ?? 0)
         if let productDB = orderItemDB?.productDB {
             product = Product(from: productDB)
         } else {

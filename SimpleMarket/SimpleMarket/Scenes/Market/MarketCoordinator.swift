@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MarketCoordinatorProtocol: Coordinator {
+    func openCart()
 }
 
 final class MarketCoordinator: MarketCoordinatorProtocol {
@@ -27,5 +28,10 @@ final class MarketCoordinator: MarketCoordinatorProtocol {
         navigationController.setViewControllers([viewController], animated: true)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+    }
+
+    func openCart() {
+        let cartCoordinator = CartCoordinator(navigationController: navigationController, parent: self)
+        start(cartCoordinator)
     }
 }

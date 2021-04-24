@@ -12,6 +12,7 @@ protocol HomePresenterProtocol {
     var numberOfSections: Int { get }
     var numberOfItemsInSection: Int { get }
     func getProduct(from index: Int) -> Product?
+    func openCart()
 }
 
 final class MarketPresenter {
@@ -61,5 +62,9 @@ extension MarketPresenter: HomePresenterProtocol {
             return nil
         }
         return products[index]
+    }
+
+    func openCart() {
+        coordinator?.openCart()
     }
 }

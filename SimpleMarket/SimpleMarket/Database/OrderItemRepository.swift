@@ -43,6 +43,7 @@ struct OrderItemRepository: OrderItemRepositoryProtocol {
         let orderItemDB = OrderItemDB(context: coreDataStack.context)
         orderItemDB.id = Int64(orderItem.id)
         orderItemDB.totalValue = orderItem.totalValue
+        orderItemDB.quantity = Int16(orderItem.quantity)
         if let product = orderItem.product {
             orderItemDB.productDB = productRepository.save(product: product)
         }

@@ -13,6 +13,7 @@
 		AA64969B2634CD5D0067FB03 /* OrderItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */; };
 		AA64969F2634CE4F0067FB03 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969E2634CE4F0067FB03 /* ProductRepository.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
+		AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A52634D83A0067FB03 /* UITableView+Register.swift */; };
 		AA7856FA26345710007A261D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856F926345710007A261D /* AppDelegate.swift */; };
 		AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856FB26345710007A261D /* SceneDelegate.swift */; };
 		AA78570326345711007A261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA78570226345711007A261D /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemRepository.swift; sourceTree = "<group>"; };
 		AA64969E2634CE4F0067FB03 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA7856F626345710007A261D /* SimpleMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7856F926345710007A261D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7856FB26345710007A261D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		AA8DFB702634936300260F6F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AA6496A52634D83A0067FB03 /* UITableView+Register.swift */,
 				AA8DFB712634937D00260F6F /* UICollectionView+Register.swift */,
 				AA8DFB74263494A500260F6F /* UIView+Constraints.swift */,
 				AA1903542634AAB500230B73 /* Double+Formatting.swift */,
@@ -460,6 +463,7 @@
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
 				AAD9B02B2634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
+				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
 				AA8DFB572634599900260F6F /* MarketViewController.swift in Sources */,
 				AA8DFB8326349AF800260F6F /* NetworkError.swift in Sources */,
 				AAE431D926349D77007461F0 /* Product.swift in Sources */,

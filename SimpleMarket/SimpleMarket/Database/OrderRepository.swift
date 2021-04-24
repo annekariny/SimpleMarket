@@ -28,7 +28,7 @@ final class OrderRepository: OrderRepositoryProtocol {
         self.orderItemRepository = orderItemRepository
         self.keyValueStorage = keyValueStorage
     }
-    
+
     private var newOrder: Order {
         let id = keyValueStorage.currentID + 1
         keyValueStorage.currentID = id

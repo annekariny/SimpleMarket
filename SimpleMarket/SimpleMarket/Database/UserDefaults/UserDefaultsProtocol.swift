@@ -21,15 +21,15 @@ protocol KeyValueStorageProtocol {
 
 struct KeyValueStorage: KeyValueStorageProtocol {
     private let userDefaults: UserDefaultsProtocol
-    
+
     init(userDefaults: UserDefaultsProtocol = UserDefaults.standard) {
         self.userDefaults = userDefaults
     }
-    
+
     private enum Keys {
         static let currentID = "SimpleMarket.currentID"
     }
-    
+
     var currentID: Int {
         get {
             userDefaults.object(forKey: Keys.currentID) as? Int ?? 0
