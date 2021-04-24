@@ -14,6 +14,7 @@ protocol HomeCellDelegate : AnyObject {
 final class HomeCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -34,6 +35,14 @@ final class HomeCell: UICollectionViewCell {
         return label
     }()
     
+    var product: Product? {
+        didSet {
+            title.text = product?.description
+            value.text = product?.price.toCurrencyFormat()
+            setImage()
+        }
+    }
+    
     weak var delegate: HomeCellDelegate?
     
     override init(frame: CGRect) {
@@ -51,7 +60,7 @@ final class HomeCell: UICollectionViewCell {
         addSubview(title)
         addSubview(value)
         
-        addButton.anchor(leading: leadingAnchor, bottom: bottomAnchor, width: 50, height: 50)
+        addButton.anchor(bottom: bottomAnchor, trailing: trailingAnchor, width: 50, height: 50)
         title.anchor(leading: leadingAnchor, bottom: bottomAnchor, trailing: addButton.leadingAnchor, height: 30)
         value.anchor(leading: leadingAnchor, bottom: title.topAnchor, trailing: addButton.leadingAnchor, height: 30)
         imageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: value.topAnchor, trailing: trailingAnchor)
@@ -59,5 +68,19 @@ final class HomeCell: UICollectionViewCell {
     
     @objc private func didTapAddProduct() {
         delegate?.didTapAddProduct()
+    }
+    
+    private func setImage() {
+        if let image = product?.image {
+            imageView.image = image
+        } else {
+            guard let imageURL = product?.imageURL else {
+                return
+            }
+            URLHelper().downloadImage(withURL: imageURL) { [weak self] image in
+                self?.product?.image = image
+                self?.imageView.image = image
+            }
+        }
     }
 }

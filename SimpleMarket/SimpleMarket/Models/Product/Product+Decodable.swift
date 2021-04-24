@@ -8,14 +8,14 @@
 import Foundation
 
 struct ProductResult: Decodable {
-    let products: [DecodableProduct]
+    let items: [DecodableProduct]
 }
 
 struct DecodableProduct: Decodable {
-    let id: String
+    let id: Int
     let price: Double
     let image: String
     let description: String
-    let stock: Double
-    let offer: Double
+    let stock: Double?
+    let offer: Double?
 }

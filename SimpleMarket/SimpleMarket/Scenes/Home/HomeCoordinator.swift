@@ -23,11 +23,11 @@ final class HomeCoordinator: HomeCoordinatorProtocol {
     }
 
     func start() {
-//        let homePresenter = HomePresenter(coordinator: self)
-//        let homeViewController = HomeViewController(presenter: homePresenter)
-//        homePresenter.view = homeViewController
-//        navigationController.setViewControllers([homeViewController], animated: true)
-//        window.rootViewController = navigationController
-//        window.makeKeyAndVisible()
+        let homePresenter = HomePresenter(coordinator: self)
+        let homeViewController = HomeViewController(presenter: homePresenter)
+        homePresenter.view = homeViewController
+        navigationController.setViewControllers([homeViewController], animated: true)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }

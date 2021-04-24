@@ -22,7 +22,7 @@ final class ProductAPIManager: ProductAPIManagerProtocol {
     
     func getProducts(completion: @escaping ([Product], NetworkError?) -> Void) {
         request.perform(.get, ProductAPI.getProducts) { (result, error) in
-            guard let products = result?.products else {
+            guard let products = result?.items else {
                 completion([], error)
                 return
             }
