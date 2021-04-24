@@ -84,4 +84,5 @@ identifier_name:
   excluded:
     - id
     - URL
+    - or
 reporter: "xcode"

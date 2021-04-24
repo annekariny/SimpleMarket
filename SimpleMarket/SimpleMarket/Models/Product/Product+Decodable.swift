@@ -16,6 +16,6 @@ struct DecodableProduct: Decodable {
     let price: Double
     let image: String
     let description: String
-    let stock: Double?
+    let stock: Int?
     let offer: Double?
 }
