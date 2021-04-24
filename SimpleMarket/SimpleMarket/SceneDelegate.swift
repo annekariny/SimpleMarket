@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         let window = UIWindow(windowScene: scene)
-        let homeCoordinator = HomeCoordinator(window: window)
+        let homeCoordinator = MarketCoordinator(window: window)
         homeCoordinator.start()
         self.window = window
     }

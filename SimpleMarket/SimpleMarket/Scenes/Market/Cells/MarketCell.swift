@@ -1,5 +1,5 @@
 //
-//  HomeCell.swift
+//  MarketCell.swift
 //  SimpleMarket
 //
 //  Created by Kariny on 24/04/21.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol HomeCellDelegate : AnyObject {
+protocol MarketCellDelegate : AnyObject {
     func didTapAddProduct()
 }
 
-final class HomeCell: UICollectionViewCell {
+final class MarketCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -43,7 +43,7 @@ final class HomeCell: UICollectionViewCell {
         }
     }
     
-    weak var delegate: HomeCellDelegate?
+    weak var delegate: MarketCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

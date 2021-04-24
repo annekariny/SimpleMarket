@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  MarketViewController.swift
 //  SimpleMarket
 //
 //  Created by Kariny on 24/04/21.
@@ -7,18 +7,17 @@
 
 import UIKit
 
-protocol HomeViewProtocol: AnyObject {
+protocol MarketViewProtocol: AnyObject {
     func reloadCollectionView()
 }
 
-final class HomeViewController: UIViewController {
-
+final class MarketViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
         layout.itemSize = CGSize(width: 150, height: 150)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(HomeCell.self)
+        collectionView.register(MarketCell.self)
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -69,7 +68,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         presenter.numberOfSections
     }
@@ -79,13 +78,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as HomeCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarketCell
         cell.product = presenter.getProduct(from: indexPath.row)
         return cell
     }
 }
 
-extension HomeViewController: HomeViewProtocol {
+extension MarketViewController: MarketViewProtocol {
     func reloadCollectionView() {
         collectionView.reloadData()
     }

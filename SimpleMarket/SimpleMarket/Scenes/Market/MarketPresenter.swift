@@ -1,5 +1,5 @@
 //
-//  HomePresenter.swift
+//  MarketPresenter.swift
 //  SimpleMarket
 //
 //  Created by Kariny on 24/04/21.
@@ -14,14 +14,14 @@ protocol HomePresenterProtocol {
     func getProduct(from index: Int) -> Product?
 }
 
-final class HomePresenter {
-    weak var view: HomeViewProtocol?
-    private weak var coordinator: HomeCoordinatorProtocol?
+final class MarketPresenter {
+    weak var view: MarketViewProtocol?
+    private weak var coordinator: MarketCoordinatorProtocol?
     private let productAPIManager: ProductAPIManagerProtocol?
     private var products = [Product]()
 
     init(
-        coordinator: HomeCoordinatorProtocol,
+        coordinator: MarketCoordinatorProtocol,
         productAPIManager: ProductAPIManagerProtocol = ProductAPIManager()
     ) {
         self.coordinator = coordinator
@@ -44,7 +44,7 @@ final class HomePresenter {
     }
 }
 
-extension HomePresenter: HomePresenterProtocol {
+extension MarketPresenter: HomePresenterProtocol {
     var title: String {
         "Market"
     }
