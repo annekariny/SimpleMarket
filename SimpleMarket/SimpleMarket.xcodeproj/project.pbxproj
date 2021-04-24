@@ -13,6 +13,14 @@
 		AA78570126345710007A261D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7856FF26345710007A261D /* Main.storyboard */; };
 		AA78570326345711007A261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA78570226345711007A261D /* Assets.xcassets */; };
 		AA78570626345711007A261D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA78570426345711007A261D /* LaunchScreen.storyboard */; };
+		AA8DFB572634599900260F6F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB562634599900260F6F /* HomeViewController.swift */; };
+		AA8DFB5B263459A300260F6F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB5A263459A300260F6F /* HomePresenter.swift */; };
+		AA8DFB5E263459AD00260F6F /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB5D263459AD00260F6F /* HomeCoordinator.swift */; };
+		AA8DFB6226345AB200260F6F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB6126345AB200260F6F /* Coordinator.swift */; };
+		AA8DFB6726345B8E00260F6F /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB6626345B8E00260F6F /* HomeCell.swift */; };
+		AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB6D26345DAF00260F6F /* Images.swift */; };
+		AA8DFB722634937D00260F6F /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB712634937D00260F6F /* UICollectionView+Register.swift */; };
+		AA8DFB75263494A500260F6F /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB74263494A500260F6F /* UIView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		AA78570226345711007A261D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA78570526345711007A261D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA78570726345711007A261D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8DFB562634599900260F6F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AA8DFB5A263459A300260F6F /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		AA8DFB5D263459AD00260F6F /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		AA8DFB6126345AB200260F6F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		AA8DFB6626345B8E00260F6F /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		AA8DFB6D26345DAF00260F6F /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		AA8DFB712634937D00260F6F /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
+		AA8DFB74263494A500260F6F /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,12 @@
 			children = (
 				AA7856F926345710007A261D /* AppDelegate.swift */,
 				AA7856FB26345710007A261D /* SceneDelegate.swift */,
+				AA8DFB52263458C000260F6F /* Scenes */,
+				AA8DFB542634594F00260F6F /* Services */,
+				AA8DFB6A26345C3400260F6F /* Helpers */,
+				AA8DFB702634936300260F6F /* Extensions */,
+				AA8DFB532634594600260F6F /* Models */,
+				AA8DFB6C26345DA200260F6F /* Resources */,
 				AA7856FD26345710007A261D /* ViewController.swift */,
 				AA7856FF26345710007A261D /* Main.storyboard */,
 				AA78570226345711007A261D /* Assets.xcassets */,
@@ -65,6 +87,80 @@
 				AA78570726345711007A261D /* Info.plist */,
 			);
 			path = SimpleMarket;
+			sourceTree = "<group>";
+		};
+		AA8DFB52263458C000260F6F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB6026345AA300260F6F /* Common */,
+				AA8DFB552634598100260F6F /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AA8DFB532634594600260F6F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA8DFB542634594F00260F6F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA8DFB552634598100260F6F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB6526345B7900260F6F /* Cells */,
+				AA8DFB562634599900260F6F /* HomeViewController.swift */,
+				AA8DFB5A263459A300260F6F /* HomePresenter.swift */,
+				AA8DFB5D263459AD00260F6F /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AA8DFB6026345AA300260F6F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB6126345AB200260F6F /* Coordinator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AA8DFB6526345B7900260F6F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB6626345B8E00260F6F /* HomeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AA8DFB6A26345C3400260F6F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AA8DFB6C26345DA200260F6F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB6D26345DAF00260F6F /* Images.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA8DFB702634936300260F6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DFB712634937D00260F6F /* UICollectionView+Register.swift */,
+				AA8DFB74263494A500260F6F /* UIView+Constraints.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +235,15 @@
 			files = (
 				AA7856FE26345710007A261D /* ViewController.swift in Sources */,
 				AA7856FA26345710007A261D /* AppDelegate.swift in Sources */,
+				AA8DFB6726345B8E00260F6F /* HomeCell.swift in Sources */,
 				AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */,
+				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
+				AA8DFB5B263459A300260F6F /* HomePresenter.swift in Sources */,
+				AA8DFB572634599900260F6F /* HomeViewController.swift in Sources */,
+				AA8DFB722634937D00260F6F /* UICollectionView+Register.swift in Sources */,
+				AA8DFB5E263459AD00260F6F /* HomeCoordinator.swift in Sources */,
+				AA8DFB75263494A500260F6F /* UIView+Constraints.swift in Sources */,
+				AA8DFB6226345AB200260F6F /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
