@@ -16,7 +16,7 @@ struct Product {
     let stock: Double?
     let offer: Double?
     var image: UIImage?
-    
+
     init(from decodableProduct: DecodableProduct) {
         self.id = decodableProduct.id
         self.price = decodableProduct.price

@@ -11,11 +11,11 @@ enum Image {
     static var cart: UIImage {
         UIImage(systemName: "cart") ?? UIImage()
     }
-    
+
     static var bulletList: UIImage {
         UIImage(systemName: "list.bullet") ?? UIImage()
     }
-    
+
     static var circledPlus: UIImage {
         UIImage(systemName: "plus.circle") ?? UIImage()
     }

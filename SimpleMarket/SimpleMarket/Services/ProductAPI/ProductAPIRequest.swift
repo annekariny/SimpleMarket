@@ -7,17 +7,16 @@
 
 import Foundation
 
-
 final class ProductAPIRequest {
     private let reachability: ReachabilityProtocol
     private var task: URLSessionTask?
-    
+
     init(
         reachability: ReachabilityProtocol = Reachability()
     ) {
         self.reachability = reachability
     }
-    
+
     private func performRequest(request: URLRequest, completion: @escaping (ProductResult?, NetworkError?) -> Void) {
         guard reachability.isConnectedToNetwork else {
             debugPrint("Internet Unavailable")
@@ -25,20 +24,20 @@ final class ProductAPIRequest {
                 completion(nil, .internetUnavailable)
             }
         }
-        
+
         let session = URLSession.shared
-        
-        task = session.dataTask(with: request, completionHandler: { (data, _, error) in
+
+        task = session.dataTask(with: request) { (data, _, error) in
             guard let responseData = data, error == nil else {
                 if let error = error {
                     debugPrint("Unknown Error: \(error.localizedDescription)")
                 }
                 return DispatchQueue.main.async { completion(nil, .unknownError) }
             }
-            
+
             do {
                 let decodedObject = try JSONDecoder().decode(ProductResult.self, from: responseData)
-                
+
                 DispatchQueue.main.async {
                     completion(decodedObject, nil)
                 }
@@ -46,8 +45,8 @@ final class ProductAPIRequest {
                 debugPrint("Unexpected Data Error: \(error.localizedDescription)")
                 DispatchQueue.main.async { completion(nil, .unexpectedDataError) }
             }
-        })
-        
+        }
+
         task?.resume()
     }
 }
@@ -59,13 +58,13 @@ extension ProductAPIRequest: RequestProtocol {
             completion(nil, .invalidURL)
             return
         }
-        
+
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
         request.httpMethod = method.rawValue
-        
+
         performRequest(request: request, completion: completion)
     }
-    
+
     func cancel() {
         task?.cancel()
     }

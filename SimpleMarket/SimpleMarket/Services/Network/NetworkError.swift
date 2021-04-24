@@ -12,7 +12,7 @@ enum NetworkError: Error {
     case invalidURL
     case unexpectedDataError
     case unknownError
-    
+
     var errorMessage: String {
         switch self {
         case .internetUnavailable:

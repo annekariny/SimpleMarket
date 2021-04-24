@@ -8,7 +8,6 @@
 import UIKit
 
 protocol MarketCoordinatorProtocol: Coordinator {
-    
 }
 
 final class MarketCoordinator: MarketCoordinatorProtocol {

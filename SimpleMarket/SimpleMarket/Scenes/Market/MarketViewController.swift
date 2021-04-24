@@ -25,7 +25,7 @@ final class MarketViewController: UIViewController {
     }()
 
     private let presenter: HomePresenterProtocol
-    
+
     init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -41,12 +41,12 @@ final class MarketViewController: UIViewController {
         setupNavigationBar()
         setupCollectionView()
     }
-    
+
     private func setupViewLayout() {
         title = presenter.title
         view.backgroundColor = .systemGroupedBackground
     }
-    
+
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
@@ -58,13 +58,11 @@ final class MarketViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
-    
+
     @objc private func openOrders() {
-        
     }
-    
+
     @objc private func openCart() {
-        
     }
 }
 
@@ -72,11 +70,11 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         presenter.numberOfSections
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfItemsInSection
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarketCell
         cell.product = presenter.getProduct(from: indexPath.row)
@@ -89,4 +87,3 @@ extension MarketViewController: MarketViewProtocol {
         collectionView.reloadData()
     }
 }
-

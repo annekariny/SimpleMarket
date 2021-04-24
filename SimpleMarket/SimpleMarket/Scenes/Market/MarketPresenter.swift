@@ -30,17 +30,16 @@ final class MarketPresenter {
     }
 
     deinit {
-        
     }
-    
+
     private func fetchProductsFromAPI() {
-        productAPIManager?.getProducts(completion: { [weak self] (products, error) in
+        productAPIManager?.getProducts { [weak self] (products, error) in
             guard error == nil else {
                 return
             }
             self?.products = products
             self?.view?.reloadCollectionView()
-        })
+        }
     }
 }
 
@@ -48,15 +47,15 @@ extension MarketPresenter: HomePresenterProtocol {
     var title: String {
         "Market"
     }
-    
+
     var numberOfSections: Int {
         1
     }
-    
+
     var numberOfItemsInSection: Int {
         products.count
     }
-    
+
     func getProduct(from index: Int) -> Product? {
         guard products.indices.contains(index) else {
             return nil

@@ -13,12 +13,12 @@ enum ProductAPI {
 
 extension ProductAPI: EndPointType {
     private static let address = "https://run.mocky.io/v3/29c9fcde-549f-49fc-9021-a85660530cef"
-    
+
     var path: String {
-        return ProductAPI.address
+        ProductAPI.address
     }
-    
+
     var url: URL? {
-        return URL(string: path)
+        URL(string: path)
     }
 }

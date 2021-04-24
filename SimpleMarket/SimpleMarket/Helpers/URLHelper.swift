@@ -14,11 +14,11 @@ protocol URLHelperProtocol {
 struct URLHelper: URLHelperProtocol {
     func downloadImage(withURL imageURL: URL, completion: @escaping (UIImage?) -> Void) {
         let imageDownloadQueue = DispatchQueue(label: "imageDownload", qos: .userInitiated)
-        
+
         imageDownloadQueue.async {
             do {
                 let data = try Data(contentsOf: imageURL)
-                
+
                 DispatchQueue.main.sync {
                     completion(UIImage(data: data))
                 }

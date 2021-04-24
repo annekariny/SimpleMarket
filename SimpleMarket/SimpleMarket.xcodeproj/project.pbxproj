@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
 		AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903442634A84B00230B73 /* ProductAPIRequest.swift */; };
 		AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA7856FA26345710007A261D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856F926345710007A261D /* AppDelegate.swift */; };
@@ -32,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.release.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.release.xcconfig"; sourceTree = "<group>"; };
+		358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1903442634A84B00230B73 /* ProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIRequest.swift; sourceTree = "<group>"; };
 		AA1903542634AAB500230B73 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
 		AA7856F626345710007A261D /* SimpleMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,17 +67,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22CB1AC2D755FF5D1E13A31F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */,
+				1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AA7856ED26345710007A261D = {
 			isa = PBXGroup;
 			children = (
 				AA7856F826345710007A261D /* SimpleMarket */,
 				AA7856F726345710007A261D /* Products */,
+				22CB1AC2D755FF5D1E13A31F /* Pods */,
+				F6889FAA7A653EF7901C5C67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +227,14 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		F6889FAA7A653EF7901C5C67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +242,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA78570A26345711007A261D /* Build configuration list for PBXNativeTarget "SimpleMarket" */;
 			buildPhases = (
+				AAED2EE72634BA0D00E4980F /* SwiftLint */,
+				FE660B64B7C27AA94334FE28 /* [CP] Check Pods Manifest.lock */,
 				AA7856F226345710007A261D /* Sources */,
 				AA7856F326345710007A261D /* Frameworks */,
 				AA7856F426345710007A261D /* Resources */,
@@ -274,6 +300,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AAED2EE72634BA0D00E4980F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		FE660B64B7C27AA94334FE28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleMarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AA7856F226345710007A261D /* Sources */ = {
@@ -435,6 +504,7 @@
 		};
 		AA78570B26345711007A261D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -453,6 +523,7 @@
 		};
 		AA78570C26345711007A261D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

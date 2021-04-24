@@ -13,13 +13,13 @@ protocol ProductAPIManagerProtocol {
 
 final class ProductAPIManager: ProductAPIManagerProtocol {
     private let request: RequestProtocol
-    
+
     init(
         request: RequestProtocol = ProductAPIRequest()
     ) {
         self.request = request
     }
-    
+
     func getProducts(completion: @escaping ([Product], NetworkError?) -> Void) {
         request.perform(.get, ProductAPI.getProducts) { (result, error) in
             guard let products = result?.items else {
