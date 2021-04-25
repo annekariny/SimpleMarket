@@ -10,12 +10,16 @@
 		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
 		AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903442634A84B00230B73 /* ProductAPIRequest.swift */; };
 		AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
-		AA3B4A2D26355448000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A2C26355448000C51E6 /* Realm */; };
-		AA3B4A2F26355448000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A2E26355448000C51E6 /* RealmSwift */; };
-		AA64969B2634CD5D0067FB03 /* OrderItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */; };
-		AA64969F2634CE4F0067FB03 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969E2634CE4F0067FB03 /* ProductRepository.swift */; };
+		AA191F012634F722005BC1EC /* RealmOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F002634F722005BC1EC /* RealmOrder.swift */; };
+		AA191F042634F7B2005BC1EC /* RealmOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F032634F7B2005BC1EC /* RealmOrderItem.swift */; };
+		AA191F0726354001005BC1EC /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0626354001005BC1EC /* OrderRepository.swift */; };
+		AA191F0A26354016005BC1EC /* OrderItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0926354016005BC1EC /* OrderItemRepository.swift */; };
+		AA191F0D26354025005BC1EC /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0C26354025005BC1EC /* ProductRepository.swift */; };
+		AA191F1126354075005BC1EC /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1026354075005BC1EC /* RealmFactory.swift */; };
+		AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1326354083005BC1EC /* FileManagerProtocol.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
 		AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A52634D83A0067FB03 /* UITableView+Register.swift */; };
+		AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496B92634F5FB0067FB03 /* RealmProduct.swift */; };
 		AA7856FA26345710007A261D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856F926345710007A261D /* AppDelegate.swift */; };
 		AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856FB26345710007A261D /* SceneDelegate.swift */; };
 		AA78570326345711007A261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA78570226345711007A261D /* Assets.xcassets */; };
@@ -38,12 +42,6 @@
 		AAD9B00A2634BCE200A7C4E4 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0092634BCE200A7C4E4 /* CartCell.swift */; };
 		AAD9B00D2634BCF700A7C4E4 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B00C2634BCF700A7C4E4 /* OrderItem.swift */; };
 		AAD9B0122634BD4A00A7C4E4 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0112634BD4A00A7C4E4 /* Order.swift */; };
-		AAD9B0172634BDEB00A7C4E4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0162634BDEB00A7C4E4 /* CoreDataStack.swift */; };
-		AAD9B01B2634BFF500A7C4E4 /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B01A2634BFF500A7C4E4 /* OrderRepository.swift */; };
-		AAD9B0212634C25900A7C4E4 /* SimpleMarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B01F2634C25900A7C4E4 /* SimpleMarket.xcdatamodeld */; };
-		AAD9B02B2634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0292634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift */; };
-		AAD9B0352634C72600A7C4E4 /* OrderItemDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0342634C72600A7C4E4 /* OrderItemDB+CoreDataClass.swift */; };
-		AAD9B0382634C7C900A7C4E4 /* OrderDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0372634C7C900A7C4E4 /* OrderDB+CoreDataClass.swift */; };
 		AAE431D226349CCF007461F0 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D126349CCF007461F0 /* URLHelper.swift */; };
 		AAE431D626349D2D007461F0 /* ProductAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D526349D2D007461F0 /* ProductAPIManager.swift */; };
 		AAE431D926349D77007461F0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D826349D77007461F0 /* Product.swift */; };
@@ -56,10 +54,16 @@
 		94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		AA1903442634A84B00230B73 /* ProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIRequest.swift; sourceTree = "<group>"; };
 		AA1903542634AAB500230B73 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
-		AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemRepository.swift; sourceTree = "<group>"; };
-		AA64969E2634CE4F0067FB03 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
+		AA191F002634F722005BC1EC /* RealmOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrder.swift; sourceTree = "<group>"; };
+		AA191F032634F7B2005BC1EC /* RealmOrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrderItem.swift; sourceTree = "<group>"; };
+		AA191F0626354001005BC1EC /* OrderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepository.swift; sourceTree = "<group>"; };
+		AA191F0926354016005BC1EC /* OrderItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemRepository.swift; sourceTree = "<group>"; };
+		AA191F0C26354025005BC1EC /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
+		AA191F1026354075005BC1EC /* RealmFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFactory.swift; sourceTree = "<group>"; };
+		AA191F1326354083005BC1EC /* FileManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerProtocol.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
 		AA7856F626345710007A261D /* SimpleMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7856F926345710007A261D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7856FB26345710007A261D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,12 +88,6 @@
 		AAD9B0092634BCE200A7C4E4 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		AAD9B00C2634BCF700A7C4E4 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		AAD9B0112634BD4A00A7C4E4 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
-		AAD9B0162634BDEB00A7C4E4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		AAD9B01A2634BFF500A7C4E4 /* OrderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepository.swift; sourceTree = "<group>"; };
-		AAD9B0202634C25900A7C4E4 /* SimpleMarket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleMarket.xcdatamodel; sourceTree = "<group>"; };
-		AAD9B0292634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProductDB+CoreDataClass.swift"; path = "/Users/kariny/Desktop/SimpleMarket/SimpleMarket/SimpleMarket/Models/Product/ProductDB+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		AAD9B0342634C72600A7C4E4 /* OrderItemDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OrderItemDB+CoreDataClass.swift"; path = "/Users/kariny/Desktop/SimpleMarket/SimpleMarket/SimpleMarket/Models/OrderItem/OrderItemDB+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		AAD9B0372634C7C900A7C4E4 /* OrderDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OrderDB+CoreDataClass.swift"; path = "/Users/kariny/Desktop/SimpleMarket/SimpleMarket/SimpleMarket/Models/Order/OrderDB+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		AAE431D126349CCF007461F0 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		AAE431D526349D2D007461F0 /* ProductAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManager.swift; sourceTree = "<group>"; };
 		AAE431D826349D77007461F0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -117,6 +115,15 @@
 				1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AA191F0F26354066005BC1EC /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				AA191F1026354075005BC1EC /* RealmFactory.swift */,
+				AA191F1326354083005BC1EC /* FileManagerProtocol.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		AA6496A12634D55B0067FB03 /* UserDefaults */ = {
@@ -290,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				AAD9B0112634BD4A00A7C4E4 /* Order.swift */,
-				AAD9B0372634C7C900A7C4E4 /* OrderDB+CoreDataClass.swift */,
+				AA191F002634F722005BC1EC /* RealmOrder.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -298,12 +305,11 @@
 		AAD9B0152634BDCB00A7C4E4 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				AA191F0F26354066005BC1EC /* Realm */,
 				AA6496A12634D55B0067FB03 /* UserDefaults */,
-				AAD9B01F2634C25900A7C4E4 /* SimpleMarket.xcdatamodeld */,
-				AAD9B0162634BDEB00A7C4E4 /* CoreDataStack.swift */,
-				AAD9B01A2634BFF500A7C4E4 /* OrderRepository.swift */,
-				AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */,
-				AA64969E2634CE4F0067FB03 /* ProductRepository.swift */,
+				AA191F0626354001005BC1EC /* OrderRepository.swift */,
+				AA191F0926354016005BC1EC /* OrderItemRepository.swift */,
+				AA191F0C26354025005BC1EC /* ProductRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -312,7 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				AAD9B00C2634BCF700A7C4E4 /* OrderItem.swift */,
-				AAD9B0342634C72600A7C4E4 /* OrderItemDB+CoreDataClass.swift */,
+				AA191F032634F7B2005BC1EC /* RealmOrderItem.swift */,
 			);
 			path = OrderItem;
 			sourceTree = "<group>";
@@ -322,7 +328,7 @@
 			children = (
 				AAE431D826349D77007461F0 /* Product.swift */,
 				AA8DFB77263499CC00260F6F /* Product+Decodable.swift */,
-				AAD9B0292634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift */,
+				AA6496B92634F5FB0067FB03 /* RealmProduct.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				AA7856F226345710007A261D /* Sources */,
 				AA7856F326345710007A261D /* Frameworks */,
 				AA7856F426345710007A261D /* Resources */,
+				6A2BA16FB806A4B1C638E0E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,6 +416,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6A2BA16FB806A4B1C638E0E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AAED2EE72634BA0D00E4980F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -457,38 +481,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8DFB8026349ABF00260F6F /* Reachability.swift in Sources */,
-				AAD9B0212634C25900A7C4E4 /* SimpleMarket.xcdatamodeld in Sources */,
 				AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */,
 				AAE431D626349D2D007461F0 /* ProductAPIManager.swift in Sources */,
 				AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */,
-				AAD9B0172634BDEB00A7C4E4 /* CoreDataStack.swift in Sources */,
 				AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */,
 				AA8DFB7C26349A7400260F6F /* Request.swift in Sources */,
 				AA7856FA26345710007A261D /* AppDelegate.swift in Sources */,
 				AA8DFB6726345B8E00260F6F /* MarketCell.swift in Sources */,
 				AAD9B0062634BC2F00A7C4E4 /* CartCoordinator.swift in Sources */,
-				AAD9B0352634C72600A7C4E4 /* OrderItemDB+CoreDataClass.swift in Sources */,
 				AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */,
 				AAD9B0032634BC2400A7C4E4 /* CartPresenter.swift in Sources */,
+				AA191F1126354075005BC1EC /* RealmFactory.swift in Sources */,
 				AAD9B0122634BD4A00A7C4E4 /* Order.swift in Sources */,
+				AA191F0726354001005BC1EC /* OrderRepository.swift in Sources */,
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
-				AAD9B02B2634C4C000A7C4E4 /* ProductDB+CoreDataClass.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
 				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
+				AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */,
 				AA8DFB572634599900260F6F /* MarketViewController.swift in Sources */,
+				AA191F042634F7B2005BC1EC /* RealmOrderItem.swift in Sources */,
 				AA8DFB8326349AF800260F6F /* NetworkError.swift in Sources */,
 				AAE431D926349D77007461F0 /* Product.swift in Sources */,
 				AA8DFB722634937D00260F6F /* UICollectionView+Register.swift in Sources */,
-				AA64969F2634CE4F0067FB03 /* ProductRepository.swift in Sources */,
+				AA191F0D26354025005BC1EC /* ProductRepository.swift in Sources */,
 				AAE431DD26349F6A007461F0 /* ProductEndpoint.swift in Sources */,
 				AAD9B00D2634BCF700A7C4E4 /* OrderItem.swift in Sources */,
 				AA8DFB5E263459AD00260F6F /* MarketCoordinator.swift in Sources */,
 				AAD9B0002634BC0C00A7C4E4 /* CartViewController.swift in Sources */,
+				AA191F0A26354016005BC1EC /* OrderItemRepository.swift in Sources */,
 				AAD9B00A2634BCE200A7C4E4 /* CartCell.swift in Sources */,
+				AA191F012634F722005BC1EC /* RealmOrder.swift in Sources */,
 				AA8DFB75263494A500260F6F /* UIView+Constraints.swift in Sources */,
-				AAD9B01B2634BFF500A7C4E4 /* OrderRepository.swift in Sources */,
-				AAD9B0382634C7C900A7C4E4 /* OrderDB+CoreDataClass.swift in Sources */,
-				AA64969B2634CD5D0067FB03 /* OrderItemRepository.swift in Sources */,
+				AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */,
 				AAE431D226349CCF007461F0 /* URLHelper.swift in Sources */,
 				AA8DFB78263499CC00260F6F /* Product+Decodable.swift in Sources */,
 				AA8DFB6226345AB200260F6F /* Coordinator.swift in Sources */,
@@ -685,43 +709,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.7.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AA3B4A2C26355448000C51E6 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		AA3B4A2E26355448000C51E6 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		AAD9B01F2634C25900A7C4E4 /* SimpleMarket.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AAD9B0202634C25900A7C4E4 /* SimpleMarket.xcdatamodel */,
-			);
-			currentVersion = AAD9B0202634C25900A7C4E4 /* SimpleMarket.xcdatamodel */;
-			path = SimpleMarket.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = AA7856EE26345710007A261D /* Project object */;
 }

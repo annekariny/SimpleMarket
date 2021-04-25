@@ -12,6 +12,7 @@ protocol HomePresenterProtocol {
     var numberOfSections: Int { get }
     var numberOfItemsInSection: Int { get }
     func getProduct(from index: Int) -> Product?
+    func addProductToCart(_ product: Product?)
     func openCart()
 }
 
@@ -20,6 +21,7 @@ final class MarketPresenter {
     private weak var coordinator: MarketCoordinatorProtocol?
     private let productAPIManager: ProductAPIManagerProtocol?
     private var products = [Product]()
+    private var cart: Order?
 
     init(
         coordinator: MarketCoordinatorProtocol,
@@ -27,7 +29,9 @@ final class MarketPresenter {
     ) {
         self.coordinator = coordinator
         self.productAPIManager = productAPIManager
+        //self.orderRepository = orderRepository
         fetchProductsFromAPI()
+        getCart()
     }
 
     deinit {
@@ -41,6 +45,10 @@ final class MarketPresenter {
             self?.products = products
             self?.view?.reloadCollectionView()
         }
+    }
+
+    private func getCart() {
+        //cart = orderRepository.fetchCartOrder()
     }
 }
 
@@ -62,6 +70,10 @@ extension MarketPresenter: HomePresenterProtocol {
             return nil
         }
         return products[index]
+    }
+
+    func addProductToCart(_ product: Product?) {
+        print(cart)
     }
 
     func openCart() {

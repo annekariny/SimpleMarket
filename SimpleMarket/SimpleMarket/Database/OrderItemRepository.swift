@@ -2,52 +2,29 @@
 //  OrderItemRepository.swift
 //  SimpleMarket
 //
-//  Created by Kariny on 24/04/21.
+//  Created by Kariny on 25/04/21.
 //
 
-import CoreData
-import Foundation
-
-protocol OrderItemRepositoryProtocol {
-    func fetchOrderItems(from order: Order) -> [OrderItem]?
-    func save(orderItem: OrderItem) -> OrderItemDB?
-}
-
-struct OrderItemRepository: OrderItemRepositoryProtocol {
-    private let coreDataStack: CoreDataStackProtocol
-    private let productRepository: ProductRepository
+final class OrderItemRepository {
+    private let realmFactory: RealmFactoryProtocol
 
     init(
-        coreDataStack: CoreDataStackProtocol = CoreDataStack(),
-        productRepository: ProductRepository = ProductRepository()
+        realmFactory: RealmFactoryProtocol = RealmFactory()
     ) {
-        self.coreDataStack = coreDataStack
-        self.productRepository = productRepository
+        self.realmFactory = realmFactory
     }
 
-    func fetchOrderItems(from order: Order) -> [OrderItem]? {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OrderItemDB")
-        fetchRequest.predicate = NSPredicate(format: "orderDB.id == %d", order.id)
-
-        do {
-            let response = try coreDataStack.context.fetch(fetchRequest)
-            return response.map { OrderItem(from: $0 as? OrderItemDB) }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return nil
-        }
+    func fetchAll() throws -> [OrderItem] {
+        let realm = try realmFactory.makeRealm()
+        let realmOrderItems = realm.objects(RealmOrderItem.self)
+        return realmOrderItems.map { OrderItem(from: $0) }
     }
 
-    @discardableResult
-    func save(orderItem: OrderItem) -> OrderItemDB? {
-        let orderItemDB = OrderItemDB(context: coreDataStack.context)
-        orderItemDB.id = Int64(orderItem.id)
-        orderItemDB.totalValue = orderItem.totalValue
-        orderItemDB.quantity = Int16(orderItem.quantity)
-        if let product = orderItem.product {
-            orderItemDB.productDB = productRepository.save(product: product)
+    func save(orderItem: OrderItem) throws {
+        let realm = try realmFactory.makeRealm()
+        let realmOrderItem = RealmOrderItem(from: orderItem)
+        try realm.write {
+            realm.add(realmOrderItem, update: .modified)
         }
-        coreDataStack.saveContext()
-        return orderItemDB
     }
 }

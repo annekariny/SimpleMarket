@@ -16,7 +16,8 @@ protocol UserDefaultsProtocol {
 extension UserDefaults: UserDefaultsProtocol {}
 
 protocol KeyValueStorageProtocol {
-    var currentID: Int { get set }
+    var currentOrderID: Int { get set }
+    var currentOrderItemID: Int { get set }
 }
 
 struct KeyValueStorage: KeyValueStorageProtocol {
@@ -27,15 +28,25 @@ struct KeyValueStorage: KeyValueStorageProtocol {
     }
 
     private enum Keys {
-        static let currentID = "SimpleMarket.currentID"
+        static let currentID = "SimpleMarket.currentOrderID"
+        static let currentOrderItemID = "SimpleMarket.currentOrderItemID"
     }
 
-    var currentID: Int {
+    var currentOrderID: Int {
         get {
             userDefaults.object(forKey: Keys.currentID) as? Int ?? 0
         }
         set {
             userDefaults.set(newValue, forKey: Keys.currentID)
+        }
+    }
+
+    var currentOrderItemID: Int {
+        get {
+            userDefaults.object(forKey: Keys.currentOrderItemID) as? Int ?? 0
+        }
+        set {
+            userDefaults.set(newValue, forKey: Keys.currentOrderItemID)
         }
     }
 }

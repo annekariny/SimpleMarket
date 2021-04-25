@@ -78,6 +78,7 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarketCell
+        cell.delegate = self
         cell.product = presenter.getProduct(from: indexPath.row)
         return cell
     }
@@ -86,5 +87,11 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension MarketViewController: MarketViewProtocol {
     func reloadCollectionView() {
         collectionView.reloadData()
+    }
+}
+
+extension MarketViewController: MarketCellDelegate {
+    func didTapAddProduct(_ product: Product?) {
+        presenter.addProductToCart(product)
     }
 }

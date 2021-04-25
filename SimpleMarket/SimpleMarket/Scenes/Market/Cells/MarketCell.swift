@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MarketCellDelegate: AnyObject {
-    func didTapAddProduct()
+    func didTapAddProduct(_ product: Product?)
 }
 
 final class MarketCell: UICollectionViewCell {
@@ -67,7 +67,7 @@ final class MarketCell: UICollectionViewCell {
     }
 
     @objc private func didTapAddProduct() {
-        delegate?.didTapAddProduct()
+        delegate?.didTapAddProduct(product)
     }
 
     private func setImage() {

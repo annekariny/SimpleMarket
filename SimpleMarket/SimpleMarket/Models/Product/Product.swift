@@ -29,12 +29,12 @@ struct Product {
         offer = decodableProduct.offer
     }
 
-    init(from productDB: ProductDB) {
-        id = Int(productDB.id)
-        price = productDB.price
-        imageURLString = productDB.imageURLString ?? ""
-        description = productDB.productDescription ?? ""
-        stock = Int(productDB.stock)
-        offer = productDB.offer
+    init(from realmProduct: RealmProduct) {
+        id = realmProduct.id
+        price = realmProduct.price
+        imageURLString = realmProduct.imageURLString
+        description = realmProduct.productDescription
+        stock = realmProduct.stock
+        offer = realmProduct.offer
     }
 }
