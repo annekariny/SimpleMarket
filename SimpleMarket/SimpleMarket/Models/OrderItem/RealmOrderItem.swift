@@ -12,6 +12,7 @@ final class RealmOrderItem: Object {
     @objc dynamic var id = 0
     @objc dynamic var product: RealmProduct?
     @objc dynamic var quantity = 0
+    let orders = LinkingObjects(fromType: RealmOrder.self, property: "orderItems")
 
     override static func primaryKey() -> String? {
         "id"
@@ -23,8 +24,8 @@ final class RealmOrderItem: Object {
 
     init(from orderItem: OrderItem) {
         id = orderItem.id
-        product = RealmProduct(from: orderItem.product)
         quantity = orderItem.quantity
+        product = RealmProduct(from: orderItem.product)
         super.init()
     }
 }

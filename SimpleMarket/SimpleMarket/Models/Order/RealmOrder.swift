@@ -21,10 +21,11 @@ final class RealmOrder: Object {
         super.init()
     }
 
-    init(from order: Order) {
-        id = order.id
-        isFinished = order.isFinished
-        if let items = order.orderItems {
+    init(from order: Order?) {
+        id = order?.id ?? 0
+        isFinished = order?.isFinished ?? false
+
+        if let items = order?.orderItems {
             let orderItems = List<RealmOrderItem>()
             items.forEach { orderItem in
                 orderItems.append(RealmOrderItem(from: orderItem))

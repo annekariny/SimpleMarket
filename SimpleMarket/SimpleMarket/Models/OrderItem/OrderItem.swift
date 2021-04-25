@@ -9,8 +9,8 @@ import Foundation
 
 struct OrderItem {
     let id: Int
-    var product: Product?
     var quantity: Int
+    var product: Product?
 
     var unitValue: Double {
         product?.price ?? 0
@@ -34,5 +34,11 @@ struct OrderItem {
         } else {
             product = nil
         }
+    }
+}
+
+extension OrderItem: Equatable {
+    static func == (lhs: OrderItem, rhs: OrderItem) -> Bool {
+        lhs.id == rhs.id
     }
 }

@@ -57,7 +57,7 @@ final class MarketPresenter {
     }
 
     @objc private func getCart() {
-        cart = cartManager.orderInProgress()
+        cart = cartManager.getCart()
     }
 }
 
@@ -82,10 +82,10 @@ extension MarketPresenter: HomePresenterProtocol {
     }
 
     func addProductToCart(_ product: Product?) {
-        guard let product = product, let order = cart else {
+        guard let product = product  else {
             return
         }
-        cartManager.sumProductQuantity(product: product, order: order)
+        cartManager.sumProductQuantity(product: product)
         getCart()
     }
 

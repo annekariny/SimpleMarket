@@ -7,7 +7,16 @@
 
 import Foundation
 
-final class ProductRepository {
+protocol ProductRepositoryProtocol {
+    func createProduct(from product: Product) throws
+    func fecthProduct(for id: Int) throws -> Product?
+    func fetchAll() throws -> [Product]
+    func deleteAll() throws
+    func delete(product: Product) throws
+    func save(product: Product) throws
+}
+
+final class ProductRepository: ProductRepositoryProtocol {
     private let realmFactory: RealmFactoryProtocol
 
     init(
@@ -16,7 +25,11 @@ final class ProductRepository {
         self.realmFactory = realmFactory
     }
 
-    func fecthProduct(forID id: Int) throws -> Product? {
+    func createProduct(from product: Product) throws {
+        try save(product: product)
+    }
+
+    func fecthProduct(for id: Int) throws -> Product? {
         let realm = try realmFactory.makeRealm()
         guard let product = realm.objects(RealmProduct.self).filter("id == %@", id).first else {
             return nil

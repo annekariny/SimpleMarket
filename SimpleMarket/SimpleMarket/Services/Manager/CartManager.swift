@@ -7,17 +7,28 @@
 
 import Foundation
 
+protocol CartManagerProtocol {
+    func getCart() -> Order?
+    func sumProductQuantity(product: Product)
+    func sumOrderItemQuantity(orderItem: OrderItem)
+    func decreaseOrderItemQuantity(orderItem: OrderItem)
+    func getOrderItems(from order: Order) -> [OrderItem]
+    func finishOrder(_ order: Order?)
+    func deleteAll()
+    func saveCart()
+}
+
 final class CartManager {
-    private let productRepository: ProductRepository
-    private let orderItemRepository: OrderItemRepository
-    private let orderRepository: OrderRepository
+    private let productRepository: ProductRepositoryProtocol
+    private let orderItemRepository: OrderItemRepositoryProtocol
+    private let orderRepository: OrderRepositoryProtocol
     private var keyValueStorage: KeyValueStorageProtocol
     private let notificationManager: NotificationManagerProtocol
 
     init(
-        productRepository: ProductRepository = ProductRepository(),
-        orderItemRepository: OrderItemRepository = OrderItemRepository(),
-        orderRepository: OrderRepository = OrderRepository(),
+        productRepository: ProductRepositoryProtocol = ProductRepository(),
+        orderItemRepository: OrderItemRepositoryProtocol = OrderItemRepository(),
+        orderRepository: OrderRepositoryProtocol = OrderRepository(),
         keyValueStorage: KeyValueStorageProtocol = KeyValueStorage(),
         notificationManager: NotificationManagerProtocol = NotificationManager()
     ) {
@@ -28,75 +39,92 @@ final class CartManager {
         self.notificationManager = notificationManager
     }
 
-    func orderInProgress() -> Order {
-        if let unfinishedOrder = try? orderRepository.fecthUnfinishedOrder() {
-            return unfinishedOrder
+    private var persistedOrderInProgress: Order? {
+        if let order = try? orderRepository.fecthUnfinishedOrder() {
+            return order
         } else {
-            let id = keyValueStorage.currentOrderID
-            keyValueStorage.currentOrderID += 1
-            let newOrder = Order(with: id)
-            try? orderRepository.save(order: newOrder)
-            return newOrder
+            return try? orderRepository.createOrder()
         }
     }
 
-    func persistedProduct(for product: Product) -> Product {
-        let persistedProduct: Product
-        if let product = try? productRepository.fecthProduct(forID: product.id) {
-            persistedProduct = product
+    private func persistedProduct(for product: Product) -> Product {
+        if let product = try? productRepository.fecthProduct(for: product.id) {
+            return product
         } else {
-            try? productRepository.save(product: product)
-            persistedProduct = product
+            try? productRepository.createProduct(from: product)
+            return product
         }
-        return persistedProduct
     }
 
-    func persistedOrderItem(for product: Product, order: Order) -> OrderItem {
-        let persistedOrderItem: OrderItem
-        if let orderItem = try? orderItemRepository.fecthOrderItem(forProductID: product.id, and: order.id) {
-            persistedOrderItem = orderItem
-        } else {
-            let id = keyValueStorage.currentOrderItemID
-            keyValueStorage.currentOrderItemID += 1
-            let newOrderItem = OrderItem(id: id, product: product)
-            var modifiedOrder = order
-            modifiedOrder.orderItems?.append(newOrderItem)
-            try? orderItemRepository.save(orderItem: newOrderItem)
-            try? orderRepository.save(order: modifiedOrder)
-            persistedOrderItem = newOrderItem
+    private func persistedOrderItem(for product: Product) -> OrderItem? {
+        guard let order = persistedOrderInProgress else {
+            return nil
         }
-        return persistedOrderItem
+        if let orderItems = try? orderItemRepository.fecthOrderItem(forProductID: product.id, andOrderID: order.id) {
+            return orderItems
+        } else {
+            guard let orderItem = try? orderItemRepository.createOrderItem(fromProduct: product) else {
+                return nil
+            }
+            return orderItem
+        }
     }
 
-    func persistedOrderItem(from orderItem: OrderItem) -> OrderItem? {
-        let persistedOrderItem: OrderItem
-        if let orderItem = try? orderItemRepository.fecthOrderItem(forID: orderItem.id) {
-            persistedOrderItem = orderItem
-        } else {
-            let id = keyValueStorage.currentOrderItemID
-            keyValueStorage.currentOrderItemID += 1
-            let newOrderItem = OrderItem(id: id, product: orderItem.product)
-            try? orderItemRepository.save(orderItem: newOrderItem)
-            persistedOrderItem = newOrderItem
+    @discardableResult
+    private func deleteProductIfNeeded(_ product: Product?) -> Bool {
+        guard let product = product else {
+            return false
         }
-        return persistedOrderItem
+        let orderItems = try? orderItemRepository.fecthOrderItems(forProductID: product.id)
+        if orderItems?.isEmpty ?? false {
+            try? productRepository.delete(product: product)
+            return true
+        } else {
+            return false
+        }
     }
 
-    func sumProductQuantity(product: Product, order: Order) {
+    private func removeOrderItem(_ orderItem: OrderItem) {
+        guard var order = try? orderRepository.fecthOrder(for: orderItem.id) else {
+            return
+        }
+        order.orderItems?.removeAll { $0.id == orderItem.id }
+        try? orderItemRepository.delete(orderItem: orderItem)
+        try? orderRepository.save(order: order)
+    }
+
+    private func updateListeners() {
+        notificationManager.post(notification: LocalNotification.orderSaved, object: nil, userInfo: nil)
+    }
+}
+
+extension CartManager: CartManagerProtocol {
+    func getCart() -> Order? {
+        persistedOrderInProgress
+    }
+
+    func sumProductQuantity(product: Product) {
         // Fetch Product from Database, if not exists create a new one
-        let modifiedProduct = persistedProduct(for: product)
+        let product = persistedProduct(for: product)
 
-        // Fetch OrderItem from this Product included on the order
-        let orderItem = persistedOrderItem(for: modifiedProduct, order: order)
+        // Fetch OrderItem from this Product included on the Order
+        guard let orderItem = persistedOrderItem(for: product) else {
+            return
+        }
+
+        // Add Order Item inside Order, if not added yet
+        let  order = try? orderRepository.fecthOrder(for: orderItem.id)
+        if order == nil, let orderInProgress = persistedOrderInProgress {
+            try? orderRepository.addOrderItem(orderItem, intoOrder: orderInProgress)
+        }
 
         // Increase Order Item quantity by 1
         sumOrderItemQuantity(orderItem: orderItem)
+        saveCart()
     }
 
     func sumOrderItemQuantity(orderItem: OrderItem) {
-        guard var modifiedOrderItem = persistedOrderItem(from: orderItem) else {
-            return
-        }
+        var modifiedOrderItem = orderItem
         modifiedOrderItem.quantity += 1
         try? orderItemRepository.save(orderItem: modifiedOrderItem)
     }
@@ -114,31 +142,8 @@ final class CartManager {
         }
     }
 
-    @discardableResult
-    func deleteProductIfNeeded(_ product: Product?) -> Bool {
-        guard let product = product else {
-            return false
-        }
-        let orderItems = try? orderItemRepository.fecthOrderItems(forProductID: product.id)
-        if orderItems?.isEmpty ?? false {
-            try? productRepository.delete(product: product)
-            return true
-        } else {
-            return false
-        }
-    }
-
-    func removeOrderItem(_ orderItem: OrderItem) {
-        guard var order = try? orderRepository.fecthOrder(for: orderItem.id) else {
-            return
-        }
-        order.orderItems?.removeAll { $0.id == orderItem.id }
-        try? orderItemRepository.delete(orderItem: orderItem)
-        try? orderRepository.save(order: order)
-    }
-
     func getOrderItems(from order: Order) -> [OrderItem] {
-        let orderItems = try? orderItemRepository.fecthOrderItems(from: order.id)
+        let orderItems = try? orderItemRepository.fecthOrderItems(forOrderID: order.id)
         return orderItems ?? []
     }
 
@@ -150,19 +155,16 @@ final class CartManager {
         try? orderRepository.save(order: modifiedOrder)
     }
 
-    func saveCart() {
-        let cart = orderInProgress()
-        updateListeners()
-        try? orderRepository.save(order: cart)
-    }
-
     func deleteAll() {
         try? productRepository.deleteAll()
         try? orderItemRepository.deleteAll()
         try? orderRepository.deleteAll()
     }
 
-    func updateListeners() {
-        notificationManager.post(notification: LocalNotification.orderSaved, object: nil, userInfo: nil)
+    func saveCart() {
+        guard let cart = persistedOrderInProgress else {
+            return
+        }
+        try? orderRepository.save(order: cart)
     }
 }

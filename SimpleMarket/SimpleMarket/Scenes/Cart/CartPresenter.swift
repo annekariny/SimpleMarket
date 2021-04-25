@@ -30,8 +30,10 @@ final class CartPresenter: CartPresenterProtocol {
     }
 
     func getOrderItems() {
-        cart = cartManager.orderInProgress()
-        orderItems = cartManager.getOrderItems(from: cartManager.orderInProgress())
+        cart = cartManager.getCart()
+        if let cart = cart {
+            orderItems = cartManager.getOrderItems(from: cart)
+        }
         view?.updateTotal(total: totalCart)
         view?.reloadTableView()
     }
