@@ -20,7 +20,6 @@ final class CartViewController: UIViewController {
         tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = rowHeight
-        tableView.sectionHeaderHeight = 32
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
@@ -86,6 +85,8 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CartCell
         let orderItem = presenter.getOrderItem(for: indexPath.row)
+        cell.delegate = self
+        cell.index = indexPath.row
         cell.orderItem = orderItem
         return cell
     }
@@ -98,5 +99,17 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 extension CartViewController: CartViewProtocol {
     func reloadTableView() {
         tableView.reloadData()
+    }
+}
+
+extension CartViewController: CartCellDelegate {
+    func didTapAddProduct(_ product: Product?, at index: Int) {
+        presenter.addProduct(product)
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+    }
+
+    func didTapRemoveProduct(_ product: Product?, at index: Int) {
+        presenter.removeProduct(product)
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
     }
 }

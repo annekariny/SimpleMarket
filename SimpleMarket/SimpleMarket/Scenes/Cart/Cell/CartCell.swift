@@ -8,7 +8,8 @@
 import UIKit
 
 protocol CartCellDelegate: AnyObject {
-    // func didTapAddProduct()
+    func didTapAddProduct(_ product: Product?, at index: Int)
+    func didTapRemoveProduct(_ product: Product?, at index: Int)
 }
 
 final class CartCell: UITableViewCell {
@@ -56,6 +57,8 @@ final class CartCell: UITableViewCell {
         return label
     }()
 
+    var index = 0
+
     var orderItem: OrderItem? {
         didSet {
             title.text = orderItem?.product?.description
@@ -70,6 +73,8 @@ final class CartCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.isUserInteractionEnabled = false
+        selectionStyle = .none
         setupLayout()
     }
 
@@ -97,11 +102,11 @@ final class CartCell: UITableViewCell {
     }
 
     @objc private func didTapAddProduct() {
-        // delegate?.didTapAddProduct()
+        delegate?.didTapAddProduct(orderItem?.product, at: index)
     }
 
     @objc private func didTapRemoveProduct() {
-        // delegate?.didTapAddProduct()
+        delegate?.didTapRemoveProduct(orderItem?.product, at: index)
     }
 
     private func setImage() {

@@ -11,6 +11,8 @@ protocol CartPresenterProtocol {
     var title: String { get }
     var numberOfRows: Int { get }
     func getOrderItem(for index: Int) -> OrderItem?
+    func addProduct(_ product: Product?)
+    func removeProduct(_ product: Product?)
     func didTapDone()
 }
 
@@ -45,6 +47,22 @@ final class CartPresenter: CartPresenterProtocol {
             return nil
         }
         return orderItems[index]
+    }
+
+    func addProduct(_ product: Product?) {
+        guard let product = product, let order = cart else {
+            return
+        }
+        cartManager.sumProductQuantity(product: product, order: order)
+        getOrderItems()
+    }
+
+    func removeProduct(_ product: Product?) {
+        guard let product = product, let order = cart else {
+            return
+        }
+        cartManager.decreaseProductQuantity(product: product, order: order)
+        getOrderItems()
     }
 
     func didTapDone() {
