@@ -33,7 +33,7 @@ final class OrderRepository: OrderRepositoryProtocol {
     func createOrder() throws -> Order {
         let id = keyValueStorage.currentOrderID
         keyValueStorage.currentOrderID += 1
-        let order = Order(with: id)
+        let order = Order(id: id)
         try save(order: order)
         return order
     }

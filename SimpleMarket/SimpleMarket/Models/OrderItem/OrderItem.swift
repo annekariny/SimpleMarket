@@ -20,10 +20,14 @@ struct OrderItem {
         Double(quantity) * unitValue
     }
 
-    init(id: Int, product: Product?) {
+    init(
+        id: Int,
+        product: Product?,
+        quantity: Int = 0
+    ) {
         self.id = id
         self.product = product
-        self.quantity = 0
+        self.quantity = quantity
     }
 
     init(from realmOrderItem: RealmOrderItem) {
@@ -39,6 +43,9 @@ struct OrderItem {
 
 extension OrderItem: Equatable {
     static func == (lhs: OrderItem, rhs: OrderItem) -> Bool {
-        lhs.id == rhs.id
+        return
+            lhs.id == rhs.id &&
+            lhs.quantity == rhs.quantity &&
+            lhs.product == rhs.product
     }
 }

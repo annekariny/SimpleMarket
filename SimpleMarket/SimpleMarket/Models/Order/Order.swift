@@ -17,15 +17,25 @@ struct Order {
         return totalValueFromOrderItems?.reduce(0, +) ?? 0
     }
 
-    init(with id: Int) {
+    init(
+        id: Int,
+        orderItems: [OrderItem] = [],
+        isFinished: Bool = false
+    ) {
         self.id = id
-        orderItems = []
-        isFinished = false
+        self.orderItems = orderItems
+        self.isFinished = isFinished
     }
 
     init(from realmOrder: RealmOrder) {
         id = realmOrder.id
         isFinished = realmOrder.isFinished
         orderItems = realmOrder.orderItems.map { OrderItem(from: $0) }
+    }
+}
+
+extension Order: Equatable {
+    static func == (lhs: Order, rhs: Order) -> Bool {
+        lhs.id == rhs.id && lhs.isFinished == rhs.isFinished && lhs.orderItems == rhs.orderItems
     }
 }
