@@ -32,6 +32,16 @@ final class OrderRepository {
         return Order(from: order)
     }
 
+    func fecthOrder(for orderItemID: Int) throws -> Order? {
+        let realm = try realmFactory.makeRealm()
+        let orders = realm.objects(RealmOrder.self)
+        if let order = orders.filter("ANY orderItems.id == %@", orderItemID).first {
+            return Order(from: order)
+        } else {
+            return nil
+        }
+    }
+
     func fetchAll() throws -> [Order] {
         let realm = try realmFactory.makeRealm()
         let realmOrders = realm.objects(RealmOrder.self)

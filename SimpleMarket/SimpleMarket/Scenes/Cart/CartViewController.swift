@@ -103,13 +103,13 @@ extension CartViewController: CartViewProtocol {
 }
 
 extension CartViewController: CartCellDelegate {
-    func didTapAddProduct(_ product: Product?, at index: Int) {
-        presenter.addProduct(product)
+    func didTapAdd(_ orderItem: OrderItem?, at index: Int) {
+        presenter.sumOrderItemQuantity(orderItem)
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
     }
 
-    func didTapRemoveProduct(_ product: Product?, at index: Int) {
-        presenter.removeProduct(product)
+    func didTapRemove(_ orderItem: OrderItem?, at index: Int) {
+        presenter.decreaseOrderItemQuantity(orderItem)
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
     }
 }

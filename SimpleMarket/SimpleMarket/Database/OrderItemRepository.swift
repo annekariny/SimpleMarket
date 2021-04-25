@@ -32,6 +32,12 @@ final class OrderItemRepository {
         return orderItems.first { $0.product?.id == productID }
     }
 
+    func fecthOrderItems(forProductID productID: Int) throws -> [OrderItem] {
+        let realm = try realmFactory.makeRealm()
+        let orderItem = realm.objects(RealmOrderItem.self).filter("product.id == %@", productID)
+        return orderItem.map { OrderItem(from: $0) }
+    }
+
     func fecthOrderItems(from orderID: Int) throws -> [OrderItem]? {
         guard let order = try orderRepository.fecthOrder(forID: orderID) else {
             return nil
@@ -43,6 +49,13 @@ final class OrderItemRepository {
         let realm = try realmFactory.makeRealm()
         let realmOrderItems = realm.objects(RealmOrderItem.self)
         return realmOrderItems.map { OrderItem(from: $0) }
+    }
+
+    func delete(orderItem: OrderItem) throws {
+        let realm = try realmFactory.makeRealm()
+        try realm.write {
+            realm.delete(realm.objects(RealmOrderItem.self).filter("id == %@", orderItem.id))
+        }
     }
 
     func save(orderItem: OrderItem) throws {

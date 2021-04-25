@@ -30,6 +30,13 @@ final class ProductRepository {
         return realmProducts.map { Product(from: $0) }
     }
 
+    func delete(product: Product) throws {
+        let realm = try realmFactory.makeRealm()
+        try realm.write {
+            realm.delete(realm.objects(RealmProduct.self).filter("id == %@", product.id))
+        }
+    }
+
     func save(product: Product) throws {
         let realm = try realmFactory.makeRealm()
         let realmProduct = RealmProduct(from: product)

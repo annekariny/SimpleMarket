@@ -8,8 +8,8 @@
 import UIKit
 
 protocol CartCellDelegate: AnyObject {
-    func didTapAddProduct(_ product: Product?, at index: Int)
-    func didTapRemoveProduct(_ product: Product?, at index: Int)
+    func didTapAdd(_ orderItem: OrderItem?, at index: Int)
+    func didTapRemove(_ orderItem: OrderItem?, at index: Int)
 }
 
 final class CartCell: UITableViewCell {
@@ -102,11 +102,11 @@ final class CartCell: UITableViewCell {
     }
 
     @objc private func didTapAddProduct() {
-        delegate?.didTapAddProduct(orderItem?.product, at: index)
+        delegate?.didTapAdd(orderItem, at: index)
     }
 
     @objc private func didTapRemoveProduct() {
-        delegate?.didTapRemoveProduct(orderItem?.product, at: index)
+        delegate?.didTapRemove(orderItem, at: index)
     }
 
     private func setImage() {
