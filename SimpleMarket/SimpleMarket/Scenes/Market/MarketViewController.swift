@@ -24,6 +24,14 @@ final class MarketViewController: UIViewController {
         return collectionView
     }()
 
+    private lazy var cartButton: UIBarButtonItem = {
+        let buttonSize = CGRect(origin: .zero, size: CGSize(width: 25, height: 25))
+        let button = UIButton(frame: buttonSize)
+        button.setBackgroundImage(Image.cart, for: .normal)
+        button.addTarget(self, action: #selector(openCart), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+
     private let presenter: HomePresenterProtocol
 
     init(presenter: HomePresenterProtocol) {
@@ -51,7 +59,7 @@ final class MarketViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.bulletList, style: .plain, target: self, action: #selector(openOrders))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.cart, style: .plain, target: self, action: #selector(openCart))
+        navigationItem.rightBarButtonItem = cartButton
     }
 
     private func setupCollectionView() {
@@ -64,6 +72,14 @@ final class MarketViewController: UIViewController {
 
     @objc private func openCart() {
         presenter.openCart()
+    }
+
+    private func animateCartButton() {
+        navigationItem.rightBarButtonItem?.customView?.animateScalingUpDown()
+    }
+
+    private func generateSystemFeedback() {
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }
 
@@ -93,5 +109,7 @@ extension MarketViewController: MarketViewProtocol {
 extension MarketViewController: MarketCellDelegate {
     func didTapAddProduct(_ product: Product?) {
         presenter.addProductToCart(product)
+        generateSystemFeedback()
+        animateCartButton()
     }
 }

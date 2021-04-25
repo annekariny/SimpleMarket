@@ -30,6 +30,11 @@ final class MarketCell: UICollectionViewCell {
         return label
     }()
 
+    private lazy var quantity: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+
     private lazy var value: UILabel = {
         let label = UILabel()
         return label
