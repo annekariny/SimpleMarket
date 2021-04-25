@@ -13,6 +13,7 @@ protocol CartPresenterProtocol {
     func getOrderItem(for index: Int) -> OrderItem?
     func sumOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
     func decreaseOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
+    func getOrderItems()
     func didTapDone()
 }
 
@@ -25,12 +26,12 @@ final class CartPresenter: CartPresenterProtocol {
 
     init(coordinator: CartCoordinatorProtocol) {
         self.coordinator = coordinator
-        getOrderItems()
     }
 
-    private func getOrderItems() {
+    func getOrderItems() {
         cart = cartManager.orderInProgress()
         orderItems = cartManager.getOrderItems(from: cartManager.orderInProgress())
+        view?.updateTotal(total: totalCart)
         view?.reloadTableView()
     }
 
@@ -40,6 +41,10 @@ final class CartPresenter: CartPresenterProtocol {
 
     var numberOfRows: Int {
         orderItems.count
+    }
+
+    var totalCart: String {
+        "Total: \((cart?.total ?? 0).toCurrencyFormat() ?? "")"
     }
 
     func getOrderItem(for index: Int) -> OrderItem? {

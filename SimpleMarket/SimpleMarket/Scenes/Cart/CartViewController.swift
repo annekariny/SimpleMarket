@@ -11,6 +11,7 @@ protocol CartViewProtocol: AnyObject {
     func deleteRow(at index: Int)
     func reloadRow(at index: Int)
     func reloadTableView()
+    func updateTotal(total: String)
 }
 
 final class CartViewController: UIViewController {
@@ -27,6 +28,12 @@ final class CartViewController: UIViewController {
         tableView.delegate = self
         tableView.register(CartCell.self)
         return tableView
+    }()
+
+    private lazy var totalOrder: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        return label
     }()
 
     private lazy var orderButton: UIButton = {
@@ -56,14 +63,28 @@ final class CartViewController: UIViewController {
         setupTableView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.getOrderItems()
+    }
+
     private func setupTableView() {
         view.addSubview(tableView)
         view.addSubview(orderButton)
+        view.addSubview(totalOrder)
+
         tableView.anchor(
             top: view.topAnchor,
             leading: view.leadingAnchor,
-            bottom: orderButton.topAnchor,
+            bottom: totalOrder.topAnchor,
             trailing: view.trailingAnchor
+        )
+
+        totalOrder.anchor(
+            leading: view.leadingAnchor,
+            bottom: orderButton.topAnchor,
+            trailing: view.trailingAnchor,
+            height: 40
         )
 
         orderButton.anchor(
@@ -109,6 +130,10 @@ extension CartViewController: CartViewProtocol {
 
     func reloadTableView() {
         tableView.reloadData()
+    }
+
+    func updateTotal(total: String) {
+        totalOrder.text = total
     }
 }
 
