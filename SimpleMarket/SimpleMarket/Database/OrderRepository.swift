@@ -16,6 +16,22 @@ final class OrderRepository {
         self.realmFactory = realmFactory
     }
 
+    func fecthUnfinishedOrder() throws -> Order? {
+        let realm = try realmFactory.makeRealm()
+        guard let order = realm.objects(RealmOrder.self).filter("isFinished == %@", false).first else {
+            return nil
+        }
+        return Order(from: order)
+    }
+
+    func fecthOrder(forID id: Int) throws -> Order? {
+        let realm = try realmFactory.makeRealm()
+        guard let order = realm.objects(RealmOrder.self).filter("id == %@", id).first else {
+            return nil
+        }
+        return Order(from: order)
+    }
+
     func fetchAll() throws -> [Order] {
         let realm = try realmFactory.makeRealm()
         let realmOrders = realm.objects(RealmOrder.self)

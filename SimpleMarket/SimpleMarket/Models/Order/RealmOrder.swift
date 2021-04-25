@@ -10,8 +10,8 @@ import RealmSwift
 
 final class RealmOrder: Object {
     @objc dynamic var id = 0
-    @objc dynamic var orderItems = [RealmOrderItem]()
     @objc dynamic var isFinished = false
+    var orderItems = List<RealmOrderItem>()
 
     override static func primaryKey() -> String? {
         "id"
@@ -25,7 +25,11 @@ final class RealmOrder: Object {
         id = order.id
         isFinished = order.isFinished
         if let items = order.orderItems {
-            self.orderItems = items.map { RealmOrderItem( from: $0) }
+            let orderItems = List<RealmOrderItem>()
+            items.forEach { orderItem in
+                orderItems.append(RealmOrderItem(from: orderItem))
+            }
+            self.orderItems = orderItems
         }
         super.init()
     }

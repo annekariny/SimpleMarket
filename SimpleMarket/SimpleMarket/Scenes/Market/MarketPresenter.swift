@@ -20,6 +20,7 @@ final class MarketPresenter {
     weak var view: MarketViewProtocol?
     private weak var coordinator: MarketCoordinatorProtocol?
     private let productAPIManager: ProductAPIManagerProtocol?
+    private let cartManager = CartManager()
     private var products = [Product]()
     private var cart: Order?
 
@@ -48,7 +49,7 @@ final class MarketPresenter {
     }
 
     private func getCart() {
-        //cart = orderRepository.fetchCartOrder()
+        cart = cartManager.orderInProgress()
     }
 }
 
