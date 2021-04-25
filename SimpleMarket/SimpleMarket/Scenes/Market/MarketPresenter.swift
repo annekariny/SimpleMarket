@@ -74,6 +74,11 @@ extension MarketPresenter: HomePresenterProtocol {
     }
 
     func addProductToCart(_ product: Product?) {
+        guard let product = product, let order = cart else {
+            return
+        }
+        cartManager.sumProductQuantity(product: product, order: order)
+        getCart()
         print(cart)
     }
 

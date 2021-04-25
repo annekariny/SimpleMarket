@@ -20,6 +20,12 @@ struct OrderItem {
         Double(quantity) * unitValue
     }
 
+    init(id: Int, product: Product?) {
+        self.id = id
+        self.product = product
+        self.quantity = 0
+    }
+
     init(from realmOrderItem: RealmOrderItem) {
         id = realmOrderItem.id
         quantity = realmOrderItem.quantity

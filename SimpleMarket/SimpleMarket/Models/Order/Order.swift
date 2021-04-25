@@ -9,7 +9,7 @@ import Foundation
 
 struct Order {
     let id: Int
-    let orderItems: [OrderItem]?
+    var orderItems: [OrderItem]?
     let isFinished: Bool
 
     var total: Double {

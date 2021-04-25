@@ -16,6 +16,14 @@ final class ProductRepository {
         self.realmFactory = realmFactory
     }
 
+    func fecthProduct(forID id: Int) throws -> Product? {
+        let realm = try realmFactory.makeRealm()
+        guard let product = realm.objects(RealmProduct.self).filter("id == %@", id).first else {
+            return nil
+        }
+        return Product(from: product)
+    }
+
     func fetchAll() throws -> [Product] {
         let realm = try realmFactory.makeRealm()
         let realmProducts = realm.objects(RealmProduct.self)

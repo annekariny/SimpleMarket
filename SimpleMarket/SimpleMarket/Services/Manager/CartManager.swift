@@ -25,7 +25,7 @@ final class CartManager {
         self.keyValueStorage = keyValueStorage
     }
 
-    func orderInProgress() -> Order? {
+    func orderInProgress() -> Order {
         if let unfinishedOrder = try? orderRepository.fecthUnfinishedOrder() {
             return unfinishedOrder
         } else {
@@ -34,6 +34,60 @@ final class CartManager {
             let newOrder = Order(with: id)
             try? orderRepository.save(order: newOrder)
             return newOrder
+        }
+    }
+
+    func persistedProduct(for product: Product) -> Product {
+        let persistedProduct: Product
+        if let product = try? productRepository.fecthProduct(forID: product.id) {
+            persistedProduct = product
+        } else {
+            try? productRepository.save(product: product)
+            persistedProduct = product
+        }
+        return persistedProduct
+    }
+
+    func persistedOrderItem(for product: Product, order: Order) -> OrderItem {
+        let persistedOrderItem: OrderItem
+        if let orderItem = try? orderItemRepository.fecthOrderItem(forProductID: product.id, and: order.id) {
+            persistedOrderItem = orderItem
+        } else {
+            let id = keyValueStorage.currentOrderItemID
+            keyValueStorage.currentOrderItemID += 1
+            let newOrderItem = OrderItem(id: id, product: product)
+            var modifiedOrder = order
+            modifiedOrder.orderItems?.append(newOrderItem)
+            try? orderItemRepository.save(orderItem: newOrderItem)
+            try? orderRepository.save(order: modifiedOrder)
+            persistedOrderItem = newOrderItem
+        }
+        return persistedOrderItem
+    }
+
+    func sumProductQuantity(product: Product, order: Order) {
+        // Fetch Product from Database, if not exists create a new one
+        let modifiedProduct = persistedProduct(for: product)
+
+        // Fetch OrderItem from this Product included on the order
+        var orderItem = persistedOrderItem(for: modifiedProduct, order: order)
+
+        orderItem.quantity += 1
+        try? orderItemRepository.save(orderItem: orderItem)
+    }
+
+    func decreaseProductQuantity(product: Product, order: Order) {
+        // Fetch Product from Database, if not exists create a new one
+        let product = persistedProduct(for: product)
+
+        // Fetch OrderItem from this Product included on the order
+        var orderItem = persistedOrderItem(for: product, order: order)
+
+        orderItem.quantity -= 1
+        if orderItem.quantity == 0 {
+            // Remove product
+        } else {
+            try? orderItemRepository.save(orderItem: orderItem)
         }
     }
 }
