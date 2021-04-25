@@ -17,6 +17,8 @@
 		AA191F0D26354025005BC1EC /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0C26354025005BC1EC /* ProductRepository.swift */; };
 		AA191F1126354075005BC1EC /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1026354075005BC1EC /* RealmFactory.swift */; };
 		AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1326354083005BC1EC /* FileManagerProtocol.swift */; };
+		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
+		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
 		AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A52634D83A0067FB03 /* UITableView+Register.swift */; };
 		AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496B92634F5FB0067FB03 /* RealmProduct.swift */; };
@@ -99,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA3B4A2F26355448000C51E6 /* RealmSwift in Frameworks */,
-				AA3B4A2D26355448000C51E6 /* Realm in Frameworks */,
+				AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */,
+				AA3B4A402635560D000C51E6 /* Realm in Frameworks */,
 				96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,7 +355,6 @@
 				AA7856F226345710007A261D /* Sources */,
 				AA7856F326345710007A261D /* Frameworks */,
 				AA7856F426345710007A261D /* Resources */,
-				6A2BA16FB806A4B1C638E0E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,8 +362,8 @@
 			);
 			name = SimpleMarket;
 			packageProductDependencies = (
-				AA3B4A2C26355448000C51E6 /* Realm */,
-				AA3B4A2E26355448000C51E6 /* RealmSwift */,
+				AA3B4A3F2635560D000C51E6 /* Realm */,
+				AA3B4A412635560D000C51E6 /* RealmSwift */,
 			);
 			productName = SimpleMarket;
 			productReference = AA7856F626345710007A261D /* SimpleMarket.app */;
@@ -392,7 +393,7 @@
 			);
 			mainGroup = AA7856ED26345710007A261D;
 			packageReferences = (
-				AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = AA7856F726345710007A261D /* Products */;
 			projectDirPath = "";
@@ -416,23 +417,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6A2BA16FB806A4B1C638E0E1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AAED2EE72634BA0D00E4980F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -709,6 +693,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA3B4A3F2635560D000C51E6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		AA3B4A412635560D000C51E6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA7856EE26345710007A261D /* Project object */;
 }
