@@ -65,4 +65,13 @@ final class OrderItemRepository {
             realm.add(realmOrderItem, update: .modified)
         }
     }
+
+    func deleteAll() throws {
+        let realm = try realmFactory.makeRealm()
+        let objects = realm.objects(RealmOrderItem.self)
+
+        try? realm.write {
+            realm.delete(objects)
+        }
+    }
 }

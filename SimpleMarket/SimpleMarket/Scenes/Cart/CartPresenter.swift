@@ -74,6 +74,7 @@ final class CartPresenter: CartPresenterProtocol {
     }
 
     func didTapDone() {
+        cartManager.saveCart()
         coordinator?.finish()
     }
 

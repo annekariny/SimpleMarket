@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol CartCoordinatorProtocol: Coordinator {
-    func showFinishOrderAlert() 
+    func showFinishOrderAlert()
     func finish()
 }
 

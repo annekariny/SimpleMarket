@@ -23,19 +23,27 @@ final class MarketPresenter {
     private let cartManager = CartManager()
     private var products = [Product]()
     private var cart: Order?
+    private let notificationManager: NotificationManagerProtocol
 
     init(
         coordinator: MarketCoordinatorProtocol,
-        productAPIManager: ProductAPIManagerProtocol = ProductAPIManager()
+        productAPIManager: ProductAPIManagerProtocol = ProductAPIManager(),
+        notificationManager: NotificationManagerProtocol = NotificationManager()
     ) {
         self.coordinator = coordinator
         self.productAPIManager = productAPIManager
-        //self.orderRepository = orderRepository
+        self.notificationManager = notificationManager
         fetchProductsFromAPI()
+        cartManager.deleteAll()
         getCart()
+        addListeners()
     }
 
     deinit {
+    }
+
+    private func addListeners() {
+        notificationManager.add(observer: self, selector: #selector(getCart), notification: LocalNotification.orderSaved, object: nil)
     }
 
     private func fetchProductsFromAPI() {
@@ -48,7 +56,7 @@ final class MarketPresenter {
         }
     }
 
-    private func getCart() {
+    @objc private func getCart() {
         cart = cartManager.orderInProgress()
     }
 }
@@ -79,7 +87,6 @@ extension MarketPresenter: HomePresenterProtocol {
         }
         cartManager.sumProductQuantity(product: product, order: order)
         getCart()
-        print(cart)
     }
 
     func openCart() {

@@ -44,4 +44,13 @@ final class ProductRepository {
             realm.add(realmProduct, update: .modified)
         }
     }
+
+    func deleteAll() throws {
+        let realm = try realmFactory.makeRealm()
+        let objects = realm.objects(RealmProduct.self)
+
+        try? realm.write {
+            realm.delete(objects)
+        }
+    }
 }

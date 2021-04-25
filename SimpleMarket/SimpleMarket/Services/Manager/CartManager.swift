@@ -12,17 +12,20 @@ final class CartManager {
     private let orderItemRepository: OrderItemRepository
     private let orderRepository: OrderRepository
     private var keyValueStorage: KeyValueStorageProtocol
+    private let notificationManager: NotificationManagerProtocol
 
     init(
         productRepository: ProductRepository = ProductRepository(),
         orderItemRepository: OrderItemRepository = OrderItemRepository(),
         orderRepository: OrderRepository = OrderRepository(),
-        keyValueStorage: KeyValueStorageProtocol = KeyValueStorage()
+        keyValueStorage: KeyValueStorageProtocol = KeyValueStorage(),
+        notificationManager: NotificationManagerProtocol = NotificationManager()
     ) {
         self.productRepository = productRepository
         self.orderItemRepository = orderItemRepository
         self.orderRepository = orderRepository
         self.keyValueStorage = keyValueStorage
+        self.notificationManager = notificationManager
     }
 
     func orderInProgress() -> Order {
@@ -145,5 +148,21 @@ final class CartManager {
         }
         modifiedOrder.isFinished = true
         try? orderRepository.save(order: modifiedOrder)
+    }
+
+    func saveCart() {
+        let cart = orderInProgress()
+        updateListeners()
+        try? orderRepository.save(order: cart)
+    }
+
+    func deleteAll() {
+        try? productRepository.deleteAll()
+        try? orderItemRepository.deleteAll()
+        try? orderRepository.deleteAll()
+    }
+
+    func updateListeners() {
+        notificationManager.post(notification: LocalNotification.orderSaved, object: nil, userInfo: nil)
     }
 }

@@ -17,9 +17,12 @@
 		AA191F0D26354025005BC1EC /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0C26354025005BC1EC /* ProductRepository.swift */; };
 		AA191F1126354075005BC1EC /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1026354075005BC1EC /* RealmFactory.swift */; };
 		AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1326354083005BC1EC /* FileManagerProtocol.swift */; };
+		AA191F1826354584005BC1EC /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1726354584005BC1EC /* CartManager.swift */; };
+		AA2141E42635B9F40083F32D /* UIView+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141E32635B9F40083F32D /* UIView+Animate.swift */; };
+		AA2141E82635C1520083F32D /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141E72635C1520083F32D /* LocalNotification.swift */; };
+		AA2141EC2635C1730083F32D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141EB2635C1730083F32D /* NotificationManager.swift */; };
 		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
 		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
-		AA191F1826354584005BC1EC /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1726354584005BC1EC /* CartManager.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
 		AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A52634D83A0067FB03 /* UITableView+Register.swift */; };
 		AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496B92634F5FB0067FB03 /* RealmProduct.swift */; };
@@ -65,6 +68,9 @@
 		AA191F1026354075005BC1EC /* RealmFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFactory.swift; sourceTree = "<group>"; };
 		AA191F1326354083005BC1EC /* FileManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerProtocol.swift; sourceTree = "<group>"; };
 		AA191F1726354584005BC1EC /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		AA2141E32635B9F40083F32D /* UIView+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animate.swift"; sourceTree = "<group>"; };
+		AA2141E72635C1520083F32D /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		AA2141EB2635C1730083F32D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
@@ -138,6 +144,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		AA2141E62635C13E0083F32D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				AA2141E72635C1520083F32D /* LocalNotification.swift */,
+				AA2141EB2635C1730083F32D /* NotificationManager.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		AA6496A12634D55B0067FB03 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +221,7 @@
 		AA8DFB542634594F00260F6F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA2141E62635C13E0083F32D /* Notification */,
 				AA191F162635456B005BC1EC /* Manager */,
 				AA8DFB8826349B3800260F6F /* Network */,
 				AA8DFB7A26349A5100260F6F /* ProductAPI */,
@@ -263,6 +279,7 @@
 				AA8DFB712634937D00260F6F /* UICollectionView+Register.swift */,
 				AA8DFB74263494A500260F6F /* UIView+Constraints.swift */,
 				AA1903542634AAB500230B73 /* Double+Formatting.swift */,
+				AA2141E32635B9F40083F32D /* UIView+Animate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,12 +506,15 @@
 				AAD9B0032634BC2400A7C4E4 /* CartPresenter.swift in Sources */,
 				AA191F1126354075005BC1EC /* RealmFactory.swift in Sources */,
 				AAD9B0122634BD4A00A7C4E4 /* Order.swift in Sources */,
+				AA2141E82635C1520083F32D /* LocalNotification.swift in Sources */,
 				AA191F0726354001005BC1EC /* OrderRepository.swift in Sources */,
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
 				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
 				AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */,
 				AA8DFB572634599900260F6F /* MarketViewController.swift in Sources */,
+				AA2141E42635B9F40083F32D /* UIView+Animate.swift in Sources */,
+				AA2141EC2635C1730083F32D /* NotificationManager.swift in Sources */,
 				AA191F042634F7B2005BC1EC /* RealmOrderItem.swift in Sources */,
 				AA8DFB8326349AF800260F6F /* NetworkError.swift in Sources */,
 				AAE431D926349D77007461F0 /* Product.swift in Sources */,

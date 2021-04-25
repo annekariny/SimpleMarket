@@ -51,4 +51,3 @@ final class RealmFactory: RealmFactoryProtocol {
 enum RealmFactoryError: Error {
     case unableToMakeConfiguration
 }
-
