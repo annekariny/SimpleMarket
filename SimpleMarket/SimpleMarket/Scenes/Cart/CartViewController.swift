@@ -8,6 +8,8 @@
 import UIKit
 
 protocol CartViewProtocol: AnyObject {
+    func deleteRow(at index: Int)
+    func reloadRow(at index: Int)
     func reloadTableView()
 }
 
@@ -97,6 +99,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CartViewController: CartViewProtocol {
+    func deleteRow(at index: Int) {
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+
+    func reloadRow(at index: Int) {
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+    }
+
     func reloadTableView() {
         tableView.reloadData()
     }
@@ -104,12 +114,10 @@ extension CartViewController: CartViewProtocol {
 
 extension CartViewController: CartCellDelegate {
     func didTapAdd(_ orderItem: OrderItem?, at index: Int) {
-        presenter.sumOrderItemQuantity(orderItem)
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        presenter.sumOrderItemQuantity(orderItem, at: index)
     }
 
     func didTapRemove(_ orderItem: OrderItem?, at index: Int) {
-        presenter.decreaseOrderItemQuantity(orderItem)
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        presenter.decreaseOrderItemQuantity(orderItem, at: index)
     }
 }

@@ -91,32 +91,37 @@ final class CartManager {
     }
 
     func sumOrderItemQuantity(orderItem: OrderItem) {
-        var modifiedOrderItem = orderItem
+        guard var modifiedOrderItem = persistedOrderItem(from: orderItem) else {
+            return
+        }
         modifiedOrderItem.quantity += 1
         try? orderItemRepository.save(orderItem: modifiedOrderItem)
     }
 
     func decreaseOrderItemQuantity(orderItem: OrderItem) {
-        guard var persistedItem = persistedOrderItem(from: orderItem) else {
-            return
-        }
-        persistedItem.quantity -= 1
-        if persistedItem.quantity == 0 {
-            let product = persistedItem.product
+        var modifiedOrderItem = orderItem
+        modifiedOrderItem.quantity -= 1
+
+        if modifiedOrderItem.quantity == 0 {
+            let product = modifiedOrderItem.product
             removeOrderItem(orderItem)
             deleteProductIfNeeded(product)
         } else {
-            try? orderItemRepository.save(orderItem: persistedItem)
+            try? orderItemRepository.save(orderItem: modifiedOrderItem)
         }
     }
 
-    func deleteProductIfNeeded(_ product: Product?) {
+    @discardableResult
+    func deleteProductIfNeeded(_ product: Product?) -> Bool {
         guard let product = product else {
-            return
+            return false
         }
         let orderItems = try? orderItemRepository.fecthOrderItems(forProductID: product.id)
         if orderItems?.isEmpty ?? false {
             try? productRepository.delete(product: product)
+            return true
+        } else {
+            return false
         }
     }
 
