@@ -15,6 +15,7 @@ protocol CartPresenterProtocol {
     func decreaseOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
     func getOrderItems()
     func didTapDone()
+    func finishOrder()
 }
 
 final class CartPresenter: CartPresenterProtocol {
@@ -74,5 +75,10 @@ final class CartPresenter: CartPresenterProtocol {
 
     func didTapDone() {
         coordinator?.finish()
+    }
+
+    func finishOrder() {
+        cartManager.finishOrder(cart)
+        coordinator?.showFinishOrderAlert()
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct Order {
     let id: Int
     var orderItems: [OrderItem]?
-    let isFinished: Bool
+    var isFinished: Bool
 
     var total: Double {
         let totalValueFromOrderItems = orderItems?.compactMap { $0.totalValue }

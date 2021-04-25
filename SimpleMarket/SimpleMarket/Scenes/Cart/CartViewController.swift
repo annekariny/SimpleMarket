@@ -41,6 +41,7 @@ final class CartViewController: UIViewController {
         button.setTitle("Order", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         button.backgroundColor = .systemGreen
+        button.addTarget(self, action: #selector(finishOrder), for: .touchUpInside)
         return button
     }()
 
@@ -97,6 +98,10 @@ final class CartViewController: UIViewController {
 
     @objc private func didTapDone() {
         presenter.didTapDone()
+    }
+
+    @objc private func finishOrder() {
+        presenter.finishOrder()
     }
 }
 

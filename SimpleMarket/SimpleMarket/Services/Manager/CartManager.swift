@@ -138,4 +138,12 @@ final class CartManager {
         let orderItems = try? orderItemRepository.fecthOrderItems(from: order.id)
         return orderItems ?? []
     }
+
+    func finishOrder(_ order: Order?) {
+        guard var modifiedOrder = order else {
+            return
+        }
+        modifiedOrder.isFinished = true
+        try? orderRepository.save(order: modifiedOrder)
+    }
 }
