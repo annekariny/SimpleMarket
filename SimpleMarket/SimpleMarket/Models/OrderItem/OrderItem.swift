@@ -9,7 +9,7 @@ import Foundation
 
 struct OrderItem {
     let id: Int
-    let product: Product?
+    var product: Product?
     var quantity: Int
 
     var unitValue: Double {

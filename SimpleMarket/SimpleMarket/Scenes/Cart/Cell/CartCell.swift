@@ -34,28 +34,34 @@ final class CartCell: UITableViewCell {
 
     private lazy var title: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
 
     private lazy var unitValue: UILabel = {
         let label = UILabel()
+        label.textColor = .systemGray
         return label
     }()
 
     private lazy var totalValue: UILabel = {
         let label = UILabel()
+        label.textColor = .systemGreen
         return label
     }()
 
     private lazy var quantity: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         return label
     }()
 
-    var product: Product? {
+    var orderItem: OrderItem? {
         didSet {
-            title.text = product?.description
-            unitValue.text = product?.price.toCurrencyFormat()
+            title.text = orderItem?.product?.description
+            unitValue.text = orderItem?.product?.price.toCurrencyFormat()
+            totalValue.text = orderItem?.totalValue.toCurrencyFormat()
+            quantity.text = orderItem?.quantity.description
             setImage()
         }
     }
@@ -74,18 +80,19 @@ final class CartCell: UITableViewCell {
     private func setupLayout() {
         addSubview(itemImageView)
         addSubview(addButton)
+        addSubview(removeButton)
         addSubview(title)
         addSubview(unitValue)
         addSubview(totalValue)
         addSubview(quantity)
 
         itemImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, width: 50)
-        title.anchor(top: topAnchor, leading: itemImageView.leadingAnchor, trailing: addButton.leadingAnchor, paddingTrailing: 50, height: 30)
-        unitValue.anchor(top: title.bottomAnchor, leading: itemImageView.leadingAnchor, trailing: addButton.leadingAnchor, paddingTrailing: 50, height: 30)
-        totalValue.anchor(top: unitValue.bottomAnchor, leading: itemImageView.leadingAnchor, trailing: addButton.leadingAnchor, paddingTrailing: 50, height: 30)
+        title.anchor(top: topAnchor, leading: itemImageView.trailingAnchor, trailing: trailingAnchor, paddingTrailing: 20, height: 30)
+        unitValue.anchor(top: title.bottomAnchor, leading: itemImageView.trailingAnchor, trailing: removeButton.leadingAnchor, paddingTrailing: 50, height: 30)
+        totalValue.anchor(top: unitValue.bottomAnchor, leading: itemImageView.trailingAnchor, trailing: addButton.leadingAnchor, paddingTrailing: 50, height: 30)
 
         addButton.anchor(bottom: bottomAnchor, trailing: trailingAnchor, width: 50, height: 50)
-        quantity.anchor(bottom: bottomAnchor, trailing: addButton.leadingAnchor, width: 30, height: 30)
+        quantity.anchor(trailing: addButton.leadingAnchor, width: 30, height: 30, centerVertical: addButton.centerYAnchor)
         removeButton.anchor(bottom: bottomAnchor, trailing: quantity.leadingAnchor, width: 50, height: 50)
     }
 
@@ -98,14 +105,14 @@ final class CartCell: UITableViewCell {
     }
 
     private func setImage() {
-        if let image = product?.image {
+        if let image = orderItem?.product?.image {
             itemImageView.image = image
         } else {
-            guard let imageURL = product?.imageURL else {
+            guard let imageURL = orderItem?.product?.imageURL else {
                 return
             }
             URLHelper().downloadImage(withURL: imageURL) { [weak self] image in
-                self?.product?.image = image
+                self?.orderItem?.product?.image = image
                 self?.itemImageView.image = image
             }
         }

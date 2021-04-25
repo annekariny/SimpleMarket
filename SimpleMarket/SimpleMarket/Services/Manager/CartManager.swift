@@ -90,4 +90,9 @@ final class CartManager {
             try? orderItemRepository.save(orderItem: orderItem)
         }
     }
+
+    func getOrderItems(from order: Order) -> [OrderItem] {
+        let orderItems = try? orderItemRepository.fecthOrderItems(from: order.id)
+        return orderItems ?? []
+    }
 }

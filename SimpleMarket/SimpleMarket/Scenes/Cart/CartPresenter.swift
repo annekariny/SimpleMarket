@@ -16,11 +16,20 @@ protocol CartPresenterProtocol {
 
 final class CartPresenter: CartPresenterProtocol {
     private weak var coordinator: CartCoordinatorProtocol?
+    private let cartManager = CartManager()
     weak var view: CartViewProtocol?
+    private var cart: Order?
     private var orderItems = [OrderItem]()
 
     init(coordinator: CartCoordinatorProtocol) {
         self.coordinator = coordinator
+        getOrderItems()
+    }
+
+    private func getOrderItems() {
+        cart = cartManager.orderInProgress()
+        orderItems = cartManager.getOrderItems(from: cartManager.orderInProgress())
+        view?.reloadTableView()
     }
 
     var title: String {

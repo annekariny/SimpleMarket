@@ -13,7 +13,7 @@ protocol CartViewProtocol: AnyObject {
 
 final class CartViewController: UIViewController {
     private let presenter: CartPresenterProtocol
-    private let rowHeight = CGFloat(50)
+    private let rowHeight = CGFloat(100)
 
     private lazy var tableView: UITableView = {
         let tableView: UITableView
@@ -26,6 +26,14 @@ final class CartViewController: UIViewController {
         tableView.delegate = self
         tableView.register(CartCell.self)
         return tableView
+    }()
+
+    private lazy var orderButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Order", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        button.backgroundColor = .systemGreen
+        return button
     }()
 
     init(presenter: CartPresenterProtocol) {
@@ -49,11 +57,19 @@ final class CartViewController: UIViewController {
 
     private func setupTableView() {
         view.addSubview(tableView)
+        view.addSubview(orderButton)
         tableView.anchor(
             top: view.topAnchor,
             leading: view.leadingAnchor,
-            bottom: view.bottomAnchor,
+            bottom: orderButton.topAnchor,
             trailing: view.trailingAnchor
+        )
+
+        orderButton.anchor(
+            leading: view.leadingAnchor,
+            bottom: view.bottomAnchor,
+            trailing: view.trailingAnchor,
+            height: 100
         )
     }
 
@@ -70,6 +86,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CartCell
         let orderItem = presenter.getOrderItem(for: indexPath.row)
+        cell.orderItem = orderItem
         return cell
     }
 
