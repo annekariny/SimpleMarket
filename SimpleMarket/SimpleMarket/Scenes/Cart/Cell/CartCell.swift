@@ -13,6 +13,14 @@ protocol CartCellDelegate: AnyObject {
 }
 
 final class CartCell: UITableViewCell {
+    private enum LayoutConstants {
+        static let titleFontSize: CGFloat = 16
+        static let defaultHeight: CGFloat = 50
+        static let defaultWidth: CGFloat = 50
+        static let textHeight: CGFloat = 30
+        static let padding: CGFloat = 20
+    }
+
     private lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -35,7 +43,7 @@ final class CartCell: UITableViewCell {
 
     private lazy var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: LayoutConstants.titleFontSize, weight: .semibold)
         return label
     }()
 
@@ -75,14 +83,14 @@ final class CartCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = false
         selectionStyle = .none
-        setupLayout()
+        addSubviews()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupLayout() {
+    private func addSubviews() {
         addSubview(itemImageView)
         addSubview(addButton)
         addSubview(removeButton)
@@ -91,14 +99,51 @@ final class CartCell: UITableViewCell {
         addSubview(totalValue)
         addSubview(quantity)
 
-        itemImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, width: 50)
-        title.anchor(top: topAnchor, leading: itemImageView.trailingAnchor, trailing: trailingAnchor, paddingTrailing: 20, height: 30)
-        unitValue.anchor(top: title.bottomAnchor, leading: itemImageView.trailingAnchor, trailing: removeButton.leadingAnchor, paddingTrailing: 50, height: 30)
-        totalValue.anchor(top: unitValue.bottomAnchor, leading: itemImageView.trailingAnchor, trailing: addButton.leadingAnchor, paddingTrailing: 50, height: 30)
-
-        addButton.anchor(bottom: bottomAnchor, trailing: trailingAnchor, width: 50, height: 50)
-        quantity.anchor(trailing: addButton.leadingAnchor, width: 30, height: 30, centerVertical: addButton.centerYAnchor)
-        removeButton.anchor(bottom: bottomAnchor, trailing: quantity.leadingAnchor, width: 50, height: 50)
+        itemImageView.anchor(
+            top: topAnchor,
+            leading: leadingAnchor,
+            bottom: bottomAnchor,
+            width: LayoutConstants.defaultWidth
+        )
+        title.anchor(
+            top: topAnchor,
+            leading: itemImageView.trailingAnchor,
+            trailing: trailingAnchor,
+            paddingTrailing: LayoutConstants.padding,
+            height: LayoutConstants.defaultHeight
+        )
+        unitValue.anchor(
+            top: title.bottomAnchor,
+            leading: itemImageView.trailingAnchor,
+            trailing: removeButton.leadingAnchor,
+            paddingTrailing: LayoutConstants.padding,
+            height: LayoutConstants.textHeight
+        )
+        totalValue.anchor(
+            top: unitValue.bottomAnchor,
+            leading: itemImageView.trailingAnchor,
+            trailing: addButton.leadingAnchor,
+            paddingTrailing: LayoutConstants.padding,
+            height: LayoutConstants.textHeight
+        )
+        addButton.anchor(
+            bottom: bottomAnchor,
+            trailing: trailingAnchor,
+            width: LayoutConstants.defaultWidth,
+            height: LayoutConstants.defaultHeight
+        )
+        quantity.anchor(
+            trailing: addButton.leadingAnchor,
+            width: LayoutConstants.textHeight,
+            height: LayoutConstants.textHeight,
+            centerVertical: addButton.centerYAnchor
+        )
+        removeButton.anchor(
+            bottom: bottomAnchor,
+            trailing: quantity.leadingAnchor,
+            width: LayoutConstants.defaultWidth,
+            height: LayoutConstants.defaultHeight
+        )
     }
 
     @objc private func didTapAddProduct() {

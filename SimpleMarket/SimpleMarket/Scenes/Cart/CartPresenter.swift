@@ -12,32 +12,40 @@ protocol CartPresenterProtocol {
     var numberOfRows: Int { get }
     func getOrderItem(for index: Int) -> OrderItem?
     func sumOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
-    func decreaseOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
-    func getOrderItems()
+    func reduceOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
     func didTapDone()
     func finishOrder()
+    func updateCart()
 }
 
-final class CartPresenter: CartPresenterProtocol {
+final class CartPresenter {
     private weak var coordinator: CartCoordinatorProtocol?
-    private let cartManager = CartManager()
     weak var view: CartViewProtocol?
-    private var cart: Order?
-    private var orderItems = [OrderItem]()
 
-    init(coordinator: CartCoordinatorProtocol) {
-        self.coordinator = coordinator
-    }
-
-    func getOrderItems() {
-        cart = cartManager.getCart()
-        if let cart = cart {
+    private let logger = Logger()
+    private let cartManager: CartManagerProtocol
+    private var cart: Order? {
+        didSet {
             orderItems = cartManager.getOrderItems(from: cart)
         }
-        view?.updateTotal(total: totalCart)
-        view?.reloadTableView()
+    }
+    private var orderItems = [OrderItem]()
+
+    init(
+        coordinator: CartCoordinatorProtocol,
+        cartManager: CartManagerProtocol = CartManager()
+    ) {
+        self.coordinator = coordinator
+        self.cartManager = cartManager
     }
 
+    deinit {
+        logger.info("CartPresenter deinitialized")
+    }
+}
+
+// MARK: - CartPresenterProtocol
+extension CartPresenter: CartPresenterProtocol {
     var title: String {
         "Cart"
     }
@@ -61,17 +69,22 @@ final class CartPresenter: CartPresenterProtocol {
         guard let orderItem = orderItem else {
             return
         }
-        cartManager.sumOrderItemQuantity(orderItem: orderItem)
-        getOrderItems()
-        view?.reloadRow(at: index)
+        cartManager.sumQuantity(from: orderItem)
+        updateCart()
     }
 
-    func decreaseOrderItemQuantity(_ orderItem: OrderItem?, at index: Int) {
+    func reduceOrderItemQuantity(_ orderItem: OrderItem?, at index: Int) {
         guard let orderItem = orderItem else {
             return
         }
-        cartManager.decreaseOrderItemQuantity(orderItem: orderItem)
-        getOrderItems()
+        cartManager.reduceQuantity(from: orderItem)
+        view?.reloadTableView()
+        updateCart()
+    }
+
+    func updateCart() {
+        cart = cartManager.getCart()
+        view?.updateTotalCart(total: totalCart)
         view?.reloadTableView()
     }
 

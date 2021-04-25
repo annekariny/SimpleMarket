@@ -8,42 +8,13 @@
 import UIKit
 
 protocol CartViewProtocol: AnyObject {
-    func deleteRow(at index: Int)
-    func reloadRow(at index: Int)
     func reloadTableView()
-    func updateTotal(total: String)
+    func updateTotalCart(total: String)
 }
 
 final class CartViewController: UIViewController {
+    private let logger = Logger()
     private let presenter: CartPresenterProtocol
-    private let rowHeight = CGFloat(100)
-
-    private lazy var tableView: UITableView = {
-        let tableView: UITableView
-        tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = rowHeight
-        tableView.backgroundColor = .clear
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(CartCell.self)
-        return tableView
-    }()
-
-    private lazy var totalOrder: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        return label
-    }()
-
-    private lazy var orderButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Order", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        button.backgroundColor = .systemGreen
-        button.addTarget(self, action: #selector(finishOrder), for: .touchUpInside)
-        return button
-    }()
 
     init(presenter: CartPresenterProtocol) {
         self.presenter = presenter
@@ -54,22 +25,69 @@ final class CartViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        logger.info("CartViewController deinitialized")
+    }
+
+    // MARK: Setup Layout
+    private enum LayoutConstants {
+        static let orderButtonFontSize: CGFloat = 30
+        static let orderButtonHeight: CGFloat = 100
+        static let rowHeight: CGFloat = 100
+        static let totalValueFontSize: CGFloat = 24
+        static let totalValueHeight: CGFloat = 40
+    }
+
+    private lazy var tableView: UITableView = {
+        let tableView: UITableView
+        tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CartCell.self)
+        return tableView
+    }()
+
+    private lazy var totalOrder: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: LayoutConstants.totalValueFontSize, weight: .semibold)
+        return label
+    }()
+
+    private lazy var orderButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Order", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: LayoutConstants.orderButtonFontSize, weight: .bold)
+        button.backgroundColor = .systemGreen
+        button.addTarget(self, action: #selector(finishOrder), for: .touchUpInside)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewLayout()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.updateCart()
+    }
+
+    private func setupViewLayout() {
         title = presenter.title
         view.backgroundColor = .systemGroupedBackground
+        setupNavigation()
+        addSubviews()
+    }
+
+    private func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
-        setupTableView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presenter.getOrderItems()
-    }
-
-    private func setupTableView() {
+    private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(orderButton)
         view.addSubview(totalOrder)
@@ -85,14 +103,14 @@ final class CartViewController: UIViewController {
             leading: view.leadingAnchor,
             bottom: orderButton.topAnchor,
             trailing: view.trailingAnchor,
-            height: 40
+            height: LayoutConstants.totalValueHeight
         )
 
         orderButton.anchor(
             leading: view.leadingAnchor,
             bottom: view.bottomAnchor,
             trailing: view.trailingAnchor,
-            height: 100
+            height: LayoutConstants.orderButtonHeight
         )
     }
 
@@ -105,6 +123,7 @@ final class CartViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource and UITableViewDelegate
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.numberOfRows
@@ -120,34 +139,28 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        rowHeight
+        LayoutConstants.rowHeight
     }
 }
 
+// MARK: - CartViewProtocol
 extension CartViewController: CartViewProtocol {
-    func deleteRow(at index: Int) {
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-    }
-
-    func reloadRow(at index: Int) {
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-    }
-
     func reloadTableView() {
         tableView.reloadData()
     }
 
-    func updateTotal(total: String) {
+    func updateTotalCart(total: String) {
         totalOrder.text = total
     }
 }
 
+// MARK: - CartCellDelegate
 extension CartViewController: CartCellDelegate {
     func didTapAdd(_ orderItem: OrderItem?, at index: Int) {
         presenter.sumOrderItemQuantity(orderItem, at: index)
     }
 
     func didTapRemove(_ orderItem: OrderItem?, at index: Int) {
-        presenter.decreaseOrderItemQuantity(orderItem, at: index)
+        presenter.reduceOrderItemQuantity(orderItem, at: index)
     }
 }

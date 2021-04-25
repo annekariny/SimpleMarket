@@ -10,9 +10,9 @@ import Foundation
 protocol CartManagerProtocol {
     func getCart() -> Order?
     func sumProductQuantity(product: Product)
-    func sumOrderItemQuantity(orderItem: OrderItem)
-    func decreaseOrderItemQuantity(orderItem: OrderItem)
-    func getOrderItems(from order: Order) -> [OrderItem]
+    func sumQuantity(from orderItem: OrderItem)
+    func reduceQuantity(from orderItem: OrderItem)
+    func getOrderItems(from order: Order?) -> [OrderItem]
     func finishOrder(_ order: Order?)
     func deleteAll()
     func saveCart()
@@ -70,17 +70,13 @@ final class CartManager {
         }
     }
 
-    @discardableResult
-    private func deleteProductIfNeeded(_ product: Product?) -> Bool {
+    private func deleteProductIfNeeded(_ product: Product?) {
         guard let product = product else {
-            return false
+            return
         }
         let orderItems = try? orderItemRepository.fecthOrderItems(forProductID: product.id)
         if orderItems?.isEmpty ?? false {
             try? productRepository.delete(product: product)
-            return true
-        } else {
-            return false
         }
     }
 
@@ -119,30 +115,34 @@ extension CartManager: CartManagerProtocol {
         }
 
         // Increase Order Item quantity by 1
-        sumOrderItemQuantity(orderItem: orderItem)
-        saveCart()
+        sumQuantity(from: orderItem)
+
+        // Update Order
+        guard let cart = persistedOrderInProgress else {
+            return
+        }
+        try? orderRepository.save(order: cart)
     }
 
-    func sumOrderItemQuantity(orderItem: OrderItem) {
-        var modifiedOrderItem = orderItem
-        modifiedOrderItem.quantity += 1
-        try? orderItemRepository.save(orderItem: modifiedOrderItem)
+    func sumQuantity(from orderItem: OrderItem) {
+        try? orderItemRepository.addQuantity(on: orderItem)
     }
 
-    func decreaseOrderItemQuantity(orderItem: OrderItem) {
-        var modifiedOrderItem = orderItem
-        modifiedOrderItem.quantity -= 1
+    func reduceQuantity(from orderItem: OrderItem) {
+        let quantity = orderItem.quantity
+        try? orderItemRepository.removeQuantity(on: orderItem)
 
-        if modifiedOrderItem.quantity == 0 {
-            let product = modifiedOrderItem.product
+        // If there was only 1 before delete, remove Order Item and Product
+        if quantity == 1 {
             removeOrderItem(orderItem)
-            deleteProductIfNeeded(product)
-        } else {
-            try? orderItemRepository.save(orderItem: modifiedOrderItem)
+            deleteProductIfNeeded(orderItem.product)
         }
     }
 
-    func getOrderItems(from order: Order) -> [OrderItem] {
+    func getOrderItems(from order: Order?) -> [OrderItem] {
+        guard let order = order else {
+            return []
+        }
         let orderItems = try? orderItemRepository.fecthOrderItems(forOrderID: order.id)
         return orderItems ?? []
     }
@@ -165,6 +165,7 @@ extension CartManager: CartManagerProtocol {
         guard let cart = persistedOrderInProgress else {
             return
         }
+        updateListeners()
         try? orderRepository.save(order: cart)
     }
 }

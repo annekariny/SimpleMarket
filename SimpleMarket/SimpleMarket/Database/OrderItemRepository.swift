@@ -12,6 +12,8 @@ protocol OrderItemRepositoryProtocol {
     func fecthOrderItems(forOrderID orderID: Int) throws -> [OrderItem]
     func fecthOrderItem(forProductID productID: Int, andOrderID orderID: Int) throws -> OrderItem?
     func fetchAll() throws -> [OrderItem]
+    func addQuantity(on orderItem: OrderItem) throws
+    func removeQuantity(on orderItem: OrderItem) throws
     func save(orderItem: OrderItem) throws
     func delete(orderItem: OrderItem) throws
     func deleteAll() throws
@@ -70,6 +72,18 @@ final class OrderItemRepository: OrderItemRepositoryProtocol {
         let realm = try realmFactory.makeRealm()
         let realmOrderItems = realm.objects(RealmOrderItem.self)
         return realmOrderItems.map { OrderItem(from: $0) }
+    }
+
+    func addQuantity(on orderItem: OrderItem) throws {
+        var modifiedOrderItem = orderItem
+        modifiedOrderItem.quantity += 1
+        try save(orderItem: modifiedOrderItem)
+    }
+
+    func removeQuantity(on orderItem: OrderItem) throws {
+        var modifiedOrderItem = orderItem
+        modifiedOrderItem.quantity -= 1
+        try save(orderItem: modifiedOrderItem)
     }
 
     func save(orderItem: OrderItem) throws {

@@ -18,10 +18,15 @@ final class CartCoordinator: CartCoordinatorProtocol {
     private weak var parent: Coordinator?
     private let parentNavigationController: UINavigationController
     private var navigationController: UINavigationController?
+    private let logger = Logger()
 
     init(navigationController: UINavigationController, parent: Coordinator) {
         self.parentNavigationController = navigationController
         self.parent = parent
+    }
+
+    deinit {
+        logger.info("CartCoordinator deinitialized")
     }
 
     func start() {
@@ -42,7 +47,7 @@ final class CartCoordinator: CartCoordinatorProtocol {
 
     func showFinishOrderAlert() {
         let alertController = UIAlertController(title: "Finish", message: "Your order is saved!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self]_ in
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             self?.finish()
         }
         alertController.addAction(okAction)
