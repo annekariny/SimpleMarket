@@ -23,20 +23,17 @@ final class CartManager {
     private let orderItemRepository: OrderItemRepositoryProtocol
     private let orderRepository: OrderRepositoryProtocol
     private var keyValueStorage: KeyValueStorageProtocol
-    private let notificationManager: NotificationManagerProtocol
 
     init(
         productRepository: ProductRepositoryProtocol = ProductRepository(),
         orderItemRepository: OrderItemRepositoryProtocol = OrderItemRepository(),
         orderRepository: OrderRepositoryProtocol = OrderRepository(),
-        keyValueStorage: KeyValueStorageProtocol = KeyValueStorage(),
-        notificationManager: NotificationManagerProtocol = NotificationManager()
+        keyValueStorage: KeyValueStorageProtocol = KeyValueStorage()
     ) {
         self.productRepository = productRepository
         self.orderItemRepository = orderItemRepository
         self.orderRepository = orderRepository
         self.keyValueStorage = keyValueStorage
-        self.notificationManager = notificationManager
     }
 
     private var persistedOrderInProgress: Order? {
@@ -88,10 +85,6 @@ final class CartManager {
         try? orderItemRepository.delete(orderItem: orderItem)
         try? orderRepository.save(order: order)
     }
-
-    private func updateListeners() {
-        notificationManager.post(notification: LocalNotification.orderSaved, object: nil, userInfo: nil)
-    }
 }
 
 extension CartManager: CartManagerProtocol {
@@ -118,10 +111,7 @@ extension CartManager: CartManagerProtocol {
         sumQuantity(from: orderItem)
 
         // Update Order
-        guard let cart = persistedOrderInProgress else {
-            return
-        }
-        try? orderRepository.save(order: cart)
+        saveCart()
     }
 
     func sumQuantity(from orderItem: OrderItem) {
@@ -165,7 +155,6 @@ extension CartManager: CartManagerProtocol {
         guard let cart = persistedOrderInProgress else {
             return
         }
-        updateListeners()
         try? orderRepository.save(order: cart)
     }
 }

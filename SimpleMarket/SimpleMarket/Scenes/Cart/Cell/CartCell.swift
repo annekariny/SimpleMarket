@@ -109,6 +109,7 @@ final class CartCell: UITableViewCell {
             top: topAnchor,
             leading: itemImageView.trailingAnchor,
             trailing: trailingAnchor,
+            paddingLeading: LayoutConstants.padding,
             paddingTrailing: LayoutConstants.padding,
             height: LayoutConstants.defaultHeight
         )
@@ -116,6 +117,7 @@ final class CartCell: UITableViewCell {
             top: title.bottomAnchor,
             leading: itemImageView.trailingAnchor,
             trailing: removeButton.leadingAnchor,
+            paddingLeading: LayoutConstants.padding,
             paddingTrailing: LayoutConstants.padding,
             height: LayoutConstants.textHeight
         )
@@ -123,6 +125,7 @@ final class CartCell: UITableViewCell {
             top: unitValue.bottomAnchor,
             leading: itemImageView.trailingAnchor,
             trailing: addButton.leadingAnchor,
+            paddingLeading: LayoutConstants.padding,
             paddingTrailing: LayoutConstants.padding,
             height: LayoutConstants.textHeight
         )

@@ -33,6 +33,7 @@ final class CartViewController: UIViewController {
     private enum LayoutConstants {
         static let orderButtonFontSize: CGFloat = 30
         static let orderButtonHeight: CGFloat = 100
+        static let padding: CGFloat = 10
         static let rowHeight: CGFloat = 100
         static let totalValueFontSize: CGFloat = 24
         static let totalValueHeight: CGFloat = 40
@@ -98,14 +99,13 @@ final class CartViewController: UIViewController {
             bottom: totalOrder.topAnchor,
             trailing: view.trailingAnchor
         )
-
         totalOrder.anchor(
             leading: view.leadingAnchor,
             bottom: orderButton.topAnchor,
             trailing: view.trailingAnchor,
+            paddingLeading: LayoutConstants.padding,
             height: LayoutConstants.totalValueHeight
         )
-
         orderButton.anchor(
             leading: view.leadingAnchor,
             bottom: view.bottomAnchor,
