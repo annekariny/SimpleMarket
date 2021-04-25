@@ -17,7 +17,7 @@ final class CartCell: UITableViewCell {
         static let titleFontSize: CGFloat = 16
         static let defaultHeight: CGFloat = 50
         static let defaultWidth: CGFloat = 50
-        static let textHeight: CGFloat = 30
+        static let textHeight: CGFloat = 20
         static let padding: CGFloat = 20
     }
 

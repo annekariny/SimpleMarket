@@ -15,10 +15,15 @@ final class MarketCoordinator: MarketCoordinatorProtocol {
     private let navigationController: UINavigationController
     private let window: UIWindow
     var childCoordinators = [Coordinator]()
+    private let logger = Logger()
 
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
+    }
+
+    deinit {
+        logger.info("MarketCoordinator deinitialized")
     }
 
     func start() {

@@ -12,10 +12,38 @@ protocol MarketViewProtocol: AnyObject {
 }
 
 final class MarketViewController: UIViewController {
+    private let presenter: MarketPresenterProtocol
+    private let logger = Logger()
+
+    init(presenter: MarketPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        logger.info("MarketViewController deinitialized")
+    }
+
+    // MARK: Setup View Layout
+    private enum LayouContants {
+        static let cellInset: CGFloat = 30
+        static let cellSize: CGFloat = 150
+        static let cartButtonSize: CGFloat = 25
+    }
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
-        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.sectionInset = UIEdgeInsets(
+            top: LayouContants.cellInset,
+            left: LayouContants.cellInset,
+            bottom: LayouContants.cellInset,
+            right: LayouContants.cellInset
+        )
+        layout.itemSize = CGSize(width: LayouContants.cellSize, height: LayouContants.cellSize)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MarketCell.self)
         collectionView.backgroundColor = .white
@@ -25,23 +53,15 @@ final class MarketViewController: UIViewController {
     }()
 
     private lazy var cartButton: UIBarButtonItem = {
-        let buttonSize = CGRect(origin: .zero, size: CGSize(width: 25, height: 25))
+        let buttonSize = CGRect(
+            origin: .zero,
+            size: CGSize(width: LayouContants.cartButtonSize, height: LayouContants.cartButtonSize)
+        )
         let button = UIButton(frame: buttonSize)
         button.setBackgroundImage(Image.cart, for: .normal)
         button.addTarget(self, action: #selector(openCart), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
-
-    private let presenter: HomePresenterProtocol
-
-    init(presenter: HomePresenterProtocol) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +88,7 @@ final class MarketViewController: UIViewController {
     }
 
     @objc private func openOrders() {
+        // TODO
     }
 
     @objc private func openCart() {
@@ -83,11 +104,8 @@ final class MarketViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate and UICollectionViewDataSource
 extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        presenter.numberOfSections
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfItemsInSection
     }
@@ -100,12 +118,14 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+// MARK: - MarketViewProtocol
 extension MarketViewController: MarketViewProtocol {
     func reloadCollectionView() {
         collectionView.reloadData()
     }
 }
 
+// MARK: - MarketCellDelegate
 extension MarketViewController: MarketCellDelegate {
     func didTapAddProduct(_ product: Product?) {
         presenter.addProductToCart(product)

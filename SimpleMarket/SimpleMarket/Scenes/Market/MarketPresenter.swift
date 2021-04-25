@@ -7,9 +7,8 @@
 
 import Foundation
 
-protocol HomePresenterProtocol {
+protocol MarketPresenterProtocol {
     var title: String { get }
-    var numberOfSections: Int { get }
     var numberOfItemsInSection: Int { get }
     func getProduct(from index: Int) -> Product?
     func addProductToCart(_ product: Product?)
@@ -17,37 +16,32 @@ protocol HomePresenterProtocol {
 }
 
 final class MarketPresenter {
-    weak var view: MarketViewProtocol?
     private weak var coordinator: MarketCoordinatorProtocol?
-    private let productAPIManager: ProductAPIManagerProtocol?
-    private let cartManager = CartManager()
+    weak var view: MarketViewProtocol?
+
+    private let productAPIManager: ProductAPIManagerProtocol
+    private let cartManager: CartManagerProtocol
     private var products = [Product]()
-    private var cart: Order?
-    private let notificationManager: NotificationManagerProtocol
+    private let logger = Logger()
 
     init(
         coordinator: MarketCoordinatorProtocol,
         productAPIManager: ProductAPIManagerProtocol = ProductAPIManager(),
-        notificationManager: NotificationManagerProtocol = NotificationManager()
+        cartManager: CartManagerProtocol = CartManager()
     ) {
         self.coordinator = coordinator
         self.productAPIManager = productAPIManager
-        self.notificationManager = notificationManager
+        self.cartManager = cartManager
         fetchProductsFromAPI()
-        cartManager.deleteAll()
-        getCart()
-        addListeners()
+        // cartManager.deleteAll()
     }
 
     deinit {
-    }
-
-    private func addListeners() {
-        notificationManager.add(observer: self, selector: #selector(getCart), notification: LocalNotification.orderSaved, object: nil)
+        logger.info("MarketPresenter deinitialized")
     }
 
     private func fetchProductsFromAPI() {
-        productAPIManager?.getProducts { [weak self] (products, error) in
+        productAPIManager.getProducts { [weak self] (products, error) in
             guard error == nil else {
                 return
             }
@@ -55,19 +49,12 @@ final class MarketPresenter {
             self?.view?.reloadCollectionView()
         }
     }
-
-    @objc private func getCart() {
-        cart = cartManager.getCart()
-    }
 }
 
-extension MarketPresenter: HomePresenterProtocol {
+// MARK: - MarketPresenterProtocol
+extension MarketPresenter: MarketPresenterProtocol {
     var title: String {
         "Market"
-    }
-
-    var numberOfSections: Int {
-        1
     }
 
     var numberOfItemsInSection: Int {
@@ -86,7 +73,6 @@ extension MarketPresenter: HomePresenterProtocol {
             return
         }
         cartManager.sumProductQuantity(product: product)
-        getCart()
     }
 
     func openCart() {
