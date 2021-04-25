@@ -20,6 +20,22 @@ struct Product {
         URL(string: imageURLString)
     }
 
+    init(
+        id: Int,
+        price: Double,
+        description: String,
+        stock: Int? = nil,
+        offer: Double? = nil,
+        imageURLString: String
+    ) {
+        self.id = id
+        self.price = price
+        self.description = description
+        self.stock = stock
+        self.offer = offer
+        self.imageURLString = imageURLString
+    }
+
     init(from decodableProduct: DecodableProduct) {
         id = decodableProduct.id
         price = decodableProduct.price
@@ -36,5 +52,17 @@ struct Product {
         description = realmProduct.productDescription
         stock = realmProduct.stock
         offer = realmProduct.offer
+    }
+}
+
+extension Product: Equatable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.price == rhs.price &&
+            lhs.description == rhs.description &&
+            lhs.stock == rhs.stock &&
+            lhs.offer == rhs.offer &&
+            lhs.imageURLString == rhs.imageURLString
     }
 }
