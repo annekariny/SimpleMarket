@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
 		AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903442634A84B00230B73 /* ProductAPIRequest.swift */; };
 		AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
+		AA3B4A2D26355448000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A2C26355448000C51E6 /* Realm */; };
+		AA3B4A2F26355448000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A2E26355448000C51E6 /* RealmSwift */; };
 		AA64969B2634CD5D0067FB03 /* OrderItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969A2634CD5D0067FB03 /* OrderItemRepository.swift */; };
 		AA64969F2634CE4F0067FB03 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA64969E2634CE4F0067FB03 /* ProductRepository.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
@@ -99,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA3B4A2F26355448000C51E6 /* RealmSwift in Frameworks */,
+				AA3B4A2D26355448000C51E6 /* Realm in Frameworks */,
 				96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,8 +342,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA78570A26345711007A261D /* Build configuration list for PBXNativeTarget "SimpleMarket" */;
 			buildPhases = (
-				AAED2EE72634BA0D00E4980F /* SwiftLint */,
 				FE660B64B7C27AA94334FE28 /* [CP] Check Pods Manifest.lock */,
+				AAED2EE72634BA0D00E4980F /* SwiftLint */,
 				AA7856F226345710007A261D /* Sources */,
 				AA7856F326345710007A261D /* Frameworks */,
 				AA7856F426345710007A261D /* Resources */,
@@ -349,6 +353,10 @@
 			dependencies = (
 			);
 			name = SimpleMarket;
+			packageProductDependencies = (
+				AA3B4A2C26355448000C51E6 /* Realm */,
+				AA3B4A2E26355448000C51E6 /* RealmSwift */,
+			);
 			productName = SimpleMarket;
 			productReference = AA7856F626345710007A261D /* SimpleMarket.app */;
 			productType = "com.apple.product-type.application";
@@ -376,6 +384,9 @@
 				Base,
 			);
 			mainGroup = AA7856ED26345710007A261D;
+			packageReferences = (
+				AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = AA7856F726345710007A261D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -674,6 +685,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA3B4A2C26355448000C51E6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		AA3B4A2E26355448000C51E6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A2B26355448000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AAD9B01F2634C25900A7C4E4 /* SimpleMarket.xcdatamodeld */ = {
