@@ -28,9 +28,22 @@
 		AA28CE04263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */; };
 		AA28CE07263734AB001BE85A /* OrdersWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA28CE192637353D001BE85A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE0F263734E6001BE85A /* Provider.swift */; };
-		AA28CE2026373543001BE85A /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE1426373522001BE85A /* EntryView.swift */; };
+		AA28CE2026373543001BE85A /* OrdersWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */; };
+		AA28CE2C263736A4001BE85A /* OrdersWidgetEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */; };
+		AA28CE372637377C001BE85A /* OrdersEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE362637377C001BE85A /* OrdersEntry.swift */; };
+		AA2B81D32637436A0014A3CF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0112634BD4A00A7C4E4 /* Order.swift */; };
+		AA2B81D7263743740014A3CF /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B00C2634BCF700A7C4E4 /* OrderItem.swift */; };
+		AA2B81DB263743780014A3CF /* RealmOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F032634F7B2005BC1EC /* RealmOrderItem.swift */; };
+		AA2B81E02637439F0014A3CF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA2B81DF2637439F0014A3CF /* Realm */; };
+		AA2B81E22637439F0014A3CF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA2B81E12637439F0014A3CF /* RealmSwift */; };
+		AA2B81E6263743AC0014A3CF /* RealmProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496B92634F5FB0067FB03 /* RealmProduct.swift */; };
+		AA2B81EA263743B20014A3CF /* RealmOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F002634F722005BC1EC /* RealmOrder.swift */; };
+		AA2B81EE263743B90014A3CF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D826349D77007461F0 /* Product.swift */; };
+		AA2B81F2263743C10014A3CF /* Product+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB77263499CC00260F6F /* Product+Decodable.swift */; };
 		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
 		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
+		AA4DACFD26374EA400EE4FCD /* SmallOrderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */; };
+		AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
 		AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A52634D83A0067FB03 /* UITableView+Register.swift */; };
 		AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496B92634F5FB0067FB03 /* RealmProduct.swift */; };
@@ -58,6 +71,10 @@
 		AA8DFB7C26349A7400260F6F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB7B26349A7400260F6F /* Request.swift */; };
 		AA8DFB8026349ABF00260F6F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB7F26349ABF00260F6F /* Reachability.swift */; };
 		AA8DFB8326349AF800260F6F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB8226349AF800260F6F /* NetworkError.swift */; };
+		AAD13FCF263753D6009ED092 /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F0626354001005BC1EC /* OrderRepository.swift */; };
+		AAD13FD3263753DF009ED092 /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1026354075005BC1EC /* RealmFactory.swift */; };
+		AAD13FD7263753E7009ED092 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
+		AAD13FDB263753F9009ED092 /* FileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1326354083005BC1EC /* FileManagerProtocol.swift */; };
 		AAD16CF426372AED000619D8 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD16CF326372AED000619D8 /* OrdersViewController.swift */; };
 		AAD16CFA26372AF9000619D8 /* OrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD16CF926372AF9000619D8 /* OrdersPresenter.swift */; };
 		AAD16CFE26372B08000619D8 /* OrdersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD16CFD26372B08000619D8 /* OrdersCoordinator.swift */; };
@@ -132,7 +149,10 @@
 		AA28CE00263734AB001BE85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA28CE02263734AB001BE85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA28CE0F263734E6001BE85A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		AA28CE1426373522001BE85A /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryView.swift; sourceTree = "<group>"; };
+		AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryViewModel.swift; sourceTree = "<group>"; };
+		AA28CE362637377C001BE85A /* OrdersEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEntry.swift; sourceTree = "<group>"; };
+		AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallOrderWidgetView.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
@@ -190,6 +210,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2B81E22637439F0014A3CF /* RealmSwift in Frameworks */,
+				AA2B81E02637439F0014A3CF /* Realm in Frameworks */,
 				AA28CDFB263734AA001BE85A /* SwiftUI.framework in Frameworks */,
 				AA28CDF9263734AA001BE85A /* WidgetKit.framework in Frameworks */,
 			);
@@ -255,7 +277,10 @@
 			children = (
 				AA28CDFD263734AA001BE85A /* OrdersWidget.swift */,
 				AA28CE0F263734E6001BE85A /* Provider.swift */,
-				AA28CE1426373522001BE85A /* EntryView.swift */,
+				AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */,
+				AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */,
+				AA28CE362637377C001BE85A /* OrdersEntry.swift */,
+				AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */,
 				AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */,
 				AA28CE00263734AB001BE85A /* Assets.xcassets */,
 				AA28CE02263734AB001BE85A /* Info.plist */,
@@ -542,6 +567,10 @@
 			dependencies = (
 			);
 			name = OrdersWidgetExtension;
+			packageProductDependencies = (
+				AA2B81DF2637439F0014A3CF /* Realm */,
+				AA2B81E12637439F0014A3CF /* RealmSwift */,
+			);
 			productName = OrdersWidgetExtension;
 			productReference = AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -705,10 +734,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2B81DB263743780014A3CF /* RealmOrderItem.swift in Sources */,
+				AA4DACFD26374EA400EE4FCD /* SmallOrderWidgetView.swift in Sources */,
 				AA28CDFE263734AA001BE85A /* OrdersWidget.swift in Sources */,
+				AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */,
+				AAD13FDB263753F9009ED092 /* FileManagerProtocol.swift in Sources */,
 				AA28CE192637353D001BE85A /* Provider.swift in Sources */,
+				AA28CE2C263736A4001BE85A /* OrdersWidgetEntryViewModel.swift in Sources */,
+				AAD13FD3263753DF009ED092 /* RealmFactory.swift in Sources */,
 				AA28CE03263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */,
-				AA28CE2026373543001BE85A /* EntryView.swift in Sources */,
+				AA2B81F2263743C10014A3CF /* Product+Decodable.swift in Sources */,
+				AA2B81EE263743B90014A3CF /* Product.swift in Sources */,
+				AA2B81E6263743AC0014A3CF /* RealmProduct.swift in Sources */,
+				AA28CE2026373543001BE85A /* OrdersWidgetEntryView.swift in Sources */,
+				AA2B81D7263743740014A3CF /* OrderItem.swift in Sources */,
+				AAD13FCF263753D6009ED092 /* OrderRepository.swift in Sources */,
+				AA2B81EA263743B20014A3CF /* RealmOrder.swift in Sources */,
+				AA28CE372637377C001BE85A /* OrdersEntry.swift in Sources */,
+				AAD13FD7263753E7009ED092 /* UserDefaultsProtocol.swift in Sources */,
+				AA2B81D32637436A0014A3CF /* Order.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,6 +1037,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleMarket/SimpleMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F476P237J6;
 				INFOPLIST_FILE = SimpleMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1014,6 +1059,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleMarket/SimpleMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F476P237J6;
 				INFOPLIST_FILE = SimpleMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1079,6 +1125,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AA2B81DF2637439F0014A3CF /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		AA2B81E12637439F0014A3CF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		AA3B4A3F2635560D000C51E6 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AA3B4A3E2635560D000C51E6 /* XCRemoteSwiftPackageReference "realm-cocoa" */;

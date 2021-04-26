@@ -39,3 +39,9 @@ extension Order: Equatable {
         lhs.id == rhs.id && lhs.isFinished == rhs.isFinished && lhs.orderItems == rhs.orderItems
     }
 }
+
+extension Order: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
