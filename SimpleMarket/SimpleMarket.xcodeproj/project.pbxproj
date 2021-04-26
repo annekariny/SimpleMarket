@@ -20,6 +20,15 @@
 		AA191F1826354584005BC1EC /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1726354584005BC1EC /* CartManager.swift */; };
 		AA2141E42635B9F40083F32D /* UIView+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141E32635B9F40083F32D /* UIView+Animate.swift */; };
 		AA2141EF263602C20083F32D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141EE263602C20083F32D /* Logger.swift */; };
+		AA28CDF9263734AA001BE85A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28CDF8263734AA001BE85A /* WidgetKit.framework */; };
+		AA28CDFB263734AA001BE85A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28CDFA263734AA001BE85A /* SwiftUI.framework */; };
+		AA28CDFE263734AA001BE85A /* OrdersWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFD263734AA001BE85A /* OrdersWidget.swift */; };
+		AA28CE01263734AB001BE85A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA28CE00263734AB001BE85A /* Assets.xcassets */; };
+		AA28CE03263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */; };
+		AA28CE04263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */; };
+		AA28CE07263734AB001BE85A /* OrdersWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA28CE192637353D001BE85A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE0F263734E6001BE85A /* Provider.swift */; };
+		AA28CE2026373543001BE85A /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE1426373522001BE85A /* EntryView.swift */; };
 		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
 		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
@@ -73,7 +82,28 @@
 			remoteGlobalIDString = AA7856F526345710007A261D;
 			remoteInfo = SimpleMarket;
 		};
+		AA28CE05263734AB001BE85A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA7856EE26345710007A261D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA28CDF6263734AA001BE85A;
+			remoteInfo = OrdersWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA28CE0B263734AB001BE85A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA28CE07263734AB001BE85A /* OrdersWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.release.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +123,16 @@
 		AA2141EE263602C20083F32D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		AA2141F826360B880083F32D /* SimpleMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2141FC26360B880083F32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA28CDF026373465001BE85A /* SimpleMarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleMarket.entitlements; sourceTree = "<group>"; };
+		AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrdersWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA28CDF8263734AA001BE85A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AA28CDFA263734AA001BE85A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AA28CDFD263734AA001BE85A /* OrdersWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidget.swift; sourceTree = "<group>"; };
+		AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = OrdersWidget.intentdefinition; sourceTree = "<group>"; };
+		AA28CE00263734AB001BE85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA28CE02263734AB001BE85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA28CE0F263734E6001BE85A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		AA28CE1426373522001BE85A /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
@@ -143,6 +183,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA28CDF4263734AA001BE85A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA28CDFB263734AA001BE85A /* SwiftUI.framework in Frameworks */,
+				AA28CDF9263734AA001BE85A /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +250,19 @@
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
 		};
+		AA28CDFC263734AA001BE85A /* OrdersWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AA28CDFD263734AA001BE85A /* OrdersWidget.swift */,
+				AA28CE0F263734E6001BE85A /* Provider.swift */,
+				AA28CE1426373522001BE85A /* EntryView.swift */,
+				AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */,
+				AA28CE00263734AB001BE85A /* Assets.xcassets */,
+				AA28CE02263734AB001BE85A /* Info.plist */,
+			);
+			path = OrdersWidget;
+			sourceTree = "<group>";
+		};
 		AA6496A12634D55B0067FB03 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +276,7 @@
 			children = (
 				AA7856F826345710007A261D /* SimpleMarket */,
 				AA2141F926360B880083F32D /* SimpleMarketTests */,
+				AA28CDFC263734AA001BE85A /* OrdersWidget */,
 				AA7856F726345710007A261D /* Products */,
 				22CB1AC2D755FF5D1E13A31F /* Pods */,
 				F6889FAA7A653EF7901C5C67 /* Frameworks */,
@@ -225,6 +288,7 @@
 			children = (
 				AA7856F626345710007A261D /* SimpleMarket.app */,
 				AA2141F826360B880083F32D /* SimpleMarketTests.xctest */,
+				AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,6 +296,7 @@
 		AA7856F826345710007A261D /* SimpleMarket */ = {
 			isa = PBXGroup;
 			children = (
+				AA28CDF026373465001BE85A /* SimpleMarket.entitlements */,
 				AA7856F926345710007A261D /* AppDelegate.swift */,
 				AA7856FB26345710007A261D /* SceneDelegate.swift */,
 				AA8DFB52263458C000260F6F /* Scenes */,
@@ -437,6 +502,8 @@
 			isa = PBXGroup;
 			children = (
 				358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */,
+				AA28CDF8263734AA001BE85A /* WidgetKit.framework */,
+				AA28CDFA263734AA001BE85A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -462,6 +529,23 @@
 			productReference = AA2141F826360B880083F32D /* SimpleMarketTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AA28CDF6263734AA001BE85A /* OrdersWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA28CE08263734AB001BE85A /* Build configuration list for PBXNativeTarget "OrdersWidgetExtension" */;
+			buildPhases = (
+				AA28CDF3263734AA001BE85A /* Sources */,
+				AA28CDF4263734AA001BE85A /* Frameworks */,
+				AA28CDF5263734AA001BE85A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrdersWidgetExtension;
+			productName = OrdersWidgetExtension;
+			productReference = AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AA7856F526345710007A261D /* SimpleMarket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA78570A26345711007A261D /* Build configuration list for PBXNativeTarget "SimpleMarket" */;
@@ -471,10 +555,12 @@
 				AA7856F226345710007A261D /* Sources */,
 				AA7856F326345710007A261D /* Frameworks */,
 				AA7856F426345710007A261D /* Resources */,
+				AA28CE0B263734AB001BE85A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA28CE06263734AB001BE85A /* PBXTargetDependency */,
 			);
 			name = SimpleMarket;
 			packageProductDependencies = (
@@ -497,6 +583,9 @@
 					AA2141F726360B880083F32D = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = AA7856F526345710007A261D;
+					};
+					AA28CDF6263734AA001BE85A = {
+						CreatedOnToolsVersion = 12.4;
 					};
 					AA7856F526345710007A261D = {
 						CreatedOnToolsVersion = 12.4;
@@ -521,6 +610,7 @@
 			targets = (
 				AA7856F526345710007A261D /* SimpleMarket */,
 				AA2141F726360B880083F32D /* SimpleMarketTests */,
+				AA28CDF6263734AA001BE85A /* OrdersWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -530,6 +620,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA28CDF5263734AA001BE85A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA28CE01263734AB001BE85A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,11 +701,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA28CDF3263734AA001BE85A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA28CDFE263734AA001BE85A /* OrdersWidget.swift in Sources */,
+				AA28CE192637353D001BE85A /* Provider.swift in Sources */,
+				AA28CE03263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */,
+				AA28CE2026373543001BE85A /* EntryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA7856F226345710007A261D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AA8DFB8026349ABF00260F6F /* Reachability.swift in Sources */,
+				AA28CE04263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */,
 				AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */,
 				AA191F1826354584005BC1EC /* CartManager.swift in Sources */,
 				AAE431D626349D2D007461F0 /* ProductAPIManager.swift in Sources */,
@@ -661,6 +771,11 @@
 			target = AA7856F526345710007A261D /* SimpleMarket */;
 			targetProxy = AA2141FD26360B880083F32D /* PBXContainerItemProxy */;
 		};
+		AA28CE06263734AB001BE85A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA28CDF6263734AA001BE85A /* OrdersWidgetExtension */;
+			targetProxy = AA28CE05263734AB001BE85A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -710,6 +825,46 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleMarket.app/SimpleMarket";
+			};
+			name = Release;
+		};
+		AA28CE09263734AB001BE85A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OrdersWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.karinyfreitas.SimpleMarket.OrdersWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA28CE0A263734AB001BE85A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OrdersWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.karinyfreitas.SimpleMarket.OrdersWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -833,8 +988,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleMarket/SimpleMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimpleMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -852,8 +1009,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleMarket/SimpleMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SimpleMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -875,6 +1034,15 @@
 			buildConfigurations = (
 				AA2141FF26360B880083F32D /* Debug */,
 				AA21420026360B880083F32D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA28CE08263734AB001BE85A /* Build configuration list for PBXNativeTarget "OrdersWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA28CE09263734AB001BE85A /* Debug */,
+				AA28CE0A263734AB001BE85A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
