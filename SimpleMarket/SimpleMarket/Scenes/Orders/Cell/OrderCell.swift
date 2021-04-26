@@ -27,8 +27,9 @@ final class OrderCell: UITableViewCell {
 
     var order: Order? {
         didSet {
-            title.text = "Order #\(order?.id ?? 0)"
-            totalValue.text = "Total: \(order?.total.toCurrencyFormat() ?? "")"
+            title.text = "\(Strings.order) #\(order?.id ?? 0)"
+            let total = order?.total ?? 0
+            totalValue.text = "\(Strings.total): \(total.toCurrencyFormat())"
         }
     }
 

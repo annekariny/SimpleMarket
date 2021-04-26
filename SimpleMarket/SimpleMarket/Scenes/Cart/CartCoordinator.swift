@@ -46,8 +46,10 @@ final class CartCoordinator: CartCoordinatorProtocol {
     }
 
     func showFinishOrderAlert() {
-        let alertController = UIAlertController(title: "Finish", message: "Your order is saved!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+        let title = Strings.finished
+        let message = Strings.yourOrderIsSaved
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: Strings.ok, style: .default) { [weak self] _ in
             self?.finish()
         }
         alertController.addAction(okAction)

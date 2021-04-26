@@ -8,11 +8,11 @@
 import Foundation
 
 extension Double {
-    func toCurrencyFormat() -> String? {
+    func toCurrencyFormat() -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = .current
-        return currencyFormatter.string(from: NSNumber(value: self))
+        return currencyFormatter.string(from: NSNumber(value: self)) ?? ""
     }
 }

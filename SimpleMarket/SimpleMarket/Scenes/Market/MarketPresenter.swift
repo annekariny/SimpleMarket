@@ -55,7 +55,7 @@ final class MarketPresenter {
 // MARK: - MarketPresenterProtocol
 extension MarketPresenter: MarketPresenterProtocol {
     var title: String {
-        "Market"
+        Strings.market
     }
 
     var numberOfItemsInSection: Int {

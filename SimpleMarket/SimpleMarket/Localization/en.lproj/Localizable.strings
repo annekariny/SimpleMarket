@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  SimpleMarket
+
+  Created by Kariny on 26/04/21.
+  
+*/
+"market" = "Market";
+"order" = "Order";
+"orders" = "Orders";
+"finish_order" = "Finish Order";
+"cart" = "Cart";
+"total" = "Total";
+"finished" = "Finished";
+"your_order_is_saved" = "Your order is saved!";
+"ok" = "OK";

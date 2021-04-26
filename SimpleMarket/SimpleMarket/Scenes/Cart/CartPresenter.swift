@@ -47,7 +47,7 @@ class CartPresenter {
 // MARK: - CartPresenterProtocol
 extension CartPresenter: CartPresenterProtocol {
     var title: String {
-        "Cart"
+        Strings.cart
     }
 
     var numberOfRows: Int {
@@ -55,7 +55,8 @@ extension CartPresenter: CartPresenterProtocol {
     }
 
     var totalCart: String {
-        "Total: \((cart?.total ?? 0).toCurrencyFormat() ?? "")"
+        let value = cart?.total ?? 0
+        return "\(Strings.total): \(value.toCurrencyFormat())"
     }
 
     func getOrderItem(for index: Int) -> OrderItem? {

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
+		AA03542326376204002A1550 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03542226376204002A1550 /* Strings.swift */; };
+		AA0354382637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
+		AA0354392637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
+		AA03544126376380002A1550 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03544026376380002A1550 /* String+Localization.swift */; };
+		AA0354492637695E002A1550 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0354482637695E002A1550 /* Localization.swift */; };
 		AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903442634A84B00230B73 /* ProductAPIRequest.swift */; };
 		AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA191F012634F722005BC1EC /* RealmOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F002634F722005BC1EC /* RealmOrder.swift */; };
@@ -125,6 +130,12 @@
 		1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.release.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.release.xcconfig"; sourceTree = "<group>"; };
 		358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		AA03542226376204002A1550 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		AA035430263762EC002A1550 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		AA03543A2637630E002A1550 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA03543F26376312002A1550 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AA03544026376380002A1550 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		AA0354482637695E002A1550 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		AA1903442634A84B00230B73 /* ProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIRequest.swift; sourceTree = "<group>"; };
 		AA1903542634AAB500230B73 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
 		AA191F002634F722005BC1EC /* RealmOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrder.swift; sourceTree = "<group>"; };
@@ -237,6 +248,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AA03542726376261002A1550 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				AA0354482637695E002A1550 /* Localization.swift */,
+				AA03543B2637630E002A1550 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		AA191F0F26354066005BC1EC /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +348,7 @@
 				AA8DFB532634594600260F6F /* Models */,
 				AAD9B0152634BDCB00A7C4E4 /* Database */,
 				AA8DFB6C26345DA200260F6F /* Resources */,
+				AA03542726376261002A1550 /* Localization */,
 				AA78570226345711007A261D /* Assets.xcassets */,
 				AA78570426345711007A261D /* LaunchScreen.storyboard */,
 				AA78570726345711007A261D /* Info.plist */,
@@ -406,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8DFB6D26345DAF00260F6F /* Images.swift */,
+				AA03542226376204002A1550 /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -418,6 +440,7 @@
 				AA8DFB74263494A500260F6F /* UIView+Constraints.swift */,
 				AA1903542634AAB500230B73 /* Double+Formatting.swift */,
 				AA2141E32635B9F40083F32D /* UIView+Animate.swift */,
+				AA03544026376380002A1550 /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -625,6 +648,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = AA7856ED26345710007A261D;
 			packageReferences = (
@@ -654,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA28CE01263734AB001BE85A /* Assets.xcassets in Resources */,
+				AA0354392637630E002A1550 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +687,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA78570626345711007A261D /* LaunchScreen.storyboard in Resources */,
+				AA0354382637630E002A1550 /* Localizable.strings in Resources */,
 				AA78570326345711007A261D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,8 +817,11 @@
 				AAD9B0002634BC0C00A7C4E4 /* CartViewController.swift in Sources */,
 				AA191F0A26354016005BC1EC /* OrderItemRepository.swift in Sources */,
 				AAD9B00A2634BCE200A7C4E4 /* CartCell.swift in Sources */,
+				AA0354492637695E002A1550 /* Localization.swift in Sources */,
+				AA03544126376380002A1550 /* String+Localization.swift in Sources */,
 				AA191F012634F722005BC1EC /* RealmOrder.swift in Sources */,
 				AA8DFB75263494A500260F6F /* UIView+Constraints.swift in Sources */,
+				AA03542326376204002A1550 /* Strings.swift in Sources */,
 				AAD16CF426372AED000619D8 /* OrdersViewController.swift in Sources */,
 				AA6496BA2634F5FB0067FB03 /* RealmProduct.swift in Sources */,
 				AAE431D226349CCF007461F0 /* URLHelper.swift in Sources */,
@@ -819,10 +848,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AA03543B2637630E002A1550 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA03543A2637630E002A1550 /* en */,
+				AA03543F26376312002A1550 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AA78570426345711007A261D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AA78570526345711007A261D /* Base */,
+				AA035430263762EC002A1550 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -912,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -973,6 +1013,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

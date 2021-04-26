@@ -58,7 +58,7 @@ final class CartViewController: UIViewController {
 
     private lazy var orderButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Order", for: .normal)
+        button.setTitle(Strings.finishOrder, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: LayoutConstants.orderButtonFontSize, weight: .bold)
         button.backgroundColor = .systemGreen
         button.addTarget(self, action: #selector(finishOrder), for: .touchUpInside)

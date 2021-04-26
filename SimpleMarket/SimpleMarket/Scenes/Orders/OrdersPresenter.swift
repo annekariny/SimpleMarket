@@ -38,7 +38,7 @@ final class OrdersPresenter {
 // MARK: - CartPresenterProtocol
 extension OrdersPresenter: OrdersPresenterProtocol {
     var title: String {
-        "Orders"
+        Strings.orders
     }
 
     var numberOfRows: Int {
