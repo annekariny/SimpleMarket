@@ -21,7 +21,8 @@ enum Image {
         return UIImage(systemName: "plus.circle", withConfiguration: configuration) ?? UIImage()
     }
 
-    static var circledMinus: UIImage {
-        UIImage(systemName: "minus.circle") ?? UIImage()
+    static func circledMinus(size: CGFloat) -> UIImage {
+        let configuration = UIImage.SymbolConfiguration(pointSize: size, weight: .light)
+        return UIImage(systemName: "minus.circle", withConfiguration: configuration) ?? UIImage()
     }
 }
