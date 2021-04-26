@@ -26,7 +26,7 @@ final class CartPresenter {
     private let cartManager: CartManagerProtocol
     private var cart: Order? {
         didSet {
-            orderItems = cartManager.getOrderItems(from: cart)
+            orderItems = cartManager.getOrderItems()
         }
     }
     private var orderItems = [OrderItem]()

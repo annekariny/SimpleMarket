@@ -12,7 +12,7 @@ protocol CartManagerProtocol {
     func sumProductQuantity(product: Product)
     func sumQuantity(from orderItem: OrderItem)
     func reduceQuantity(from orderItem: OrderItem)
-    func getOrderItems(from order: Order?) -> [OrderItem]
+    func getOrderItems() -> [OrderItem]
     func finishOrder(_ order: Order?)
     func deleteAll()
     func saveCart()
@@ -22,18 +22,15 @@ final class CartManager {
     private let productRepository: ProductRepositoryProtocol
     private let orderItemRepository: OrderItemRepositoryProtocol
     private let orderRepository: OrderRepositoryProtocol
-    private var keyValueStorage: KeyValueStorageProtocol
 
     init(
         productRepository: ProductRepositoryProtocol = ProductRepository(),
         orderItemRepository: OrderItemRepositoryProtocol = OrderItemRepository(),
-        orderRepository: OrderRepositoryProtocol = OrderRepository(),
-        keyValueStorage: KeyValueStorageProtocol = KeyValueStorage()
+        orderRepository: OrderRepositoryProtocol = OrderRepository()
     ) {
         self.productRepository = productRepository
         self.orderItemRepository = orderItemRepository
         self.orderRepository = orderRepository
-        self.keyValueStorage = keyValueStorage
     }
 
     private var persistedOrderInProgress: Order? {
@@ -129,8 +126,8 @@ extension CartManager: CartManagerProtocol {
         }
     }
 
-    func getOrderItems(from order: Order?) -> [OrderItem] {
-        guard let order = order else {
+    func getOrderItems() -> [OrderItem] {
+        guard let order = persistedOrderInProgress else {
             return []
         }
         let orderItems = try? orderItemRepository.fecthOrderItems(forOrderID: order.id)
