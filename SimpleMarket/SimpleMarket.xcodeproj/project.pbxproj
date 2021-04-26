@@ -20,7 +20,6 @@
 		AA191F1826354584005BC1EC /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F1726354584005BC1EC /* CartManager.swift */; };
 		AA2141E42635B9F40083F32D /* UIView+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141E32635B9F40083F32D /* UIView+Animate.swift */; };
 		AA2141EF263602C20083F32D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141EE263602C20083F32D /* Logger.swift */; };
-		AA2141FB26360B880083F32D /* SimpleMarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2141FA26360B880083F32D /* SimpleMarketTests.swift */; };
 		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
 		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
@@ -32,6 +31,8 @@
 		AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */; };
 		AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE552636C29200627214 /* MockKeyValueStorage.swift */; };
 		AA74CE5C2636C5A300627214 /* CartManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE5B2636C5A300627214 /* CartManagerTests.swift */; };
+		AA74CE622636CF9900627214 /* CartPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE612636CF9900627214 /* CartPresenterTests.swift */; };
+		AA74CE662636D01900627214 /* MockCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE652636D01900627214 /* MockCartManager.swift */; };
 		AA7856FA26345710007A261D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856F926345710007A261D /* AppDelegate.swift */; };
 		AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856FB26345710007A261D /* SceneDelegate.swift */; };
 		AA78570326345711007A261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA78570226345711007A261D /* Assets.xcassets */; };
@@ -87,7 +88,6 @@
 		AA2141E32635B9F40083F32D /* UIView+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animate.swift"; sourceTree = "<group>"; };
 		AA2141EE263602C20083F32D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		AA2141F826360B880083F32D /* SimpleMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA2141FA26360B880083F32D /* SimpleMarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMarketTests.swift; sourceTree = "<group>"; };
 		AA2141FC26360B880083F32D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepositoryTests.swift; sourceTree = "<group>"; };
 		AA74CE552636C29200627214 /* MockKeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeyValueStorage.swift; sourceTree = "<group>"; };
 		AA74CE5B2636C5A300627214 /* CartManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManagerTests.swift; sourceTree = "<group>"; };
+		AA74CE612636CF9900627214 /* CartPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenterTests.swift; sourceTree = "<group>"; };
+		AA74CE652636D01900627214 /* MockCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartManager.swift; sourceTree = "<group>"; };
 		AA7856F626345710007A261D /* SimpleMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7856F926345710007A261D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7856FB26345710007A261D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,14 +180,15 @@
 		AA2141F926360B880083F32D /* SimpleMarketTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA2141FA26360B880083F32D /* SimpleMarketTests.swift */,
 				AA2141FC26360B880083F32D /* Info.plist */,
 				AA74CE4326360EC400627214 /* MockRealmFactory.swift */,
 				AA74CE552636C29200627214 /* MockKeyValueStorage.swift */,
+				AA74CE652636D01900627214 /* MockCartManager.swift */,
 				AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */,
 				AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */,
 				AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */,
 				AA74CE5B2636C5A300627214 /* CartManagerTests.swift */,
+				AA74CE612636CF9900627214 /* CartPresenterTests.swift */,
 			);
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
@@ -561,13 +564,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2141FB26360B880083F32D /* SimpleMarketTests.swift in Sources */,
+				AA74CE622636CF9900627214 /* CartPresenterTests.swift in Sources */,
 				AA74CE5C2636C5A300627214 /* CartManagerTests.swift in Sources */,
 				AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */,
 				AA74CE4426360EC400627214 /* MockRealmFactory.swift in Sources */,
 				AA74CE4026360E6A00627214 /* ProductRepositoryTests.swift in Sources */,
 				AA74CE482636178C00627214 /* OrderItemRespositoryTests.swift in Sources */,
 				AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */,
+				AA74CE662636D01900627214 /* MockCartManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

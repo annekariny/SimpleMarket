@@ -71,7 +71,7 @@ final class ProductRepositoryTests: XCTestCase {
         XCTAssertNotNil(try! repository.fecthProduct(for: product.id))
     }
 
-    func testDeleteProductForID_deletesEquationMatchingID() {
+    func testDeleteProductForID_deletesProductMatchingID() {
         let product = mockProduct
         try! repository.save(product: product)
 

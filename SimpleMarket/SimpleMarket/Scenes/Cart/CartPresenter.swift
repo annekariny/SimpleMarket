@@ -18,7 +18,7 @@ protocol CartPresenterProtocol {
     func updateCart()
 }
 
-final class CartPresenter {
+class CartPresenter {
     private weak var coordinator: CartCoordinatorProtocol?
     weak var view: CartViewProtocol?
 
@@ -32,7 +32,7 @@ final class CartPresenter {
     private var orderItems = [OrderItem]()
 
     init(
-        coordinator: CartCoordinatorProtocol,
+        coordinator: CartCoordinatorProtocol? = nil,
         cartManager: CartManagerProtocol = CartManager()
     ) {
         self.coordinator = coordinator
