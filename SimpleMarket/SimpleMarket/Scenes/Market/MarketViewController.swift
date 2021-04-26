@@ -46,7 +46,7 @@ final class MarketViewController: UIViewController {
         layout.itemSize = CGSize(width: LayouContants.cellSize, height: LayouContants.cellSize)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MarketCell.self)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView

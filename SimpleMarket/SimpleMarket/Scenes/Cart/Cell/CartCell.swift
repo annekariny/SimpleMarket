@@ -29,7 +29,7 @@ final class CartCell: UITableViewCell {
 
     private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setImage(Image.circledPlus, for: .normal)
+        button.setImage(Image.circledPlus(size: 50), for: .normal)
         button.addTarget(self, action: #selector(didTapAddProduct), for: .touchUpInside)
         return button
     }()
