@@ -43,4 +43,12 @@ enum Strings {
     static var ok: String {
         "ok".localized
     }
+
+    static var simpleMarketWidget: String {
+        "simple_market_widget".localized
+    }
+
+    static var seeYourLastOrders: String {
+        "see_last_orders".localized
+    }
 }

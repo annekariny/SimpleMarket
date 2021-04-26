@@ -18,8 +18,8 @@ struct OrdersWidget: Widget {
             let viewModel = OrdersViewModel(entry: entry)
             return OrdersWidgetEntryView(viewModel: viewModel)
         }
-        .configurationDisplayName("SimpleMarket Widget")
-        .description("See your last orders on SimpleMarket.")
+        .configurationDisplayName(Strings.simpleMarketWidget)
+        .description(Strings.seeYourLastOrders)
         .supportedFamilies([.systemSmall])
     }
 }

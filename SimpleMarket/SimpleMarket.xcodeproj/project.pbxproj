@@ -13,6 +13,10 @@
 		AA0354392637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
 		AA03544126376380002A1550 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03544026376380002A1550 /* String+Localization.swift */; };
 		AA0354492637695E002A1550 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0354482637695E002A1550 /* Localization.swift */; };
+		AA035451263769B0002A1550 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA035450263769B0002A1550 /* Colors.swift */; };
+		AA03545526376A9E002A1550 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03542226376204002A1550 /* Strings.swift */; };
+		AA03545926376AA6002A1550 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03544026376380002A1550 /* String+Localization.swift */; };
+		AA03545D26376AAD002A1550 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0354482637695E002A1550 /* Localization.swift */; };
 		AA1903452634A84B00230B73 /* ProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903442634A84B00230B73 /* ProductAPIRequest.swift */; };
 		AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA191F012634F722005BC1EC /* RealmOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F002634F722005BC1EC /* RealmOrder.swift */; };
@@ -136,6 +140,7 @@
 		AA03543F26376312002A1550 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AA03544026376380002A1550 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		AA0354482637695E002A1550 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		AA035450263769B0002A1550 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AA1903442634A84B00230B73 /* ProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIRequest.swift; sourceTree = "<group>"; };
 		AA1903542634AAB500230B73 /* Double+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
 		AA191F002634F722005BC1EC /* RealmOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmOrder.swift; sourceTree = "<group>"; };
@@ -428,6 +433,7 @@
 			children = (
 				AA8DFB6D26345DAF00260F6F /* Images.swift */,
 				AA03542226376204002A1550 /* Strings.swift */,
+				AA035450263769B0002A1550 /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -759,9 +765,11 @@
 			files = (
 				AA2B81DB263743780014A3CF /* RealmOrderItem.swift in Sources */,
 				AA4DACFD26374EA400EE4FCD /* SmallOrderWidgetView.swift in Sources */,
+				AA03545D26376AAD002A1550 /* Localization.swift in Sources */,
 				AA28CDFE263734AA001BE85A /* OrdersWidget.swift in Sources */,
 				AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */,
 				AAD13FDB263753F9009ED092 /* FileManagerProtocol.swift in Sources */,
+				AA03545526376A9E002A1550 /* Strings.swift in Sources */,
 				AA28CE192637353D001BE85A /* OrderWidgetProvider.swift in Sources */,
 				AA28CE2C263736A4001BE85A /* OrdersWidgetEntryViewModel.swift in Sources */,
 				AAD13FD3263753DF009ED092 /* RealmFactory.swift in Sources */,
@@ -775,6 +783,7 @@
 				AA2B81EA263743B20014A3CF /* RealmOrder.swift in Sources */,
 				AAD13FD7263753E7009ED092 /* UserDefaultsProtocol.swift in Sources */,
 				AA2B81D32637436A0014A3CF /* Order.swift in Sources */,
+				AA03545926376AA6002A1550 /* String+Localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +816,7 @@
 				AA2141E42635B9F40083F32D /* UIView+Animate.swift in Sources */,
 				AA191F042634F7B2005BC1EC /* RealmOrderItem.swift in Sources */,
 				AA8DFB8326349AF800260F6F /* NetworkError.swift in Sources */,
+				AA035451263769B0002A1550 /* Colors.swift in Sources */,
 				AAE431D926349D77007461F0 /* Product.swift in Sources */,
 				AA8DFB722634937D00260F6F /* UICollectionView+Register.swift in Sources */,
 				AA191F0D26354025005BC1EC /* ProductRepository.swift in Sources */,

@@ -30,10 +30,10 @@ struct OrderRow: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Order #\(order.id)")
+            Text("\(Strings.order) #\(order.id)")
                 .font(Font.system(.headline))
 
-            Text("Total: \(order.total.toCurrencyFormat() ?? "")")
+            Text("\(Strings.total): \(order.total.toCurrencyFormat())")
                 .font(Font.system(.subheadline))
                 .foregroundColor(.green)
         }
