@@ -53,6 +53,9 @@
 		AA48F1FA26377DC8004A21D6 /* ProductAPIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */; };
 		AA48F1FF26377E21004A21D6 /* MockReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F1FE26377E21004A21D6 /* MockReachability.swift */; };
 		AA48F20726377ED3004A21D6 /* MockProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */; };
+		AA48F20F263781CE004A21D6 /* CartCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F20E263781CE004A21D6 /* CartCoordinatorTests.swift */; };
+		AA48F214263782B9004A21D6 /* SpyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F213263782B9004A21D6 /* SpyNavigationController.swift */; };
+		AA48F21926378373004A21D6 /* MockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F21826378373004A21D6 /* MockCoordinator.swift */; };
 		AA4DACFD26374EA400EE4FCD /* SmallOrderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */; };
 		AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
@@ -173,6 +176,9 @@
 		AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManagerTests.swift; sourceTree = "<group>"; };
 		AA48F1FE26377E21004A21D6 /* MockReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReachability.swift; sourceTree = "<group>"; };
 		AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductAPIRequest.swift; sourceTree = "<group>"; };
+		AA48F20E263781CE004A21D6 /* CartCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinatorTests.swift; sourceTree = "<group>"; };
+		AA48F213263782B9004A21D6 /* SpyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNavigationController.swift; sourceTree = "<group>"; };
+		AA48F21826378373004A21D6 /* MockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoordinator.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
@@ -300,6 +306,9 @@
 				AA74CE5B2636C5A300627214 /* CartManagerTests.swift */,
 				AA74CE612636CF9900627214 /* CartPresenterTests.swift */,
 				AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */,
+				AA48F20E263781CE004A21D6 /* CartCoordinatorTests.swift */,
+				AA48F213263782B9004A21D6 /* SpyNavigationController.swift */,
+				AA48F21826378373004A21D6 /* MockCoordinator.swift */,
 			);
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
@@ -767,6 +776,9 @@
 				AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */,
 				AA74CE662636D01900627214 /* MockCartManager.swift in Sources */,
 				AA48F1FA26377DC8004A21D6 /* ProductAPIManagerTests.swift in Sources */,
+				AA48F214263782B9004A21D6 /* SpyNavigationController.swift in Sources */,
+				AA48F20F263781CE004A21D6 /* CartCoordinatorTests.swift in Sources */,
+				AA48F21926378373004A21D6 /* MockCoordinator.swift in Sources */,
 				AA48F20726377ED3004A21D6 /* MockProductAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

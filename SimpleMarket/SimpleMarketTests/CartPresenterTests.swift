@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 @testable import SimpleMarket
 import XCTest
 
