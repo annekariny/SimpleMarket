@@ -36,7 +36,6 @@ final class MarketCell: UICollectionViewCell {
     private lazy var title: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: LayoutConstants.titleFontSize)
-        label.textColor = .darkGray
         return label
     }()
 
@@ -58,6 +57,7 @@ final class MarketCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        contentView.backgroundColor = .tertiarySystemBackground
         contentView.isUserInteractionEnabled = false
         setupLayout()
     }

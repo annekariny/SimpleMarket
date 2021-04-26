@@ -15,10 +15,12 @@ protocol CartCellDelegate: AnyObject {
 final class CartCell: UITableViewCell {
     private enum LayoutConstants {
         static let titleFontSize: CGFloat = 16
-        static let defaultHeight: CGFloat = 50
-        static let defaultWidth: CGFloat = 50
+        static let imageSize: CGFloat = 50
+        static let buttonSize: CGFloat = 30
         static let textHeight: CGFloat = 20
         static let padding: CGFloat = 20
+        static let textPadding: CGFloat = 16
+        static let buttonPadding: CGFloat = 8
     }
 
     private lazy var itemImageView: UIImageView = {
@@ -36,7 +38,7 @@ final class CartCell: UITableViewCell {
 
     private lazy var removeButton: UIButton = {
         let button = UIButton()
-        button.setImage(Image.circledMinus, for: .normal)
+        button.setImage(Image.circledMinus(size: LayoutConstants.buttonSize), for: .normal)
         button.addTarget(self, action: #selector(didTapRemoveProduct), for: .touchUpInside)
         return button
     }()
@@ -98,26 +100,33 @@ final class CartCell: UITableViewCell {
         addSubview(unitValue)
         addSubview(totalValue)
         addSubview(quantity)
+        setupProductViewsConstraint()
+        setupOrderDetailViewsConstraint()
+    }
 
+    private func setupProductViewsConstraint() {
         itemImageView.anchor(
             top: topAnchor,
             leading: leadingAnchor,
             bottom: bottomAnchor,
-            width: LayoutConstants.defaultWidth
+            width: LayoutConstants.imageSize
         )
         title.anchor(
             top: topAnchor,
             leading: itemImageView.trailingAnchor,
             trailing: trailingAnchor,
+            paddingTop: LayoutConstants.padding,
             paddingLeading: LayoutConstants.padding,
+            paddingBottom: LayoutConstants.textPadding,
             paddingTrailing: LayoutConstants.padding,
-            height: LayoutConstants.defaultHeight
+            height: LayoutConstants.textHeight
         )
         unitValue.anchor(
             top: title.bottomAnchor,
             leading: itemImageView.trailingAnchor,
             trailing: removeButton.leadingAnchor,
             paddingLeading: LayoutConstants.padding,
+            paddingBottom: LayoutConstants.textPadding,
             paddingTrailing: LayoutConstants.padding,
             height: LayoutConstants.textHeight
         )
@@ -126,17 +135,26 @@ final class CartCell: UITableViewCell {
             leading: itemImageView.trailingAnchor,
             trailing: addButton.leadingAnchor,
             paddingLeading: LayoutConstants.padding,
+            paddingBottom: LayoutConstants.textPadding,
             paddingTrailing: LayoutConstants.padding,
             height: LayoutConstants.textHeight
         )
+    }
+
+    private func setupOrderDetailViewsConstraint() {
         addButton.anchor(
             bottom: bottomAnchor,
             trailing: trailingAnchor,
-            width: LayoutConstants.defaultWidth,
-            height: LayoutConstants.defaultHeight
+            paddingLeading: LayoutConstants.buttonPadding,
+            paddingBottom: LayoutConstants.buttonPadding,
+            paddingTrailing: LayoutConstants.padding,
+            width: LayoutConstants.buttonSize,
+            height: LayoutConstants.buttonSize
         )
         quantity.anchor(
             trailing: addButton.leadingAnchor,
+            paddingLeading: LayoutConstants.buttonPadding,
+            paddingBottom: LayoutConstants.buttonPadding,
             width: LayoutConstants.textHeight,
             height: LayoutConstants.textHeight,
             centerVertical: addButton.centerYAnchor
@@ -144,8 +162,10 @@ final class CartCell: UITableViewCell {
         removeButton.anchor(
             bottom: bottomAnchor,
             trailing: quantity.leadingAnchor,
-            width: LayoutConstants.defaultWidth,
-            height: LayoutConstants.defaultHeight
+            paddingLeading: LayoutConstants.buttonPadding,
+            paddingBottom: LayoutConstants.buttonPadding,
+            width: LayoutConstants.buttonSize,
+            height: LayoutConstants.buttonSize
         )
     }
 

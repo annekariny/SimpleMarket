@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol OrderRepositoryProtocol {
     func createOrder() throws -> Order
@@ -80,9 +81,14 @@ final class OrderRepository: OrderRepositoryProtocol {
         try fetchAll(limit: limit, isFinished: isFinished)
     }
 
-    private func fetchAll(limit: Int? = nil, isFinished: Bool = false) throws -> [Order] {
+    private func fetchAll(limit: Int? = nil, isFinished: Bool? = nil) throws -> [Order] {
         let realm = try realmFactory.makeRealm()
-        let realmOrders = realm.objects(RealmOrder.self).filter("isFinished == %@", isFinished)
+        let realmOrders: Results<RealmOrder>
+        if let isFinished = isFinished {
+            realmOrders = realm.objects(RealmOrder.self).filter("isFinished == %@", isFinished)
+        } else {
+            realmOrders = realm.objects(RealmOrder.self)
+        }
         if let limit = limit {
             return Array(realmOrders.prefix(limit)).map { Order(from: $0) }
         } else {
