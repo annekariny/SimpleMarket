@@ -11,8 +11,6 @@ import RealmSwift
 import XCTest
 
 // swiftlint:disable implicitly_unwrapped_optional
-// swiftlint:disable force_try
-// swiftlint:disable force_unwrapping
 final class CartPresenterTests: XCTestCase {
     private var cartManager: CartManagerProtocol!
     private var presenter: CartPresenterProtocol!

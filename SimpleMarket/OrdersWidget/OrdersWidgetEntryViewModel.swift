@@ -12,9 +12,9 @@ protocol OrdersViewModelProtocol {
 }
 
 final class OrdersViewModel: OrdersViewModelProtocol {
-    private let entry: SimpleEntry
+    private let entry: OrdersEntry
 
-    init(entry: SimpleEntry) {
+    init(entry: OrdersEntry) {
         self.entry = entry
     }
 

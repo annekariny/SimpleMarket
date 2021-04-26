@@ -5,8 +5,8 @@
 //  Created by Kariny on 26/04/21.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct OrdersWidgetEntryView: View {
     let viewModel: OrdersViewModel

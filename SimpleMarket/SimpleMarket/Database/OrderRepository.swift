@@ -14,7 +14,8 @@ protocol OrderRepositoryProtocol {
     func fecthOrder(forID id: Int) throws -> Order?
     func fecthOrder(for orderItemID: Int) throws -> Order?
     func fetchFinishedOrders() throws -> [Order]
-    func fetchAll() throws -> [Order]
+    func fetchAllOrders() throws -> [Order]
+    func fetchOrders(limit: Int, isFinished: Bool) throws -> [Order]
     func save(order: Order) throws
     func deleteAll() throws
 }
@@ -46,11 +47,7 @@ final class OrderRepository: OrderRepositoryProtocol {
     }
 
     func fecthUnfinishedOrder() throws -> Order? {
-        let realm = try realmFactory.makeRealm()
-        guard let order = realm.objects(RealmOrder.self).filter("isFinished == %@", false).first else {
-            return nil
-        }
-        return Order(from: order)
+        try fetchAll(isFinished: false).first
     }
 
     func fecthOrder(forID id: Int) throws -> Order? {
@@ -72,15 +69,25 @@ final class OrderRepository: OrderRepositoryProtocol {
     }
 
     func fetchFinishedOrders() throws -> [Order] {
-        let realm = try realmFactory.makeRealm()
-        let realmOrders = realm.objects(RealmOrder.self).filter("isFinished == %@", true)
-        return realmOrders.map { Order(from: $0) }
+        try fetchAll(isFinished: true)
     }
 
-    func fetchAll() throws -> [Order] {
+    func fetchAllOrders() throws -> [Order] {
+        try fetchAll()
+    }
+
+    func fetchOrders(limit: Int, isFinished: Bool) throws -> [Order] {
+        try fetchAll(limit: limit, isFinished: isFinished)
+    }
+
+    private func fetchAll(limit: Int? = nil, isFinished: Bool = false) throws -> [Order] {
         let realm = try realmFactory.makeRealm()
-        let realmOrders = realm.objects(RealmOrder.self)
-        return realmOrders.map { Order(from: $0) }
+        let realmOrders = realm.objects(RealmOrder.self).filter("isFinished == %@", isFinished)
+        if let limit = limit {
+            return Array(realmOrders.prefix(limit)).map { Order(from: $0) }
+        } else {
+            return realmOrders.map { Order(from: $0) }
+        }
     }
 
     func save(order: Order) throws {

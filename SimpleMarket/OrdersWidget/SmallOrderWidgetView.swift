@@ -5,8 +5,8 @@
 //  Created by Kariny on 26/04/21.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct SmallOrderWidgetView: View {
     let orders: [Order]

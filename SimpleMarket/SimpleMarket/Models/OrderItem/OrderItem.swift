@@ -43,8 +43,7 @@ struct OrderItem {
 
 extension OrderItem: Equatable {
     static func == (lhs: OrderItem, rhs: OrderItem) -> Bool {
-        return
-            lhs.id == rhs.id &&
+        lhs.id == rhs.id &&
             lhs.quantity == rhs.quantity &&
             lhs.product == rhs.product
     }

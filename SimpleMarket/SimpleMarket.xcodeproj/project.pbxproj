@@ -27,10 +27,9 @@
 		AA28CE03263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */; };
 		AA28CE04263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */; };
 		AA28CE07263734AB001BE85A /* OrdersWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA28CDF7263734AA001BE85A /* OrdersWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AA28CE192637353D001BE85A /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE0F263734E6001BE85A /* Provider.swift */; };
+		AA28CE192637353D001BE85A /* OrderWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE0F263734E6001BE85A /* OrderWidgetProvider.swift */; };
 		AA28CE2026373543001BE85A /* OrdersWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */; };
 		AA28CE2C263736A4001BE85A /* OrdersWidgetEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */; };
-		AA28CE372637377C001BE85A /* OrdersEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28CE362637377C001BE85A /* OrdersEntry.swift */; };
 		AA2B81D32637436A0014A3CF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B0112634BD4A00A7C4E4 /* Order.swift */; };
 		AA2B81D7263743740014A3CF /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD9B00C2634BCF700A7C4E4 /* OrderItem.swift */; };
 		AA2B81DB263743780014A3CF /* RealmOrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA191F032634F7B2005BC1EC /* RealmOrderItem.swift */; };
@@ -148,10 +147,9 @@
 		AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = OrdersWidget.intentdefinition; sourceTree = "<group>"; };
 		AA28CE00263734AB001BE85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA28CE02263734AB001BE85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA28CE0F263734E6001BE85A /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		AA28CE0F263734E6001BE85A /* OrderWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderWidgetProvider.swift; sourceTree = "<group>"; };
 		AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryView.swift; sourceTree = "<group>"; };
 		AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryViewModel.swift; sourceTree = "<group>"; };
-		AA28CE362637377C001BE85A /* OrdersEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEntry.swift; sourceTree = "<group>"; };
 		AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallOrderWidgetView.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
@@ -276,10 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				AA28CDFD263734AA001BE85A /* OrdersWidget.swift */,
-				AA28CE0F263734E6001BE85A /* Provider.swift */,
+				AA28CE0F263734E6001BE85A /* OrderWidgetProvider.swift */,
 				AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */,
 				AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */,
-				AA28CE362637377C001BE85A /* OrdersEntry.swift */,
 				AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */,
 				AA28CDFF263734AA001BE85A /* OrdersWidget.intentdefinition */,
 				AA28CE00263734AB001BE85A /* Assets.xcassets */,
@@ -739,7 +736,7 @@
 				AA28CDFE263734AA001BE85A /* OrdersWidget.swift in Sources */,
 				AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */,
 				AAD13FDB263753F9009ED092 /* FileManagerProtocol.swift in Sources */,
-				AA28CE192637353D001BE85A /* Provider.swift in Sources */,
+				AA28CE192637353D001BE85A /* OrderWidgetProvider.swift in Sources */,
 				AA28CE2C263736A4001BE85A /* OrdersWidgetEntryViewModel.swift in Sources */,
 				AAD13FD3263753DF009ED092 /* RealmFactory.swift in Sources */,
 				AA28CE03263734AB001BE85A /* OrdersWidget.intentdefinition in Sources */,
@@ -750,7 +747,6 @@
 				AA2B81D7263743740014A3CF /* OrderItem.swift in Sources */,
 				AAD13FCF263753D6009ED092 /* OrderRepository.swift in Sources */,
 				AA2B81EA263743B20014A3CF /* RealmOrder.swift in Sources */,
-				AA28CE372637377C001BE85A /* OrdersEntry.swift in Sources */,
 				AAD13FD7263753E7009ED092 /* UserDefaultsProtocol.swift in Sources */,
 				AA2B81D32637436A0014A3CF /* Order.swift in Sources */,
 			);

@@ -105,7 +105,7 @@ final class OrderRespositoryTests: XCTestCase {
         try! repository.save(order: order1)
         try! repository.save(order: order2)
 
-        let persistedOrders = try! repository.fetchAll()
+        let persistedOrders = try! repository.fetchAllOrders()
         XCTAssertEqual(orders, persistedOrders)
     }
 

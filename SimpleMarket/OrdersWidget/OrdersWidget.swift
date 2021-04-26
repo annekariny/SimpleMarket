@@ -5,27 +5,31 @@
 //  Created by Kariny on 26/04/21.
 //
 
-import WidgetKit
-import SwiftUI
 import Intents
+import SwiftUI
+import WidgetKit
 
 @main
 struct OrdersWidget: Widget {
     let kind: String = "OrdersWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry -> OrdersWidgetEntryView in
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: OrderWidgetProvider()) { entry -> OrdersWidgetEntryView in
             let viewModel = OrdersViewModel(entry: entry)
             return OrdersWidgetEntryView(viewModel: viewModel)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("SimpleMarket Widget")
+        .description("See your last orders on SimpleMarket.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
-//struct OrdersWidget_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OrdersWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}
+ struct OrdersWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        let order = Order(id: 0, orderItems: [], isFinished: true)
+        let entry = OrdersEntry(date: Date(), configuration: ConfigurationIntent(), orders: [order])
+        let viewModel = OrdersViewModel(entry: entry)
+        OrdersWidgetEntryView(viewModel: viewModel)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+ }
