@@ -49,8 +49,7 @@ final class OrderRepository: OrderRepositoryProtocol {
         guard let order = realm.objects(RealmOrder.self).filter("isFinished == %@", false).first else {
             return nil
         }
-        let uni = Order(from: order)
-        return uni
+        return Order(from: order)
     }
 
     func fecthOrder(forID id: Int) throws -> Order? {

@@ -29,6 +29,8 @@
 		AA74CE4026360E6A00627214 /* ProductRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */; };
 		AA74CE4426360EC400627214 /* MockRealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE4326360EC400627214 /* MockRealmFactory.swift */; };
 		AA74CE482636178C00627214 /* OrderItemRespositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */; };
+		AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */; };
+		AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74CE552636C29200627214 /* MockKeyValueStorage.swift */; };
 		AA7856FA26345710007A261D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856F926345710007A261D /* AppDelegate.swift */; };
 		AA7856FC26345710007A261D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7856FB26345710007A261D /* SceneDelegate.swift */; };
 		AA78570326345711007A261D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA78570226345711007A261D /* Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepositoryTests.swift; sourceTree = "<group>"; };
 		AA74CE4326360EC400627214 /* MockRealmFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmFactory.swift; sourceTree = "<group>"; };
 		AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemRespositoryTests.swift; sourceTree = "<group>"; };
+		AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepositoryTests.swift; sourceTree = "<group>"; };
+		AA74CE552636C29200627214 /* MockKeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeyValueStorage.swift; sourceTree = "<group>"; };
 		AA7856F626345710007A261D /* SimpleMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7856F926345710007A261D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA7856FB26345710007A261D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,8 +179,10 @@
 				AA2141FA26360B880083F32D /* SimpleMarketTests.swift */,
 				AA2141FC26360B880083F32D /* Info.plist */,
 				AA74CE4326360EC400627214 /* MockRealmFactory.swift */,
+				AA74CE552636C29200627214 /* MockKeyValueStorage.swift */,
 				AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */,
 				AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */,
+				AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */,
 			);
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
@@ -553,9 +559,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2141FB26360B880083F32D /* SimpleMarketTests.swift in Sources */,
+				AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */,
 				AA74CE4426360EC400627214 /* MockRealmFactory.swift in Sources */,
 				AA74CE4026360E6A00627214 /* ProductRepositoryTests.swift in Sources */,
 				AA74CE482636178C00627214 /* OrderItemRespositoryTests.swift in Sources */,
+				AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
