@@ -50,6 +50,9 @@
 		AA2B81F2263743C10014A3CF /* Product+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DFB77263499CC00260F6F /* Product+Decodable.swift */; };
 		AA3B4A402635560D000C51E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A3F2635560D000C51E6 /* Realm */; };
 		AA3B4A422635560D000C51E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA3B4A412635560D000C51E6 /* RealmSwift */; };
+		AA48F1FA26377DC8004A21D6 /* ProductAPIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */; };
+		AA48F1FF26377E21004A21D6 /* MockReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F1FE26377E21004A21D6 /* MockReachability.swift */; };
+		AA48F20726377ED3004A21D6 /* MockProductAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */; };
 		AA4DACFD26374EA400EE4FCD /* SmallOrderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */; };
 		AA4DAD042637506500EE4FCD /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1903542634AAB500230B73 /* Double+Formatting.swift */; };
 		AA6496A32634D56E0067FB03 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */; };
@@ -167,6 +170,9 @@
 		AA28CE1426373522001BE85A /* OrdersWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryView.swift; sourceTree = "<group>"; };
 		AA28CE2B263736A4001BE85A /* OrdersWidgetEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWidgetEntryViewModel.swift; sourceTree = "<group>"; };
 		AA2B81F62637443A0014A3CF /* SmallOrderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallOrderWidgetView.swift; sourceTree = "<group>"; };
+		AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManagerTests.swift; sourceTree = "<group>"; };
+		AA48F1FE26377E21004A21D6 /* MockReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReachability.swift; sourceTree = "<group>"; };
+		AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductAPIRequest.swift; sourceTree = "<group>"; };
 		AA6496A22634D56E0067FB03 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		AA6496A52634D83A0067FB03 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		AA6496B92634F5FB0067FB03 /* RealmProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProduct.swift; sourceTree = "<group>"; };
@@ -286,11 +292,14 @@
 				AA74CE4326360EC400627214 /* MockRealmFactory.swift */,
 				AA74CE552636C29200627214 /* MockKeyValueStorage.swift */,
 				AA74CE652636D01900627214 /* MockCartManager.swift */,
+				AA48F1FE26377E21004A21D6 /* MockReachability.swift */,
+				AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */,
 				AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */,
 				AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */,
 				AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */,
 				AA74CE5B2636C5A300627214 /* CartManagerTests.swift */,
 				AA74CE612636CF9900627214 /* CartPresenterTests.swift */,
+				AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */,
 			);
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
@@ -750,12 +759,15 @@
 			files = (
 				AA74CE622636CF9900627214 /* CartPresenterTests.swift in Sources */,
 				AA74CE5C2636C5A300627214 /* CartManagerTests.swift in Sources */,
+				AA48F1FF26377E21004A21D6 /* MockReachability.swift in Sources */,
 				AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */,
 				AA74CE4426360EC400627214 /* MockRealmFactory.swift in Sources */,
 				AA74CE4026360E6A00627214 /* ProductRepositoryTests.swift in Sources */,
 				AA74CE482636178C00627214 /* OrderItemRespositoryTests.swift in Sources */,
 				AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */,
 				AA74CE662636D01900627214 /* MockCartManager.swift in Sources */,
+				AA48F1FA26377DC8004A21D6 /* ProductAPIManagerTests.swift in Sources */,
+				AA48F20726377ED3004A21D6 /* MockProductAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

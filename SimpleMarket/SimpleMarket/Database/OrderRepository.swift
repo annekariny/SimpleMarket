@@ -81,6 +81,7 @@ final class OrderRepository: OrderRepositoryProtocol {
         try fetchAll(limit: limit, isFinished: isFinished)
     }
 
+    // swiftlint:disable discouraged_optional_boolean
     private func fetchAll(limit: Int? = nil, isFinished: Bool? = nil) throws -> [Order] {
         let realm = try realmFactory.makeRealm()
         let realmOrders: Results<RealmOrder>
