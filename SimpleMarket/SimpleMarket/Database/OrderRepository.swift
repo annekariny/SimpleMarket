@@ -13,6 +13,7 @@ protocol OrderRepositoryProtocol {
     func fecthUnfinishedOrder() throws -> Order?
     func fecthOrder(forID id: Int) throws -> Order?
     func fecthOrder(for orderItemID: Int) throws -> Order?
+    func fetchFinishedOrders() throws -> [Order]
     func fetchAll() throws -> [Order]
     func save(order: Order) throws
     func deleteAll() throws
@@ -68,6 +69,12 @@ final class OrderRepository: OrderRepositoryProtocol {
         } else {
             return nil
         }
+    }
+
+    func fetchFinishedOrders() throws -> [Order] {
+        let realm = try realmFactory.makeRealm()
+        let realmOrders = realm.objects(RealmOrder.self).filter("isFinished == %@", true)
+        return realmOrders.map { Order(from: $0) }
     }
 
     func fetchAll() throws -> [Order] {

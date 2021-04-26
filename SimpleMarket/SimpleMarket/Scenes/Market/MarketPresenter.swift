@@ -13,6 +13,7 @@ protocol MarketPresenterProtocol {
     func getProduct(from index: Int) -> Product?
     func addProductToCart(_ product: Product?)
     func openCart()
+    func openOrders()
 }
 
 final class MarketPresenter {
@@ -77,5 +78,9 @@ extension MarketPresenter: MarketPresenterProtocol {
 
     func openCart() {
         coordinator?.openCart()
+    }
+
+    func openOrders() {
+        coordinator?.openOrders()
     }
 }

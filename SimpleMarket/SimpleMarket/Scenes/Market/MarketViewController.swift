@@ -88,7 +88,7 @@ final class MarketViewController: UIViewController {
     }
 
     @objc private func openOrders() {
-        // TODO
+        presenter.openOrders()
     }
 
     @objc private func openCart() {

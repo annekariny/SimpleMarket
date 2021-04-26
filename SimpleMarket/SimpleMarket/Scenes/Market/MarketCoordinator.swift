@@ -9,6 +9,7 @@ import UIKit
 
 protocol MarketCoordinatorProtocol: Coordinator {
     func openCart()
+    func openOrders()
 }
 
 final class MarketCoordinator: MarketCoordinatorProtocol {
@@ -38,5 +39,10 @@ final class MarketCoordinator: MarketCoordinatorProtocol {
     func openCart() {
         let cartCoordinator = CartCoordinator(navigationController: navigationController, parent: self)
         start(cartCoordinator)
+    }
+
+    func openOrders() {
+        let ordersCoordinator = OrdersCoordinator(navigationController: navigationController, parent: self)
+        start(ordersCoordinator)
     }
 }
