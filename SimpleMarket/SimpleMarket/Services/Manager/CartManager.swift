@@ -13,7 +13,7 @@ protocol CartManagerProtocol {
     func sumQuantity(from orderItem: OrderItem)
     func reduceQuantity(from orderItem: OrderItem)
     func getOrderItems() -> [OrderItem]
-    func finishOrder(_ order: Order?)
+    func finishOrder()
     func deleteAll()
     func saveCart()
 }
@@ -134,12 +134,12 @@ extension CartManager: CartManagerProtocol {
         return orderItems ?? []
     }
 
-    func finishOrder(_ order: Order?) {
-        guard var modifiedOrder = order else {
+    func finishOrder() {
+        guard var order = persistedOrderInProgress else {
             return
         }
-        modifiedOrder.isFinished = true
-        try? orderRepository.save(order: modifiedOrder)
+        order.isFinished = true
+        try? orderRepository.save(order: order)
     }
 
     func deleteAll() {

@@ -115,7 +115,7 @@ final class CartManagerTests: XCTestCase {
 
     func testSaveCart_returnFinishedOrder() {
         let cart = cartManager.getCart()!
-        cartManager.finishOrder(cart)
+        cartManager.finishOrder()
         let savedOrder = try! orderRepository.fecthOrder(forID: cart.id)
         XCTAssertTrue(savedOrder!.isFinished)
     }

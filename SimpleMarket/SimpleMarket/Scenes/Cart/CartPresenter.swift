@@ -24,11 +24,6 @@ class CartPresenter {
 
     private let logger = Logger()
     private let cartManager: CartManagerProtocol
-    private var cart: Order? {
-        didSet {
-            orderItems = cartManager.getOrderItems()
-        }
-    }
     private var orderItems = [OrderItem]()
 
     init(
@@ -55,6 +50,7 @@ extension CartPresenter: CartPresenterProtocol {
     }
 
     var totalCart: String {
+        let cart = cartManager.getCart()
         let value = cart?.total ?? 0
         return "\(Strings.total): \(value.toCurrencyFormat())"
     }
@@ -84,7 +80,7 @@ extension CartPresenter: CartPresenterProtocol {
     }
 
     func updateCart() {
-        cart = cartManager.getCart()
+        orderItems = cartManager.getOrderItems()
         view?.updateTotalCart(total: totalCart)
         view?.reloadTableView()
     }
@@ -95,7 +91,7 @@ extension CartPresenter: CartPresenterProtocol {
     }
 
     func finishOrder() {
-        cartManager.finishOrder(cart)
+        cartManager.finishOrder()
         coordinator?.showFinishOrderAlert()
     }
 }

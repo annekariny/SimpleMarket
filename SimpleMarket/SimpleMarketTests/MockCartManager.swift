@@ -48,7 +48,7 @@ final class MockCartManager: CartManagerProtocol {
         cart.orderItems!
     }
 
-    func finishOrder(_ order: Order?) {
+    func finishOrder() {
         cart.isFinished = true
     }
 
