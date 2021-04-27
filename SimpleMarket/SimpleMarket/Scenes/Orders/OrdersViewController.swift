@@ -61,6 +61,7 @@ final class OrdersViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDeleteAll))
     }
 
     private func addSubviews() {
@@ -69,13 +70,16 @@ final class OrdersViewController: UIViewController {
             top: view.topAnchor,
             leading: view.leadingAnchor,
             bottom: view.bottomAnchor,
-            trailing: view.trailingAnchor,
-            paddingTop: 30
+            trailing: view.trailingAnchor
         )
     }
 
     @objc private func didTapDone() {
         presenter.didTapDone()
+    }
+
+    @objc private func didTapDeleteAll() {
+        presenter.didTapDeleteAll()
     }
 }
 

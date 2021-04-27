@@ -13,6 +13,7 @@ protocol OrdersPresenterProtocol {
     func getOrder(at index: Int) -> Order?
     func fetchOrders()
     func didTapDone()
+    func didTapDeleteAll()
 }
 
 final class OrdersPresenter {
@@ -63,5 +64,15 @@ extension OrdersPresenter: OrdersPresenterProtocol {
 
     func didTapDone() {
         coordinator?.finish()
+    }
+
+    func didTapDeleteAll() {
+        do {
+            try orderRepository.deleteAll()
+            fetchOrders()
+            view?.reloadTableView()
+        } catch {
+            logger.error("Error: ", error.localizedDescription)
+        }
     }
 }
