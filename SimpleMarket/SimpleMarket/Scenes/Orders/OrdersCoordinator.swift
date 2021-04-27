@@ -33,6 +33,7 @@ final class OrdersCoordinator: OrdersCoordinatorProtocol {
         let viewController = OrdersViewController(presenter: presenter)
         presenter.view = viewController
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.isModalInPresentation = true
         self.navigationController = navigationController
         parentNavigationController.present(navigationController, animated: true)
     }

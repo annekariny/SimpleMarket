@@ -34,6 +34,7 @@ final class CartCoordinator: CartCoordinatorProtocol {
         let viewController = CartViewController(presenter: presenter)
         presenter.view = viewController
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.isModalInPresentation = true
         self.navigationController = navigationController
         parentNavigationController.present(navigationController, animated: true)
     }
