@@ -36,8 +36,8 @@ Inside projects folder type a pod install command.
 
 ## Screenshots
 
-![ScreenShot](./ScreenShots/s1.png "Market View" | width=100)
-![ScreenShot](./ScreenShots/s2.png "Cart View" | width=100)
-![ScreenShot](./ScreenShots/s3.png "Orders View" | width=100)
-![ScreenShot](./ScreenShots/s4.png "Widget" | width=100)
-![ScreenShot](./ScreenShots/s5.png "Widget" | width=100)
+<img src="./ScreenShots/s1.png" width="100">
+<img src="./ScreenShots/s2.png" width="100">
+<img src="./ScreenShots/s3.png" width="100">
+<img src="./ScreenShots/s4.png" width="100">
+<img src="./ScreenShots/s5.png" width="100">
