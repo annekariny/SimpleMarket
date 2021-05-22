@@ -8,6 +8,8 @@
 import UIKit
 
 protocol MarketViewProtocol: AnyObject {
+    func animateCartButton()
+    func generateSystemFeedback()
     func reloadCollectionView()
 }
 
@@ -94,14 +96,6 @@ final class MarketViewController: UIViewController {
     @objc private func openCart() {
         presenter.openCart()
     }
-
-    private func animateCartButton() {
-        navigationItem.rightBarButtonItem?.customView?.animateScalingUpDown()
-    }
-
-    private func generateSystemFeedback() {
-        UISelectionFeedbackGenerator().selectionChanged()
-    }
 }
 
 // MARK: - UICollectionViewDelegate and UICollectionViewDataSource
@@ -111,9 +105,14 @@ extension MarketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let marketProductViewModel = presenter.getMarketProductViewModel(from: indexPath.row) else {
+            return UICollectionViewCell()
+        }
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as MarketCell
-        cell.delegate = self
-        cell.product = presenter.getProduct(from: indexPath.row)
+        cell.configure(with: marketProductViewModel)
+        cell.didTapAddButton = { [weak self] in
+            self?.presenter.didTapAddButton(at: indexPath.row)
+        }
         return cell
     }
 }
@@ -123,13 +122,12 @@ extension MarketViewController: MarketViewProtocol {
     func reloadCollectionView() {
         collectionView.reloadData()
     }
-}
 
-// MARK: - MarketCellDelegate
-extension MarketViewController: MarketCellDelegate {
-    func didTapAddProduct(_ product: Product?) {
-        presenter.addProductToCart(product)
-        generateSystemFeedback()
-        animateCartButton()
+    func generateSystemFeedback() {
+        UISelectionFeedbackGenerator().selectionChanged()
+    }
+
+    func animateCartButton() {
+        navigationItem.rightBarButtonItem?.customView?.animateScalingUpDown()
     }
 }

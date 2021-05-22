@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
+		AA032D7D2659C15C005633FD /* MarketProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA032D7C2659C15C005633FD /* MarketProductViewModel.swift */; };
 		AA03542326376204002A1550 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03542226376204002A1550 /* Strings.swift */; };
 		AA0354382637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
 		AA0354392637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
@@ -140,6 +141,7 @@
 		1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.release.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.release.xcconfig"; sourceTree = "<group>"; };
 		358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		AA032D7C2659C15C005633FD /* MarketProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketProductViewModel.swift; sourceTree = "<group>"; };
 		AA03542226376204002A1550 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		AA035430263762EC002A1550 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AA03543A2637630E002A1550 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		AA8DFB6526345B7900260F6F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AA032D7C2659C15C005633FD /* MarketProductViewModel.swift */,
 				AA8DFB6626345B8E00260F6F /* MarketCell.swift */,
 			);
 			path = Cells;
@@ -824,6 +827,7 @@
 				AA1903552634AAB500230B73 /* Double+Formatting.swift in Sources */,
 				AA8DFB7C26349A7400260F6F /* Request.swift in Sources */,
 				AA7856FA26345710007A261D /* AppDelegate.swift in Sources */,
+				AA032D7D2659C15C005633FD /* MarketProductViewModel.swift in Sources */,
 				AA8DFB6726345B8E00260F6F /* MarketCell.swift in Sources */,
 				AA03546526376CF8002A1550 /* UICollectionViewCell+Rounded.swift in Sources */,
 				AAD9B0062634BC2F00A7C4E4 /* CartCoordinator.swift in Sources */,
