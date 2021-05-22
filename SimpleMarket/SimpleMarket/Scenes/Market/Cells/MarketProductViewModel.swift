@@ -8,14 +8,21 @@
 import Foundation
 import UIKit
 
-struct MarketProductViewModel {
+final class MarketProductViewModel {
     let productName: String
     let price: String
     var image: UIImage?
 
-    init(with product: Product) {
+    init(with product: Product, imageLoader: ImageLoaderProtocol) {
         productName = product.description
         price = product.price.toCurrencyFormat()
-        image = nil
+
+        if let url = product.imageURL {
+            imageLoader.loadImage(from: url) { image in
+                DispatchQueue.main.async {
+                    self.image = image
+                }
+            }
+        }
     }
 }

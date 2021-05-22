@@ -24,15 +24,18 @@ final class MarketPresenter {
     private let cartManager: CartManagerProtocol
     private var products = [Product]()
     private let logger = Logger()
+    private let imageLoader: ImageLoaderProtocol
 
     init(
         coordinator: MarketCoordinatorProtocol,
         productAPIManager: ProductAPIManagerProtocol = ProductAPIManager(),
-        cartManager: CartManagerProtocol = CartManager()
+        cartManager: CartManagerProtocol = CartManager(),
+        imageLoader: ImageLoaderProtocol = ImageLoader()
     ) {
         self.coordinator = coordinator
         self.productAPIManager = productAPIManager
         self.cartManager = cartManager
+        self.imageLoader = imageLoader
         fetchProductsFromAPI()
     }
 
@@ -72,7 +75,7 @@ extension MarketPresenter: MarketPresenterProtocol {
         guard products.indices.contains(index) else {
             return nil
         }
-        return MarketProductViewModel(with: products[index])
+        return MarketProductViewModel(with: products[index], imageLoader: imageLoader)
     }
 
     func didTapAddButton(at index: Int) {

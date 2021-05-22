@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-struct ImageLoader {
+protocol ImageLoaderProtocol {
+    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void)
+}
+
+struct ImageLoader: ImageLoaderProtocol {
     private let imageCache: ImageCacheProtocol
     private let urlHelper: URLHelperProtocol
 
