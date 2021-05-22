@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		96B4731A486432E0E9F80021 /* Pods_SimpleMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */; };
 		AA032D7D2659C15C005633FD /* MarketProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA032D7C2659C15C005633FD /* MarketProductViewModel.swift */; };
+		AA032D7F2659C91F005633FD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA032D7E2659C91F005633FD /* ImageLoader.swift */; };
+		AA032D822659CDC5005633FD /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA032D812659CDC5005633FD /* ImageCache.swift */; };
 		AA03542326376204002A1550 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03542226376204002A1550 /* Strings.swift */; };
 		AA0354382637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
 		AA0354392637630E002A1550 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA03543B2637630E002A1550 /* Localizable.strings */; };
@@ -142,6 +144,8 @@
 		358279ADA1F0B27071F0AA19 /* Pods_SimpleMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEFC9FFA514F430F50F0F4 /* Pods-SimpleMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMarket.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMarket/Pods-SimpleMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		AA032D7C2659C15C005633FD /* MarketProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketProductViewModel.swift; sourceTree = "<group>"; };
+		AA032D7E2659C91F005633FD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		AA032D812659CDC5005633FD /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		AA03542226376204002A1550 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		AA035430263762EC002A1550 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AA03543A2637630E002A1550 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -265,6 +269,15 @@
 				1E2EBE90D6220FBEDAD7BCB2 /* Pods-SimpleMarket.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AA032D802659CDA8005633FD /* ImageHandling */ = {
+			isa = PBXGroup;
+			children = (
+				AA032D812659CDC5005633FD /* ImageCache.swift */,
+				AA032D7E2659C91F005633FD /* ImageLoader.swift */,
+			);
+			path = ImageHandling;
 			sourceTree = "<group>";
 		};
 		AA03542726376261002A1550 /* Localization */ = {
@@ -405,6 +418,7 @@
 		AA8DFB542634594F00260F6F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA032D802659CDA8005633FD /* ImageHandling */,
 				AA191F162635456B005BC1EC /* Manager */,
 				AA8DFB8826349B3800260F6F /* Network */,
 				AA8DFB7A26349A5100260F6F /* ProductAPI */,
@@ -839,6 +853,7 @@
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
 				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
+				AA032D7F2659C91F005633FD /* ImageLoader.swift in Sources */,
 				AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */,
 				AA2141EF263602C20083F32D /* Logger.swift in Sources */,
 				AA8DFB572634599900260F6F /* MarketViewController.swift in Sources */,
@@ -853,6 +868,7 @@
 				AA8DFB5E263459AD00260F6F /* MarketCoordinator.swift in Sources */,
 				AAD16CFA26372AF9000619D8 /* OrdersPresenter.swift in Sources */,
 				AAD9B0002634BC0C00A7C4E4 /* CartViewController.swift in Sources */,
+				AA032D822659CDC5005633FD /* ImageCache.swift in Sources */,
 				AA191F0A26354016005BC1EC /* OrderItemRepository.swift in Sources */,
 				AAD9B00A2634BCE200A7C4E4 /* CartCell.swift in Sources */,
 				AA0354492637695E002A1550 /* Localization.swift in Sources */,
