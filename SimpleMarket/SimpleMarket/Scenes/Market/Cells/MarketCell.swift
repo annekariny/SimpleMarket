@@ -99,7 +99,9 @@ final class MarketCell: UICollectionViewCell {
     func configure(with marketProductViewModel: MarketProductViewModel) {
         title.text = marketProductViewModel.productName
         value.text = marketProductViewModel.price
-        imageView.image = marketProductViewModel.image
+        marketProductViewModel.loadImage { [weak self] image in
+            self?.imageView.image = image
+        }
     }
 
     @objc private func didTapAdd() {
