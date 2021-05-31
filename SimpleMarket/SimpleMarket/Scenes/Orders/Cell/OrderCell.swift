@@ -33,8 +33,6 @@ final class OrderCell: UITableViewCell {
         }
     }
 
-    weak var delegate: CartCellDelegate?
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = false

@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol CartCellDelegate: AnyObject {
-    func didTapAdd(at index: Int)
-    func didTapRemove(at index: Int)
-}
-
 final class CartCell: UITableViewCell {
     private enum LayoutConstants {
         static let titleFontSize: CGFloat = 16
@@ -67,9 +62,8 @@ final class CartCell: UITableViewCell {
         return label
     }()
 
-    var index = 0
-
-    weak var delegate: CartCellDelegate?
+    var didTapAddButton: (() -> Void)?
+    var didTapRemoveButton: (() -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -170,10 +164,10 @@ final class CartCell: UITableViewCell {
     }
 
     @objc private func didTapAddProduct() {
-        delegate?.didTapAdd(at: index)
+        didTapAddButton?()
     }
 
     @objc private func didTapRemoveProduct() {
-        delegate?.didTapRemove(at: index)
+        didTapRemoveButton?()
     }
 }

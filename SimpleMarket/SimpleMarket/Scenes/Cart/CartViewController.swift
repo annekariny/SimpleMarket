@@ -135,8 +135,12 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         cell.configure(with: cartProductViewModel)
-        cell.delegate = presenter
-        cell.index = indexPath.row
+        cell.didTapAddButton = { [weak self] in
+            self?.presenter.didTapAdd(at: indexPath.row)
+        }
+        cell.didTapRemoveButton = {[weak self] in
+            self?.presenter.didTapRemove(at: indexPath.row)
+        }
         return cell
     }
 
