@@ -107,6 +107,7 @@
 		AAE431D926349D77007461F0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D826349D77007461F0 /* Product.swift */; };
 		AAE431DD26349F6A007461F0 /* ProductEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */; };
 		DFD08D052665767D00AA1087 /* CartProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D042665767D00AA1087 /* CartProductViewModel.swift */; };
+		DFD08D0B26657AAF00AA1087 /* ImageLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D0A26657AAF00AA1087 /* ImageLoadable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +231,7 @@
 		AAE431D826349D77007461F0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEndpoint.swift; sourceTree = "<group>"; };
 		DFD08D042665767D00AA1087 /* CartProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductViewModel.swift; sourceTree = "<group>"; };
+		DFD08D0A26657AAF00AA1087 /* ImageLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			children = (
 				AA032D812659CDC5005633FD /* ImageCache.swift */,
 				AA032D7E2659C91F005633FD /* ImageLoader.swift */,
+				DFD08D0A26657AAF00AA1087 /* ImageLoadable.swift */,
 			);
 			path = ImageHandling;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				AA191F0726354001005BC1EC /* OrderRepository.swift in Sources */,
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
+				DFD08D0B26657AAF00AA1087 /* ImageLoadable.swift in Sources */,
 				DFD08D052665767D00AA1087 /* CartProductViewModel.swift in Sources */,
 				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
 				AA032D7F2659C91F005633FD /* ImageLoader.swift in Sources */,

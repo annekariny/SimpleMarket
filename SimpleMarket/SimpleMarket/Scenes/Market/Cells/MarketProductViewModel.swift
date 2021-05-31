@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-final class MarketProductViewModel {
-    private let imageLoader: ImageLoaderProtocol
-    private let imageURL: URL?
+final class MarketProductViewModel: ImageLoadable {
+    internal var imageLoader: ImageLoaderProtocol
+    internal var imageURL: URL?
     let productName: String
     let price: String
 
@@ -19,17 +19,5 @@ final class MarketProductViewModel {
         imageURL = product.imageURL
         productName = product.description
         price = product.price.toCurrencyFormat()
-    }
-
-    func loadImage(completion: @escaping ((UIImage?) -> Void)) {
-        guard let url = imageURL else {
-            completion(nil)
-            return
-        }
-        imageLoader.loadImage(from: url) { image in
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
     }
 }

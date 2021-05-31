@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-final class CartProductViewModel {
-    private let imageLoader: ImageLoaderProtocol
-    private let imageURL: URL?
+final class CartProductViewModel: ImageLoadable {
+    internal var imageLoader: ImageLoaderProtocol
+    internal var imageURL: URL?
     let productName: String
     let price: String
     let totalValue: String
@@ -23,17 +23,5 @@ final class CartProductViewModel {
         price = orderItem.product?.price.toCurrencyFormat() ?? ""
         totalValue = orderItem.totalValue.toCurrencyFormat()
         quantity = orderItem.quantity.description
-    }
-
-    func loadImage(completion: @escaping ((UIImage?) -> Void)) {
-        guard let url = imageURL else {
-            completion(nil)
-            return
-        }
-        imageLoader.loadImage(from: url) { image in
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }
     }
 }
