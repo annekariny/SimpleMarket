@@ -315,20 +315,13 @@
 			isa = PBXGroup;
 			children = (
 				AA2141FC26360B880083F32D /* Info.plist */,
-				AA74CE4326360EC400627214 /* MockRealmFactory.swift */,
-				AA74CE552636C29200627214 /* MockKeyValueStorage.swift */,
-				AA74CE652636D01900627214 /* MockCartManager.swift */,
-				AA48F1FE26377E21004A21D6 /* MockReachability.swift */,
-				AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */,
-				AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */,
-				AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */,
-				AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */,
-				AA74CE5B2636C5A300627214 /* CartManagerTests.swift */,
-				AA74CE612636CF9900627214 /* CartPresenterTests.swift */,
-				AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */,
-				AA48F20E263781CE004A21D6 /* CartCoordinatorTests.swift */,
-				AA48F213263782B9004A21D6 /* SpyNavigationController.swift */,
-				AA48F21826378373004A21D6 /* MockCoordinator.swift */,
+				DFD08D13266581EE00AA1087 /* API */,
+				DFD08D12266581D700AA1087 /* Managers */,
+				DFD08D10266581B400AA1087 /* Coordinators */,
+				DFD08D0F266581AB00AA1087 /* Database */,
+				DFD08D142665822F00AA1087 /* Presenters */,
+				DFD08D152665824E00AA1087 /* ViewControllers */,
+				DFD08D162665826100AA1087 /* Cells */,
 			);
 			path = SimpleMarketTests;
 			sourceTree = "<group>";
@@ -588,6 +581,69 @@
 				AA6496B92634F5FB0067FB03 /* RealmProduct.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		DFD08D0F266581AB00AA1087 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AA74CE3F26360E6A00627214 /* ProductRepositoryTests.swift */,
+				AA74CE472636178C00627214 /* OrderItemRespositoryTests.swift */,
+				AA74CE512636BCE900627214 /* OrderRepositoryTests.swift */,
+				AA74CE4326360EC400627214 /* MockRealmFactory.swift */,
+				AA74CE552636C29200627214 /* MockKeyValueStorage.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DFD08D10266581B400AA1087 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F20E263781CE004A21D6 /* CartCoordinatorTests.swift */,
+				AA48F21826378373004A21D6 /* MockCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DFD08D12266581D700AA1087 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AA74CE5B2636C5A300627214 /* CartManagerTests.swift */,
+				AA74CE652636D01900627214 /* MockCartManager.swift */,
+				AA48F1FE26377E21004A21D6 /* MockReachability.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DFD08D13266581EE00AA1087 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F1F926377DC8004A21D6 /* ProductAPIManagerTests.swift */,
+				AA48F20626377ED3004A21D6 /* MockProductAPIRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DFD08D142665822F00AA1087 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				AA74CE612636CF9900627214 /* CartPresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		DFD08D152665824E00AA1087 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA48F213263782B9004A21D6 /* SpyNavigationController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DFD08D162665826100AA1087 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F6889FAA7A653EF7901C5C67 /* Frameworks */ = {

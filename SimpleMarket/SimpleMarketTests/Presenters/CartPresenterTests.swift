@@ -39,17 +39,15 @@ final class CartPresenterTests: XCTestCase {
     }
 
     func testSumOrderItemQuantity_increasesCartOrderItemQuantity() {
-        let orderItem = presenter.getOrderItem(for: 0)
-        presenter.sumOrderItemQuantity(orderItem, at: 0)
+        presenter.didTapAdd(at: 0)
 
         let cartOrdetItem = cartManager.getOrderItems().first
         XCTAssertEqual(cartOrdetItem?.quantity, 1)
     }
 
     func testReduceOrderItemQuantity_decreasesCartOrderItemQuantity() {
-        let orderItem = presenter.getOrderItem(for: 0)
-        presenter.sumOrderItemQuantity(orderItem, at: 0) // Set quantity to 1
-        presenter.reduceOrderItemQuantity(orderItem, at: 0) // Set quantity to 0
+        presenter.didTapAdd(at: 0) // Set quantity to 1
+        presenter.didTapRemove(at: 0) // Set quantity to 0
 
         let cartOrdetItem = cartManager.getOrderItems().first
         XCTAssertEqual(cartOrdetItem?.quantity, 0)
