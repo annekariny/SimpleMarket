@@ -131,10 +131,12 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CartCell
-        let orderItem = presenter.getOrderItem(for: indexPath.row)
-        cell.delegate = self
+        guard let cartProductViewModel = presenter.getCartProductViewModel(from: indexPath.row) else {
+            return cell
+        }
+        cell.configure(with: cartProductViewModel)
+        cell.delegate = presenter
         cell.index = indexPath.row
-        cell.orderItem = orderItem
         return cell
     }
 
@@ -151,16 +153,5 @@ extension CartViewController: CartViewProtocol {
 
     func updateTotalCart(total: String) {
         totalOrder.text = total
-    }
-}
-
-// MARK: - CartCellDelegate
-extension CartViewController: CartCellDelegate {
-    func didTapAdd(_ orderItem: OrderItem?, at index: Int) {
-        presenter.sumOrderItemQuantity(orderItem, at: index)
-    }
-
-    func didTapRemove(_ orderItem: OrderItem?, at index: Int) {
-        presenter.reduceOrderItemQuantity(orderItem, at: index)
     }
 }

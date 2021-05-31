@@ -8,8 +8,8 @@
 import UIKit
 
 protocol CartCellDelegate: AnyObject {
-    func didTapAdd(_ orderItem: OrderItem?, at index: Int)
-    func didTapRemove(_ orderItem: OrderItem?, at index: Int)
+    func didTapAdd(at index: Int)
+    func didTapRemove(at index: Int)
 }
 
 final class CartCell: UITableViewCell {
@@ -69,16 +69,6 @@ final class CartCell: UITableViewCell {
 
     var index = 0
 
-    var orderItem: OrderItem? {
-        didSet {
-            title.text = orderItem?.product?.description
-            unitValue.text = orderItem?.product?.price.toCurrencyFormat()
-            totalValue.text = orderItem?.totalValue.toCurrencyFormat()
-            quantity.text = orderItem?.quantity.description
-            setImage()
-        }
-    }
-
     weak var delegate: CartCellDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -90,6 +80,16 @@ final class CartCell: UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(with cartProductViewModel: CartProductViewModel) {
+        title.text = cartProductViewModel.productName
+        unitValue.text = cartProductViewModel.price
+        totalValue.text = cartProductViewModel.totalValue
+        quantity.text = cartProductViewModel.quantity
+        cartProductViewModel.loadImage { [weak self] image in
+            self?.itemImageView.image = image
+        }
     }
 
     private func addSubviews() {
@@ -170,24 +170,10 @@ final class CartCell: UITableViewCell {
     }
 
     @objc private func didTapAddProduct() {
-        delegate?.didTapAdd(orderItem, at: index)
+        delegate?.didTapAdd(at: index)
     }
 
     @objc private func didTapRemoveProduct() {
-        delegate?.didTapRemove(orderItem, at: index)
-    }
-
-    private func setImage() {
-        if let image = orderItem?.product?.image {
-            itemImageView.image = image
-        } else {
-            guard let imageURL = orderItem?.product?.imageURL else {
-                return
-            }
-            URLHelper().downloadImage(withURL: imageURL) { [weak self] image in
-                self?.orderItem?.product?.image = image
-                self?.itemImageView.image = image
-            }
-        }
+        delegate?.didTapRemove(at: index)
     }
 }

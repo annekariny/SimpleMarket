@@ -7,15 +7,16 @@
 
 import Foundation
 
-protocol CartPresenterProtocol {
+protocol CartPresenterProtocol: CartCellDelegate {
     var title: String { get }
     var numberOfRows: Int { get }
     func getOrderItem(for index: Int) -> OrderItem?
-    func sumOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
-    func reduceOrderItemQuantity(_ orderItem: OrderItem?, at index: Int)
+    func sumOrderItemQuantity(at index: Int)
+    func reduceOrderItemQuantity(at index: Int)
     func didTapDone()
     func finishOrder()
     func updateCart()
+    func getCartProductViewModel(from index: Int) -> CartProductViewModel?
 }
 
 class CartPresenter {
@@ -25,13 +26,16 @@ class CartPresenter {
     private let logger = Logger()
     private let cartManager: CartManagerProtocol
     private var orderItems = [OrderItem]()
+    private let imageLoader: ImageLoaderProtocol
 
     init(
         coordinator: CartCoordinatorProtocol? = nil,
-        cartManager: CartManagerProtocol = CartManager()
+        cartManager: CartManagerProtocol = CartManager(),
+        imageLoader: ImageLoaderProtocol = ImageLoader()
     ) {
         self.coordinator = coordinator
         self.cartManager = cartManager
+        self.imageLoader = imageLoader
     }
 
     deinit {
@@ -62,18 +66,20 @@ extension CartPresenter: CartPresenterProtocol {
         return orderItems[index]
     }
 
-    func sumOrderItemQuantity(_ orderItem: OrderItem?, at index: Int) {
-        guard let orderItem = orderItem else {
+    func sumOrderItemQuantity(at index: Int) {
+        guard orderItems.indices.contains(index) else {
             return
         }
+        let orderItem = orderItems[index]
         cartManager.sumQuantity(from: orderItem)
         updateCart()
     }
 
-    func reduceOrderItemQuantity(_ orderItem: OrderItem?, at index: Int) {
-        guard let orderItem = orderItem else {
+    func reduceOrderItemQuantity(at index: Int) {
+        guard orderItems.indices.contains(index) else {
             return
         }
+        let orderItem = orderItems[index]
         cartManager.reduceQuantity(from: orderItem)
         view?.reloadTableView()
         updateCart()
@@ -93,5 +99,23 @@ extension CartPresenter: CartPresenterProtocol {
     func finishOrder() {
         cartManager.finishOrder()
         coordinator?.showFinishOrderAlert()
+    }
+
+    func getCartProductViewModel(from index: Int) -> CartProductViewModel? {
+        guard orderItems.indices.contains(index) else {
+            return nil
+        }
+        return CartProductViewModel(with: orderItems[index], imageLoader: imageLoader)
+    }
+}
+
+// MARK: - CartCellDelegate
+extension CartPresenter {
+    func didTapAdd(at index: Int) {
+        sumOrderItemQuantity(at: index)
+    }
+
+    func didTapRemove(at index: Int) {
+        reduceOrderItemQuantity(at: index)
     }
 }

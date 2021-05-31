@@ -106,6 +106,7 @@
 		AAE431D626349D2D007461F0 /* ProductAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D526349D2D007461F0 /* ProductAPIManager.swift */; };
 		AAE431D926349D77007461F0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431D826349D77007461F0 /* Product.swift */; };
 		AAE431DD26349F6A007461F0 /* ProductEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */; };
+		DFD08D052665767D00AA1087 /* CartProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D042665767D00AA1087 /* CartProductViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +229,7 @@
 		AAE431D526349D2D007461F0 /* ProductAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManager.swift; sourceTree = "<group>"; };
 		AAE431D826349D77007461F0 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEndpoint.swift; sourceTree = "<group>"; };
+		DFD08D042665767D00AA1087 /* CartProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				AAD9B0092634BCE200A7C4E4 /* CartCell.swift */,
+				DFD08D042665767D00AA1087 /* CartProductViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				AA191F0726354001005BC1EC /* OrderRepository.swift in Sources */,
 				AA8DFB6E26345DAF00260F6F /* Images.swift in Sources */,
 				AA8DFB5B263459A300260F6F /* MarketPresenter.swift in Sources */,
+				DFD08D052665767D00AA1087 /* CartProductViewModel.swift in Sources */,
 				AA6496A62634D83A0067FB03 /* UITableView+Register.swift in Sources */,
 				AA032D7F2659C91F005633FD /* ImageLoader.swift in Sources */,
 				AA191F1426354083005BC1EC /* FileManagerProtocol.swift in Sources */,
