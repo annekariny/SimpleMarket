@@ -108,6 +108,8 @@
 		AAE431DD26349F6A007461F0 /* ProductEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */; };
 		DFD08D052665767D00AA1087 /* CartProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D042665767D00AA1087 /* CartProductViewModel.swift */; };
 		DFD08D0B26657AAF00AA1087 /* ImageLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D0A26657AAF00AA1087 /* ImageLoadable.swift */; };
+		DFD08D1B2665831D00AA1087 /* MarketProductViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D1A2665831D00AA1087 /* MarketProductViewModelTests.swift */; };
+		DFD08D202665836600AA1087 /* MockImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD08D1F2665836600AA1087 /* MockImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,8 @@
 		AAE431DC26349F6A007461F0 /* ProductEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEndpoint.swift; sourceTree = "<group>"; };
 		DFD08D042665767D00AA1087 /* CartProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductViewModel.swift; sourceTree = "<group>"; };
 		DFD08D0A26657AAF00AA1087 /* ImageLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadable.swift; sourceTree = "<group>"; };
+		DFD08D1A2665831D00AA1087 /* MarketProductViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketProductViewModelTests.swift; sourceTree = "<group>"; };
+		DFD08D1F2665836600AA1087 /* MockImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -642,6 +646,8 @@
 		DFD08D162665826100AA1087 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DFD08D1F2665836600AA1087 /* MockImageLoader.swift */,
+				DFD08D1A2665831D00AA1087 /* MarketProductViewModelTests.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -849,8 +855,10 @@
 				AA74CE5C2636C5A300627214 /* CartManagerTests.swift in Sources */,
 				AA48F1FF26377E21004A21D6 /* MockReachability.swift in Sources */,
 				AA74CE562636C29200627214 /* MockKeyValueStorage.swift in Sources */,
+				DFD08D202665836600AA1087 /* MockImageLoader.swift in Sources */,
 				AA74CE4426360EC400627214 /* MockRealmFactory.swift in Sources */,
 				AA74CE4026360E6A00627214 /* ProductRepositoryTests.swift in Sources */,
+				DFD08D1B2665831D00AA1087 /* MarketProductViewModelTests.swift in Sources */,
 				AA74CE482636178C00627214 /* OrderItemRespositoryTests.swift in Sources */,
 				AA74CE522636BCE900627214 /* OrderRepositoryTests.swift in Sources */,
 				AA74CE662636D01900627214 /* MockCartManager.swift in Sources */,
