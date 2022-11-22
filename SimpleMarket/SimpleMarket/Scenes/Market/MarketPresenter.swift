@@ -10,8 +10,8 @@ import Foundation
 protocol MarketPresenterProtocol {
     var title: String { get }
     var numberOfItemsInSection: Int { get }
-    func getProduct(from index: Int) -> Product?
-    func addProductToCart(_ product: Product?)
+    func didTapAddButton(at index: Int)
+    func getMarketProductViewModel(from index: Int) -> MarketProductViewModel?
     func openCart()
     func openOrders()
 }
@@ -24,17 +24,19 @@ final class MarketPresenter {
     private let cartManager: CartManagerProtocol
     private var products = [Product]()
     private let logger = Logger()
+    private let imageLoader: ImageLoaderProtocol
 
     init(
         coordinator: MarketCoordinatorProtocol,
         productAPIManager: ProductAPIManagerProtocol = ProductAPIManager(),
-        cartManager: CartManagerProtocol = CartManager()
+        cartManager: CartManagerProtocol = CartManager(),
+        imageLoader: ImageLoaderProtocol = ImageLoader()
     ) {
         self.coordinator = coordinator
         self.productAPIManager = productAPIManager
         self.cartManager = cartManager
+        self.imageLoader = imageLoader
         fetchProductsFromAPI()
-        // cartManager.deleteAll()
     }
 
     deinit {
@@ -50,6 +52,13 @@ final class MarketPresenter {
             self?.view?.reloadCollectionView()
         }
     }
+
+    private func addProductToCart(_ product: Product?) {
+        guard let product = product  else {
+            return
+        }
+        cartManager.sumProductQuantity(product: product)
+    }
 }
 
 // MARK: - MarketPresenterProtocol
@@ -62,18 +71,21 @@ extension MarketPresenter: MarketPresenterProtocol {
         products.count
     }
 
-    func getProduct(from index: Int) -> Product? {
+    func getMarketProductViewModel(from index: Int) -> MarketProductViewModel? {
         guard products.indices.contains(index) else {
             return nil
         }
-        return products[index]
+        return MarketProductViewModel(with: products[index], imageLoader: imageLoader)
     }
 
-    func addProductToCart(_ product: Product?) {
-        guard let product = product  else {
+    func didTapAddButton(at index: Int) {
+        guard products.indices.contains(index) else {
             return
         }
-        cartManager.sumProductQuantity(product: product)
+        let product = products[index]
+        addProductToCart(product)
+        view?.generateSystemFeedback()
+        view?.animateCartButton()
     }
 
     func openCart() {

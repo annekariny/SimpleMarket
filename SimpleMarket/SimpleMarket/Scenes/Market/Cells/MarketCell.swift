@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol MarketCellDelegate: AnyObject {
-    func didTapAddProduct(_ product: Product?)
-}
-
 final class MarketCell: UICollectionViewCell {
     private enum LayoutConstants {
         static let titleFontSize: CGFloat = 14
@@ -29,7 +25,7 @@ final class MarketCell: UICollectionViewCell {
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setImage(Image.circledPlus(size: LayoutConstants.buttonSize), for: .normal)
-        button.addTarget(self, action: #selector(didTapAddProduct), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
         return button
     }()
 
@@ -45,15 +41,7 @@ final class MarketCell: UICollectionViewCell {
         return label
     }()
 
-    var product: Product? {
-        didSet {
-            title.text = product?.description
-            value.text = product?.price.toCurrencyFormat()
-            setImage()
-        }
-    }
-
-    weak var delegate: MarketCellDelegate?
+    var didTapAddButton: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -108,21 +96,15 @@ final class MarketCell: UICollectionViewCell {
         )
     }
 
-    @objc private func didTapAddProduct() {
-        delegate?.didTapAddProduct(product)
+    func configure(with marketProductViewModel: MarketProductViewModel) {
+        title.text = marketProductViewModel.productName
+        value.text = marketProductViewModel.price
+        marketProductViewModel.loadImage { [weak self] image in
+            self?.imageView.image = image
+        }
     }
 
-    private func setImage() {
-        if let image = product?.image {
-            imageView.image = image
-        } else {
-            guard let imageURL = product?.imageURL else {
-                return
-            }
-            URLHelper().downloadImage(withURL: imageURL) { [weak self] image in
-                self?.product?.image = image
-                self?.imageView.image = image
-            }
-        }
+    @objc private func didTapAdd() {
+        didTapAddButton?()
     }
 }
