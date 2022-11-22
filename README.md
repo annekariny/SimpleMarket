@@ -6,6 +6,9 @@ This is a market app, where users can add products, remove and create orders.
 
 ## Features
 
+### Trello Board
+https://trello.com/b/6GX4ZP8C/simple-market-app
+
 ### Market View
 Lists all products from a sample product API, this is the main view from the project. The user can interact with it by adding products to the cart.
 
