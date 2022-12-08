@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  SimpleMarket
+
+  Created by Kariny on 26/04/21.
+  
+*/
+"market" = "Mercado";
+"order" = "Pedido";
+"orders" = "Pedidos";
+"finish_order" = "Concluir Pedido";
+"cart" = "Carrinho";
+"total" = "Total";
+"finished" = "Concluído";
+"your_order_is_saved" = "Seu pedido foi salvo!";
+"ok" = "OK";
+"simple_market_widget" = "Widget SimpleMarket";
+"see_last_orders" = "Veja seus últimos pedidos do SimpleMarket.";
